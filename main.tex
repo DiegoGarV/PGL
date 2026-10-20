@@ -1,0 +1,93 @@
+
+\documentclass[11pt,letterpaper]{report}
+
+% Paquetes
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[
+    top=2.5cm,
+    bottom=2.5cm,
+    left=3.8cm,
+    right=2.5cm
+]{geometry}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{cite}
+\usepackage[Sonny]{fncychap}
+\usepackage{caption}
+\usepackage{chngcntr}
+\usepackage{float}
+
+% Configuraciones iniciales
+\bibliographystyle{IEEEtran}
+\renewcommand{\citepunct}{],[}
+\renewcommand{\citedash}{]--[}
+\setlength{\parskip}{0.5\baselineskip}
+\setlength{\parindent}{1.25cm}
+\captionsetup[figure]{
+    position=bottom,
+    justification=centering,
+    font=small,
+    labelfont=normalfont
+}
+\counterwithout{figure}{chapter}
+\captionsetup[table]{
+    position=top,
+    justification=centering,
+    font=small,
+    labelfont=normalfont
+}
+\counterwithout{table}{chapter}
+
+\begin{document}
+
+% Carátula
+\input{caratula}
+
+% Páginas preliminares
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+% Indice
+\tableofcontents
+
+
+% Resumen
+\clearpage
+\newgeometry{
+    top=5cm,
+    bottom=2.5cm,
+    left=3.8cm,
+    right=2.5cm
+}
+\chapter*{Resumen}
+\phantomsection
+\addcontentsline{toc}{chapter}{Resumen}
+\input{resumen}
+\clearpage
+\restoregeometry
+
+% Capítulos
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% Introducción
+\input{introduccion}
+
+% Objetivos
+\input{objetivos}
+
+% Justificación
+\input{justificacion}
+
+% Marco teórico
+\input{marcoTeorico}
+
+% Bibliografía
+\clearpage
+\addcontentsline{toc}{chapter}{Bibliografía}
+\bibliography{referencias}
+
+\end{document}

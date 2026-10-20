@@ -1,0 +1,113 @@
+\chapter{Introducción}
+
+La realidad virtual (VR, por sus siglas en inglés) se ha 
+consolidado como un campo de investigación relevante dentro del 
+desarrollo de experiencias digitales inmersivas, sobre todo en lo
+relacionado con el diseño de interfaces, técnicas de interacción
+y evaluación de la experiencia de 
+usuario \cite{chen2024interfaces}. Estudios recientes muestran 
+que la interacción en entornos virtuales no puede abordarse 
+únicamente desde una perspectiva técnica, sino que requiere 
+considerar criterios de usabilidad, naturalidad, 
+retroalimentación y un contexto adecuado para la experiencia 
+\cite{chen2024interfaces,spittle2023interaction,yeo2024interfaces}. Con eso 
+en mente, este proyecto propone la implementación de un sistema de 
+interacción adaptativa en VR para una experiencia de videoclip gamificado. 
+La propuesta se enfoca en el desarrollo de una solución capaz de registrar 
+métricas de desempeño del usuario en tiempo real, interpretar estados de 
+interacción y ajustar dinámicamente parámetros del \textit{gameplay}, con el
+fin de construir una experiencia más sensible al comportamiento del jugador 
+y una mejor integridad al flujo general de la aplicación.
+
+El valor de este proyecto se sustenta en investigaciones recientes sobre 
+adaptación en videojuegos y entornos interactivos han señalado que, aunque 
+existen avances importantes en personalización, modelado del jugador y 
+ajuste dinámico del contenido, aún queda una brecha en la integración 
+completa del ciclo conformado por las sensaciones del usuario, la 
+interpretación de su estado y la modificación adaptativa de la experiencia 
+en tiempo real \cite{lopes2025closing}. Debido a esto, resulta académica y
+técnicamente relevante desarrollar prototipos que articulen la telemetría 
+del usuario con mecanismos de adaptación concretos dentro de experiencias 
+inmersivas. A su vez, investigaciones sobre ajustes dinámicos de dificultad 
+en VR evidencian que la adaptación puede ir más allá de simples cambios de 
+nivel, permitiendo modificar velocidad, complejidad y estructura de las 
+tareas de acuerdo con las capacidades o desempeño del usuario 
+\cite{huber2021dda}. Esto resulta particularmente valioso en una experiencia 
+de videoclip gamificado, donde el equilibrio entre reto, ritmo, claridad e
+involucramiento constituye un factor central para sostener la atención del 
+jugador y favorecer una participación más fluida.
+
+De igual manera, dentro de la industria, la relevancia que adquiere el 
+proyecto se relaciona con la creciente necesidad de diseñar experiencias 
+inmersivas que no sean estáticas, sino capaces de responder al usuario de 
+manera contextual \cite{lopes2025closing,huber2021dda}. La revisión 
+sistemática de Lopes et al. señala que los sistemas adaptativos orientados 
+por la experiencia del jugador representan una dirección prometedora para 
+incrementar la personalización y la inmersión en aplicaciones interactivas
+\cite{lopes2025closing}. Las investigaciones sobre evaluación en VR también 
+reportan que constructos como presencia, experiencia de usuario y mareos 
+virtuales constituyen dimensiones centrales para valorar la calidad de una 
+experiencia inmersiva, y que su análisis suele beneficiarse de la 
+combinación entre métricas objetivas y herramientas subjetivas de 
+evaluación \cite{wang2025presence,bareisyte2024questionnaires}. De la misma 
+manera, se ha documentado que el \textit{feedback} visual y háptico puede contribuir 
+positivamente a la sensación de presencia, mientras que la carga de tareas 
+y las exigencias impuestas al usuario pueden influir en el nivel de malestar 
+o mareos virtuales \cite{sepich2022workload,gibbs2022feedback}. Por ello, 
+el proyecto no solo resulta importante por su componente técnico, sino 
+también por su potencial para explorar cómo la adaptación dinámica puede 
+incidir en la calidad de la experiencia inmersiva.
+
+Como antecedentes, se han desarrollado diferentes propuestas que demuestran 
+la viabilidad de utilizar información observable del jugador para modificar 
+una experiencia interactiva durante su ejecución. Algunos sistemas han 
+construido modelos a partir del comportamiento registrado durante la partida
+para seleccionar modificaciones orientadas a mejorar la experiencia estimada
+del usuario \cite{yannakakis2009adaptation}. Otros trabajos han considerado 
+la dificultad como un fenómeno temporal, analizando tendencias a lo largo de
+varias interacciones antes de decidir si el desafío debe incrementarse, 
+mantenerse o reducirse \cite{zook2012temporal,xue2017dda}. Dentro del contexto específico de VR, también se han implementado mecanismos de ajuste
+dinámico capaces de modificar la estructura y complejidad de las tareas de acuerdo con
+información obtenida del usuario \cite{huber2021dda}. Estas aproximaciones 
+evidencian que el desempeño del jugador puede utilizarse como una variable 
+dinámica y no únicamente como un resultado evaluado al finalizar una sesión. 
+También muestran que la adaptación en VR puede intervenir directamente sobre 
+variables del \textit{gameplay} y no limitarse a niveles generales de 
+dificultad. Paralelamente, los videojuegos musicales han desarrollado 
+distintas formas de integrar la música con las acciones del jugador, 
+utilizando elementos sonoros y temporales como parte de las propias reglas 
+de interacción \cite{pichlmair2007sound}. Sin embargo, la integración 
+conjunta de una experiencia musical en VR con un sistema que registre y 
+modifique parámetros del \textit{gameplay} en tiempo real representa una 
+convergencia menos desarrollada.
+
+El proyecto se desarrolla en un lapso de cinco meses y está orientado a la 
+construcción de un prototipo académico funcional en Unity, utilizando 
+Blender para la creación de algunos recursos tridimensionales. El desarrollo
+se enfoca en la interacción base en VR, el registro de métricas de desempeño, 
+el modelado de estados de interacción y la adaptación dinámica del gameplay.
+Para ello, se consideran las siguientes métricas: errores, tiempo de 
+reacción, precisión y frecuencia de interacción. Estas métricas permiten 
+observar tendencias en el comportamiento del jugador durante la ejecución de
+la experiencia. A partir de ellas, el sistema utilizará estados discretos como 
+representaciones computacionales del comportamiento observado y podrá 
+modificar parámetros directamente relacionados con el \textit{gameplay}, 
+principalmente velocidad, cantidad de objetos y complejidad de las tareas. 
+Estos estados no pretenden construir diagnósticos psicológicos o clínicos, 
+sino abstracciones operativas orientadas a la toma de decisiones dentro del 
+sistema adaptativo.
+
+El alcance contempla también los mecanismos necesarios para producir y 
+registrar dichas interacciones, entre ellos entrada mediante controles, 
+detección de colisiones, reglas de juego y retroalimentación visual y háptica. 
+Por otra parte, quedan fuera del desarrollo los componentes relacionados con
+la secuenciación temporal global del videoclip, la administración general
+del tiempo de la canción, la activación global de escenas, la sincronización
+audiovisual general y la persistencia del progreso. Estos elementos podrán 
+comunicarse con el sistema adaptativo, pero no forman parte del mecanismo de 
+medición, modelado y ajuste desarrollado en este trabajo. Asimismo, se 
+excluyen la comercialización del producto final y cualquier validación 
+clínica de estados cognitivos complejos.
+
+****** RESULTADOS OBTENIDOS ******
+

@@ -1,0 +1,101 @@
+\chapter{Justificación}
+
+El desarrollo de experiencias inmersivas en realidad virtual (VR, 
+por sus siglas en inglés) ha evolucionado desde esquemas 
+centrados únicamente en la interacción básica hacia enfoques que
+consideran el comportamiento del usuario como componente para 
+modificar la experiencia en tiempo real \cite{lopes2025closing}. 
+Estudios recientes muestran que el diseño de interfaces de 
+interacción en VR, las técnicas de interacción en entornos 
+inmersivos y las interfaces tridimensionales constituyen áreas
+activas de investigación, debido a que la calidad de la 
+experiencia depende no solo de la representación visual del 
+entorno, sino también de la forma en la que el usuario interactúa 
+con él \cite{chen2024interfaces,yeo2024interfaces}. Bajo este 
+enfoque, es importante plantear la creación de una experiencia 
+que no se limite a implementar mecánicas interactivas, sino que 
+incorpore una capa adaptativa capaz de responder al 
+comportamiento del jugador.
+
+La relevancia de este proyecto se encuentra en la necesidad de 
+avanzar hacia experiencias interactivas más sensibles a las 
+características y respuestas de cada usuario. La literatura sobre
+adaptación basada en la experiencia del jugador ha identificado 
+que aún persiste una brecha entre la captura de información del 
+usuario, la interpretación de su estado y la aplicación de 
+cambios efectivos en tiempo real del sistema \cite{lopes2025closing}.
+Esto es significativo porque la personalización no depende únicamente 
+de observar métricas, sino de convertirlas en decisiones capaces de 
+ajustar la experiencia de manera coherente con las necesidades del 
+jugador. En este sentido, una experiencia musical interactiva representa 
+un escenario particularmente valioso, ya que en ella no solo importa el 
+cumplimiento de objetivos o tareas, sino también la conservación de un 
+equilibrio entre reto, inmersión y apreciación de la música y del 
+entorno \cite{pichlmair2007sound}. Precisamente por esa necesidad de 
+balance, este tipo de propuesta ofrece un contexto adecuado para 
+examinar el potencial de la adaptación dinámica como medio para 
+enriquecer la experiencia del usuario.
+
+Desde el punto de vista técnico, la adaptación dinámica puede 
+construirse a partir de variables observables del comportamiento del 
+jugador. En particular, se ha reportado que sistemas de ajuste dinámico 
+de dificultad pueden modificar parámetros del juego en tiempo real con 
+base en el desempeño del usuario, por ejemplo, mediante cambios en 
+velocidad, complejidad o estructura de las tareas \cite{huber2021dda}.
+De igual forma, revisiones recientes sobre estimación de 
+\textit{engagement} en videojuegos indican que las métricas utilizadas 
+con mayor frecuencia para modelar el estado del jugador incluyen señales 
+de desempeño, patrones de interacción, telemetría del juego y, en ciertos 
+casos, información fisiológica, lo que confirma que la captura de 
+métricas en \textit{runtime} constituyen una base válida para construir 
+mecanismos de adaptación \cite{rashed2025engagement}.
+
+La implementación de adaptación dinámica también presenta dificultades 
+que justifican la necesidad de diseñar cuidadosamente la relación entre 
+métricas y modificaciones del \textit{gameplay} 
+\cite{xue2017dda,zohaib2018dda}. Un sistema excesivamente sensible puede 
+responder a variaciones aisladas del desempeño y producir cambios 
+frecuentes o contradictorios en la dificultad. De igual forma, 
+modificaciones demasiado evidentes pueden afectar la percepción de 
+control del jugador o alterar la comprensión de las reglas de la 
+experiencia \cite{lopes2025closing,zook2012temporal}. Por ello, la
+adaptación no consiste únicamente en detectar un error y disminuir 
+inmediatamente la dificultad, sino en interpretar tendencias 
+suficientemente estables antes de modificar las condiciones del juego.
+
+Además de controlar cuándo y con qué frecuencia se realizan los ajustes, 
+debe considerarse que un buen desempeño no representa necesariamente una 
+experiencia satisfactoria, así como la presencia de errores no implica 
+por sí misma una experiencia negativa \cite{yannakakis2009adaptation,rashed2025engagement}.
+Esta consideración adquiere mayor importancia en VR, donde constructos 
+como presencia, experiencia de usuario y \textit{cybersickness} son 
+dimensiones centrales para valorar la calidad de una aplicación 
+inmersiva \cite{wang2025presence,bareisyte2024questionnaires}. 
+Incrementar factores como la velocidad, cantidad de objetos o la 
+complejidad puede elevar simultáneamente las exigencias de la 
+actividad \cite{sepich2022workload}. El análisis de estos constructos se 
+beneficia de la combinación entre métricas objetivas y herramientas 
+subjetivas de evaluación. También se ha observado que el 
+\textit{feedback} visual y háptico puede incrementar la sensación de 
+presencia, mientras que la carga de tarea puede influir en mareos y otros 
+malestares \cite{sepich2022workload,gibbs2022feedback}. Por ello, resulta 
+relevante diseñar un sistema que utilice varias métricas de interacción 
+y reglas de adaptación controladas, procurando conservar un equilibrio 
+entre desafío, claridad, \textit{confort} e involucramiento en lugar de 
+optimizar únicamente la cantidad de aciertos del usuario.
+
+Otro valor que tiene este proyecto radica en la necesidad de estudiar 
+las experiencias inmersivas desde una perspectiva más integral, ya que 
+diversos componentes que influyen en la calidad de la interacción, como 
+la retroalimentación multisensorial, el comportamiento del usuario y la 
+adaptación del sistema, suelen analizarse de manera aislada \cite{chen2024interfaces,spittle2023interaction,yeo2024interfaces,lopes2025closing,huber2021dda}.
+Esta separación limita la comprensión de cómo dichos elementos se 
+relacionan entre sí dentro de una experiencia real de uso. En 
+consecuencia, resulta pertinente desarrollar propuestas que permitan 
+observar de forma conjunta cómo la interacción, las métricas del 
+usuario y la adaptación dinámica pueden incidir en la personalización y 
+en la capacidad de respuesta del sistema frente al contexto de uso \cite{lopes2025closing,rashed2025engagement}.
+Visto así, el proyecto adquiere valor tanto para la investigación como 
+para la industria, al aportar un caso aplicado que puede contribuir a 
+la comprensión de cómo diseñar experiencias gamificadas más sensibles 
+al usuario y mejor fundamentadas en datos de interacción.
