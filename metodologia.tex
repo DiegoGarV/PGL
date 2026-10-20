@@ -1,0 +1,276 @@
+\chapter{Metodología}
+El desarrollo del proyecto se realizó mediante un proceso por etapas 
+orientado a la construcción de un prototipo funcional de videoclip 
+gamificado en realidad virtual (VR, por sus siglas en inglés). La 
+primera etapa del fue la de la preparación del entorno de desarrollo y la 
+implementación de las mecánicas básicas de los minijuegos. Posteriormente 
+se incorporaron los mecanismos de interacción en VR, el registro de 
+métricas de desempeño, el modelado de estados del jugador y el sistema 
+de ajuste dinámico de dificultad (DDA, por sus siglas en inglés). 
+Finalmente, los distintos módulos se integraron con el flujo general de 
+la experiencia y se realizaron pruebas orientadas a comprobar su 
+funcionamiento conjunto.
+
+\section{Enfoque general del desarrollo}
+El proyecto se abordó como el desarrollo de un prototipo interactivo en 
+tiempo real. Para ello, el sistema se dividió en componentes responsables 
+de tareas específicas. Las tareas fueron: interacción en VR, lógica de 
+los minijuegos, captura de métricas, representación del estado del 
+jugador, adaptación dinámica y comunicación con el flujo global de la 
+experiencia. Esta separación permitió desarrollar y validar cada 
+componente antes de integrarlo con los demás. 
+
+El sistema de interacción generó los eventos correspondientes a las 
+acciones realizadas por el usuario. Dichos eventos alimentaron el 
+sistema de métricas, y las métricas registradas se utilizaron para 
+determinar el comportamiento del sistema adaptativo. De esta manera, se 
+estableció un flujo general de interacción medición, interpretación y 
+adaptación. 
+
+La adaptación se diseño utilizando un enfoque basado en reglas. Esta 
+decisión permitió relacionar de manera explícita las variables 
+observadas durante el gameplay con los cambios realizados sobre los 
+minijuegos, facilitando la inspección y ajuste de las condiciones 
+utilizadas por el sistema. Así se construyo el modelo sin que fuera un 
+modelo clínico o psicológico del usuario, sino una representación 
+operativa de su comportamiento basado en información generada 
+directamente durante la ejecución.
+
+\section{Preparación del entono de desarrollo en VR}
+Lo primero fue configurar el proyecto en Unity para soportar interacción 
+XR y se habilitaron los componentes necesarios para reconocer la 
+posición y orientación del visor Meta Quest y los dispositivos de 
+entrada. Luego, se configuró la representación del usuario dentro de las 
+escenas de manera que los movimientos realizados con el dispositivo 
+pudieran trasladarse al entorno virtual. A partir de esta configuración 
+se comprobó el funcionamiento de la cámara, los controles y las 
+interacciones básicas antes de incorporar las mecánicas específicas de 
+los minijuegos. 
+
+También se estableció una estructura común para los elementos que 
+posteriormente serían utilizados por los distintos sistemas. El objetivo 
+fue evitar que cada minijuego tuviera que implementar de forma 
+independiente mecanismos equivalentes de entrada, detección o 
+comunicación.
+
+Los recursos tridimensionales necesarios para los minijuegos se 
+obtuvieron, principalmente, de la \textit{Asset Store} de Unity, pero 
+recursos específicos como el modelo de los músicos fueron creados 
+utilizando Blender. Todos los modelos siguen una misma dirección visual 
+estilizada y un estilo \textit{low-poly}, procurando mantener una 
+complejidad adecuada para la ejecución de la experiencia en el Meta 
+Quest 2. Una vez preparados o recolectados, los recursos fueron 
+importados a Unity y configurados con los componentes necesarios para 
+permitir su utilización dentro de las escenas.
+
+\section{Diseño e implementación de los minijuegos}
+Se desarrollaron tres minijuegos para representar diferentes formas de 
+interacción dentro del videoclip gamificado. Cada uno fue diseñado 
+alrededor de una actividad breve que pudiera realizarse utilizando 
+acciones físicas dentro del entorno virtual y que permitiera generar 
+eventos cuantificables para el sistema adaptativo.
+
+Antes de implementar cada minijuego se definieron sus objetivos, las 
+acciones válidas del jugador, las condiciones de acierto y error y los 
+elementos susceptibles de modificación durante la ejecución. Esta 
+definición permitió separar las reglas fundamentales de cada actividad 
+de los parámetros que posteriormente podrían alterarse mediante el DDA.
+
+Las mecánicas se implementaron inicialmente sin adaptación dinámica. 
+Esta primera versión permitió comprobar que las acciones pudieran 
+completarse correctamente y que existiera una respuesta clara ante los 
+resultados del jugador. Posteriormente, se incorporaron los puntos de 
+medición necesarios para registrar el desempeño y los parámetros que 
+podían ser modificados por el sistema adaptativo.
+
+Aunque cada minijuego utilizó mecánicas diferentes, se mantuvo una 
+estructura común para comunicar eventos de interacción y desempeño. Esto 
+permitió que el sistema de métricas y adaptación operara sobre 
+información equivalente sin depender directamente de la lógica interna de 
+una mecánica específica.
+
+\section{Implementación del sistema base de interacción}
+Una vez establecidas las mecánicas principales, se implementó el sistema 
+encargado de reconocer y procesar las acciones realizadas por el jugador 
+dentro del entorno virtual. Este sistema recibió la información 
+proveniente de los dispositivos de entrada y la relacionó con los 
+objetos interactivos presentes en cada minijuego. La detección de 
+interacción se realizó utilizando los mecanismos de colisión y detección 
+disponibles en Unity. 
+
+Los objetos relevantes fueron configurados para identificar eventos como 
+contacto, selección, impacto o activación, dependiendo de las necesidades 
+de cada mecánica. A partir de estos eventos se ejecutaron las reglas 
+correspondientes para determinar si una acción representaba un acierto, 
+un error o una interacción que no debía ser contabilizada. También se 
+implementaron condiciones específicas para controlar cuándo una acción 
+podía ser considerada válida. Esto permitió reducir registros duplicados 
+y evitar que contactos involuntarios fueran interpretados como múltiples 
+interacciones.
+
+Cada acción relevante generó retroalimentación inmediata para comunicar 
+al jugador el resultado de su interacción. Se utilizaron respuestas 
+visuales, sonoras y hápticas según las características de cada minijuego. 
+Estos mecanismos se integraron con la propia lógica de interacción para 
+que la respuesta ocurriera en el momento en que el sistema reconocía el 
+evento.
+
+\section{Diseño y registro de métricas de desempeño}
+Después de comprobar el funcionamiento de las interacciones, se 
+implementó un sistema de telemetría destinado a registrar información del 
+desempeño del jugador durante la ejecución. Para ello, se seleccionaron 
+como variables principales los aciertos, errores, tiempo de reacción, 
+precisión y frecuencia de interacción. Estos datos permitieron analizar 
+de manera más objetiva la respuesta del jugador ante las distintas 
+actividades y obtener información útil para evaluar el funcionamiento de 
+la experiencia. 
+
+Los aciertos y errores se registraron a partir del resultado producido 
+por las reglas de cada minijuego. Para evitar los que los valores 
+dependieran de la lógica interna de una actividad específica, cada 
+minijuego comunicó al sistema de métricas el resultado de las 
+interacciones relevantes mediante eventos comunes. El tiempo de reacción 
+se calculó utilizando el intervalo entre el momento en que una 
+oportunidad de interacción se encontraba disponible para el jugador y el 
+instante en que se detectaba una respuesta válida. Esta información 
+permitió observar cambios en la rapidez de respuesta durante diferentes 
+momentos de la experiencia. 
+
+La precisión se utilizó para representar qué tan correctamente se 
+ejecutaban aquellas acciones cuya mecánica permitía evaluar la 
+correspondencia entre el movimiento realizado y el objetivo establecido. 
+Debido a que los minijuegos utilizaban formas de interacción diferentes, 
+esta métrica fue normalizada de acuerdo con las características de cada 
+actividad antes de ser utilizada por el sistema de adaptación. La 
+frecuencia de interacción se obtuvo a partir de la cantidad de acciones 
+relevantes detectadas durante un intervalo de tiempo. Esta variable 
+permitió diferenciar períodos de actividad continua de momentos en los 
+que el usuario reducía o detenía su participación.
+
+Las métricas se mantuvieron disponibles durante la ejecución de la 
+experiencia para que pudieran ser consultadas por los sistemas de estados 
+y adaptación. Además de los valores acumulados, se consideraron 
+observaciones recientes del comportamiento para evitar que el desempeño 
+de los primeros momentos de la experiencia condicionara permanentemente 
+las decisiones posteriores. De esta manera, el sistema podía actualizar 
+la interpretación del desempeño del jugador conforme avanzaba la sesión 
+y respondía a las distintas actividades. Esto permitió que las decisiones 
+de adaptación se basaran tanto en la evolución general de los resultados 
+como en el comportamiento observado en los momentos más recientes.
+
+\section{Modelado de estados del jugador}
+A partir de las métricas registradas se desarrolló una representación 
+simplificada del estado de interacción del jugador. Se definieron cuatro 
+estados operativos: quieto, interactuando, sobrecargado y transicionando. 
+Estos estados no representaron diagnósticos psicológicos, sino categorías 
+funcionales para la experiencia que resumían patrones observables durante 
+su ejecución.
+
+El estado “quieto” se utilizó cuando el sistema detectaba una reducción 
+sostenida de las interacciones esperadas. El estado “interactuando” 
+representó una participación regular dentro de los parámetros esperados 
+para la actividad. El estado “sobrecargado” se usó cuando la combinación 
+de métricas mostraba dificultades persistentes para responder 
+adecuadamente a las exigencias actuales del minijuego. Finalmente, el 
+estado “transicionando” se utilizó durante períodos en los que el flujo 
+de la experiencia cambiaba de una actividad a otra y las métricas no 
+debían ser interpretadas utilizando las mismas condiciones de una 
+interacción activa.
+
+La clasificación no se realizó a partir de un único evento. Se analizaron 
+varias observaciones recientes para reducir la posibilidad de cambiar de 
+estado como consecuencia de un error aislado o una pausa breve. Asimismo, 
+se establecieron condiciones para controlar las transiciones entre 
+estados y evitar cambios continuos cuando las métricas se encontraban 
+cerca de un límite. 
+
+El estado obtenido se mantuvo disponible como una entrada adicional para 
+el sistema adaptativo, complementando las métricas individuales. De esta 
+manera, las decisiones de ajuste podían considerar tanto valores 
+concretos de desempeño como tendencia general identificada durante el 
+período reciente de interacción. Esto permitía que el sistema no 
+reaccionara únicamente a resultados aislados, sino que también tuviera en 
+cuenta la evolución del comportamiento del jugador a lo largo del tiempo.
+
+\section{Implementación del DDA}
+El sistema DDA se desarrolló después de disponer de interacciones 
+estables, métricas registrables y una representación del estado del 
+jugador. Su funcionamiento se basó en reglas que relacionaban tendencias 
+de desempeño con modificaciones sobre parámetros controlables de cada 
+minijuego. Estas reglas permitían adaptar progresivamente la experiencia 
+según el rendimiento observado, evitando que la dificultad permaneciera 
+fija durante toda la sesión.
+
+Se definieron tres categorías principales de parámetros adaptativos: 
+velocidad, cantidad de objetos y complejidad de la tarea. La aplicación 
+concreta de cada parámetro dependió de las características del minijuego. 
+De esta manera, el sistema adaptativo determinaba la dirección del 
+cambio, mientras que cada mecánica establecía como debía materializarse 
+dicho ajuste.
+
+Las decisiones no se realizaron después de cada interacción individual. 
+El sistema acumuló información durante períodos de observación y evaluó 
+tendencias antes de aplicar una modificación. Cuando el desempeño se 
+mantenía por debajo de los valores esperados o el jugador permanecía en 
+el estado de sobrecarga, se aplicaban ajustes orientados a reducir las 
+exigencias de la actividad. Cuando se observaba un desempeño estable y 
+sostenido, el sistema podía aumentar gradualmente la exigencia. 
+
+También se definieron situaciones en las que la dificultad debía 
+mantenerse. Esto evitó que pequeñas variaciones produjeran modificaciones 
+innecesarias. Después de ejecutar un cambio se permitió un período de 
+estabilización antes de realizar una nueva evaluación, con el propósito 
+de observar el efecto de la modificación y reducir oscilaciones continuas 
+entre niveles dificultad. 
+
+Los ajustes se limitaron a rangos previamente definidos para cada 
+minijuego. De esta manera, el sistema no podía reducir o aumentar los 
+parámetros hasta valores que alteren las reglas fundamentales de la 
+actividad o produjeran condiciones incompatibles con la experiencia 
+musical. El DDA se mantuvo separado de la implementación específica de 
+los minijuegos mediante eventos y parámetros configurables. Esta 
+separación permitió utilizar una lógica general de adaptación mientras 
+cada actividad conservaba el control sobre la forma en que una 
+modificación afectaba su \textit{gameplay}.
+
+\section{Integración del sistema adaptativo con la experiencia global}
+Una vez implementados los componentes anteriores, el sistema se integró 
+con el flujo general del videoclip gamificado. La integración se realizó 
+mediante eventos que permitieron recibir información procedente del 
+sistema global y comunicar resultados relacionados con el desempeño del 
+jugador. De esta forma, las acciones realizadas durante los minijuegos 
+podían influir en el desarrollo de la experiencia y en la actualización 
+de las métricas correspondientes.
+
+El sistema adaptativo recibió notificaciones necesarias para conocer el 
+contexto general de ejecución, por ejemplo, el inicio o finalización de 
+una actividad o el ingreso a un período de transición. Estas señales se 
+utilizaron para controlar cuándo debía comenzar o detenerse la captura e 
+interpretación de las métricas. De manera inversa, los minijuegos y los 
+sistemas de interacción emitieron información relacionada con aciertos, 
+errores, progreso y desempeño. Esta comunicación permitió mantener 
+desacoplada la lógica adaptativa de los componentes responsables del 
+flujo global de la experiencia.
+
+\section{Pruebas de calibración y ajustes}
+Las pruebas del sistema adaptativo se realizaron provocando diferentes 
+patrones de desempeño para comprobar que las reglas reaccionaran en la 
+dirección esperada. Se evaluaron escenarios de desempeño sostenido, 
+sucesión de errores, ausencia temporal de interacción y recuperación 
+posterior del jugador. Esto permitió observar las transiciones entre 
+estados y verificar que los parámetros de dificultad fueran modificados 
+únicamente cuando se cumplían las condiciones establecidas.
+
+Posteriormente, se ajustaron los umbrales, períodos de observación, 
+límites de los parámetros y tiempos entre modificaciones. Esta 
+calibración se hizo para evitar oscilaciones frecuentes entre 
+configuraciones de dificultad. Con esto el sistema ya solo aplicaba una 
+modificación cuando existían suficientes indicios de que el nivel de 
+dificultad debía mantenerse, aumentarse o reducirse. Finalmente, el 
+prototipo fue probado como una experiencia integrada utilizando el Meta 
+Quest 2 para comprobar la interacción física, la retroalimentación, la 
+captura de datos y la respuesta del sistema adaptativo. 
+
+
+
+
