@@ -1,15 +1,880 @@
 \chapter{Resultados}
 
-\begin{table}[htbp]
-    \centering
-    \caption{Ejemplo de tabla}
-    \label{tab:metricas}
+A continuación, se presentan los resultados obtenidos a partir de las 34
+pruebas realizadas con el prototipo. Para cada participante se dispone de
+un registro generado automáticamente por el sistema durante la 
+experiencia y de una encuesta posterior. Los registros contienen 
+información sobre las interacciones realizadas, el desempeño en los 
+minijuegos, los estados asignados al jugador y los cambios de dificultad
+efectuados durante la sesión. Por su parte, la encuesta contiene las 
+respuestas relacionadas con dificultad e interacción, incluyendo
+atención a la canción, diversión, sensación de agobio, desempeño 
+percibido y minijuego señalado como más frustrante.
 
-    \begin{tabular}{|l|c|}
+\section{Resultados de telemetría}
+Los archivos de métricas registran las interacciones realizadas durante 
+cada sesión y permiten agrupar los datos según participante, minijuego y
+la hora exacta en la que ocurrió. Para cada actividad se presentan los
+resultados relacionados con aciertos, fallos, omisiones y las métricas 
+específicas disponibles para cada tipo de interacción. Debido a que no 
+todos los minijuegos utilizan las mismas variables de precisión o tiempo, 
+los indicadores generales se presentan de forma conjunta y las métricas 
+específicas se reportan únicamente para las actividades en las que son 
+registradas por el sistema.
+
+\begin{longtable}{|c|c|c|c|c|c|}
+
+    \caption{Cantidad de aciertos, errores y omisiones por minijuego}
+    \label{tab:metricas}\\
+    \hline
+
+    \textbf{ID} &
+    \textbf{Minijuego} &
+    \textbf{Aciertos} &
+    \textbf{Errores} &
+    \textbf{Omisiones} &
+    \textbf{Tasa de éxitos} \\ \hline
+
+    \endfirsthead
+
+    \multicolumn{6}{c}{
+        Cuadro \thetable{} -- Continuación
+    } \\
+    \hline
+
+    \textbf{ID} &
+    \textbf{Minijuego} &
+    \textbf{Aciertos} &
+    \textbf{Errores} &
+    \textbf{Omisiones} &
+    \textbf{Tasa de éxitos} \\ \hline
+
+    \endhead
+
+    P001 & Alex        & 30 & 9 & 5 & \tasaExito{30}{9}{5} \\ \hline
+    P001 & Joaquin     & 14 & 8 & --- & \tasaExito{14}{8}{0} \\ \hline
+    P001 & Shipi       & 2 & 12 & 2 & \tasaExito{2}{12}{2} \\ \hline
+    P001 & Juan Andres & 4 & 10 & 0 & \tasaExito{4}{10}{0} \\ \hline
+    P001 & Danniel     & 6 & 19 & 3 & \tasaExito{6}{19}{3} \\ \hline
+    P001 & Jeremy      & 6 & 2 & 0 & \tasaExito{6}{2}{0} \\ \hline
+
+    P002 & Alex        & 57 & 5 & 16 & \tasaExito{57}{5}{16} \\ \hline
+    P002 & Joaquin     & 7 & 22 & --- & \tasaExito{7}{22}{0} \\ \hline
+    P002 & Shipi       & 14 & 1 & 3 & \tasaExito{14}{1}{3} \\ \hline
+    P002 & Juan Andres & 9 & 8 & 2 & \tasaExito{9}{8}{2} \\ \hline
+    P002 & Danniel     & 10 & 4 & 1 & \tasaExito{10}{4}{1} \\ \hline
+    P002 & Jeremy      & 6 & 2 & 0 & \tasaExito{6}{2}{0} \\ \hline
+
+    P003 & Alex        & 55 & 5 & 25 & \tasaExito{55}{5}{25} \\ \hline
+    P003 & Joaquin     & 14 & 9 & --- & \tasaExito{14}{9}{0} \\ \hline
+    P003 & Shipi       & 2 & 12 & 0 & \tasaExito{2}{12}{0} \\ \hline
+    P003 & Juan Andres & 3 & 11 & 2 & \tasaExito{3}{11}{2} \\ \hline
+    P003 & Danniel     & 8 & 14 & 1 & \tasaExito{8}{14}{1} \\ \hline
+    P003 & Jeremy      & 2 & 6 & 0 & \tasaExito{2}{6}{0} \\ \hline
+
+    P004 & Alex        & 83 & 2 & 26 & \tasaExito{83}{2}{26} \\ \hline
+    P004 & Joaquin     & 13 & 4 & --- & \tasaExito{13}{4}{0} \\ \hline
+    P004 & Shipi       & 7 & 9 & 0 & \tasaExito{7}{9}{0} \\ \hline
+    P004 & Juan Andres & 12 & 3 & 1 & \tasaExito{12}{3}{1} \\ \hline
+    P004 & Danniel     & 14 & 6 & 1 & \tasaExito{14}{6}{1} \\ \hline
+    P004 & Jeremy      & 15 & 6 & 4 & \tasaExito{15}{6}{4} \\ \hline
+
+    P005 & Alex        & 50 & 13 & 15 & \tasaExito{50}{13}{15} \\ \hline
+    P005 & Joaquin     & 14 & 7 & --- & \tasaExito{14}{7}{0} \\ \hline
+    P005 & Shipi       & 8 & 8 & 0 & \tasaExito{8}{8}{0} \\ \hline
+    P005 & Juan Andres & 4 & 5 & 3 & \tasaExito{4}{5}{3} \\ \hline
+    P005 & Danniel     & 12 & 1 & 0 & \tasaExito{12}{1}{0} \\ \hline
+    P005 & Jeremy      & 10 & 3 & 1 & \tasaExito{10}{3}{1} \\ \hline
+
+    P006 & Alex        & 66 & 8 & 24 & \tasaExito{66}{8}{24} \\ \hline
+    P006 & Joaquin     & 13 & 5 & --- & \tasaExito{13}{5}{0} \\ \hline
+    P006 & Shipi       & 11 & 9 & 1 & \tasaExito{11}{9}{1} \\ \hline
+    P006 & Juan Andres & 10 & 9 & 0 & \tasaExito{10}{9}{0} \\ \hline
+    P006 & Danniel     & 9 & 1 & 2 & \tasaExito{9}{1}{2} \\ \hline
+    P006 & Jeremy      & 8 & 3 & 2 & \tasaExito{8}{3}{2} \\ \hline
+
+    P007 & Alex        & 9 & 27 & 2 & \tasaExito{9}{27}{2} \\ \hline
+    P007 & Joaquin     & 13 & 2 & --- & \tasaExito{13}{2}{0} \\ \hline
+    P007 & Shipi       & 8 & 7 & 0 & \tasaExito{8}{7}{0} \\ \hline
+    P007 & Juan Andres & 2 & 16 & 0 & \tasaExito{2}{16}{0} \\ \hline
+    P007 & Danniel     & 9 & 5 & 1 & \tasaExito{9}{5}{1} \\ \hline
+    P007 & Jeremy      & 3 & 2 & 3 & \tasaExito{3}{2}{3} \\ \hline
+
+    P008 & Alex        & 24 & 18 & 3 & \tasaExito{24}{18}{3} \\ \hline
+    P008 & Joaquin     & 10 & 5 & --- & \tasaExito{10}{5}{0} \\ \hline
+    P008 & Shipi       & 12 & 7 & 0 & \tasaExito{12}{7}{0} \\ \hline
+    P008 & Juan Andres & 12 & 18 & 0 & \tasaExito{12}{18}{0} \\ \hline
+    P008 & Danniel     & 9 & 9 & 0 & \tasaExito{9}{9}{0} \\ \hline
+    P008 & Jeremy      & 3 & 4 & 1 & \tasaExito{3}{4}{1} \\ \hline
+
+    P010 & Alex        & 26 & 15 & 5 & \tasaExito{26}{15}{5} \\ \hline
+    P010 & Joaquin     & 12 & 5 & --- & \tasaExito{12}{5}{0} \\ \hline
+    P010 & Shipi       & 9 & 5 & 0 & \tasaExito{9}{5}{0} \\ \hline
+    P010 & Juan Andres & 3 & 6 & 3 & \tasaExito{3}{6}{3} \\ \hline
+    P010 & Danniel     & 10 & 3 & 0 & \tasaExito{10}{3}{0} \\ \hline
+    P010 & Jeremy      & 8 & 3 & 2 & \tasaExito{8}{3}{2} \\ \hline
+
+    P011 & Alex        & 41 & 9 & 16 & \tasaExito{41}{9}{16} \\ \hline
+    P011 & Joaquin     & 13 & 4 & --- & \tasaExito{13}{4}{0} \\ \hline
+    P011 & Shipi       & 5 & 11 & 0 & \tasaExito{5}{11}{0} \\ \hline
+    P011 & Juan Andres & 3 & 13 & 1 & \tasaExito{3}{13}{1} \\ \hline
+    P011 & Danniel     & 8 & 5 & 1 & \tasaExito{8}{5}{1} \\ \hline
+    P011 & Jeremy      & 4 & 3 & 1 & \tasaExito{4}{3}{1} \\ \hline
+
+    P012 & Alex        & 45 & 11 & 19 & \tasaExito{45}{11}{19} \\ \hline
+    P012 & Joaquin     & 14 & 7 & --- & \tasaExito{14}{7}{0} \\ \hline
+    P012 & Shipi       & 2 & 11 & 2 & \tasaExito{2}{11}{2} \\ \hline
+    P012 & Juan Andres & 12 & 5 & 0 & \tasaExito{12}{5}{0} \\ \hline
+    P012 & Danniel     & 11 & 5 & 1 & \tasaExito{11}{5}{1} \\ \hline
+    P012 & Jeremy      & 13 & 0 & 1 & \tasaExito{13}{0}{1} \\ \hline
+
+    P013 & Alex        & 78 & 3 & 23 & \tasaExito{78}{3}{23} \\ \hline
+    P013 & Joaquin     & 13 & 7 & --- & \tasaExito{13}{7}{0} \\ \hline
+    P013 & Shipi       & 14 & 7 & 0 & \tasaExito{14}{7}{0} \\ \hline
+    P013 & Juan Andres & 4 & 8 & 10 & \tasaExito{4}{8}{10} \\ \hline
+    P013 & Danniel     & 10 & 1 & 0 & \tasaExito{10}{1}{0} \\ \hline
+    P013 & Jeremy      & 5 & 8 & 1 & \tasaExito{5}{8}{1} \\ \hline
+
+    P014 & Alex        & 17 & 17 & 3 & \tasaExito{17}{17}{3} \\ \hline
+    P014 & Joaquin     & 12 & 0 & --- & \tasaExito{12}{0}{0} \\ \hline
+    P014 & Shipi       & 8 & 8 & 0 & \tasaExito{8}{8}{0} \\ \hline
+    P014 & Juan Andres & 6 & 8 & 1 & \tasaExito{6}{8}{1} \\ \hline
+    P014 & Danniel     & 10 & 4 & 1 & \tasaExito{10}{4}{1} \\ \hline
+    P014 & Jeremy      & 5 & 1 & 1 & \tasaExito{5}{1}{1} \\ \hline
+
+    P015 & Alex        & 38 & 6 & 18 & \tasaExito{38}{6}{18} \\ \hline
+    P015 & Joaquin     & 12 & 3 & --- & \tasaExito{12}{3}{0} \\ \hline
+    P015 & Shipi       & 4 & 5 & 5 & \tasaExito{4}{5}{5} \\ \hline
+    P015 & Juan Andres & 1 & 6 & 5 & \tasaExito{1}{6}{5} \\ \hline
+    P015 & Danniel     & 9 & 9 & 1 & \tasaExito{9}{9}{1} \\ \hline
+    P015 & Jeremy      & 1 & 7 & 0 & \tasaExito{1}{7}{0} \\ \hline
+
+    P016 & Alex        & 41 & 11 & 11 & \tasaExito{41}{11}{11} \\ \hline
+    P016 & Joaquin     & 13 & 2 & --- & \tasaExito{13}{2}{0} \\ \hline
+    P016 & Shipi       & 13 & 1 & 2 & \tasaExito{13}{1}{2} \\ \hline
+    P016 & Juan Andres & 7 & 6 & 1 & \tasaExito{7}{6}{1} \\ \hline
+    P016 & Danniel     & 7 & 9 & 1 & \tasaExito{7}{9}{1} \\ \hline
+    P016 & Jeremy      & 7 & 0 & 0 & \tasaExito{7}{0}{0} \\ \hline
+
+    P017 & Alex        & 29 & 14 & 4 & \tasaExito{29}{14}{4} \\ \hline
+    P017 & Joaquin     & 13 & 6 & --- & \tasaExito{13}{6}{0} \\ \hline
+    P017 & Shipi       & 6 & 8 & 0 & \tasaExito{6}{8}{0} \\ \hline
+    P017 & Juan Andres & 8 & 10 & 0 & \tasaExito{8}{10}{0} \\ \hline
+    P017 & Danniel     & 11 & 19 & 2 & \tasaExito{11}{19}{2} \\ \hline
+    P017 & Jeremy      & 3 & 3 & 2 & \tasaExito{3}{3}{2} \\ \hline
+
+    P018 & Alex        & 67 & 6 & 28 & \tasaExito{67}{6}{28} \\ \hline
+    P018 & Joaquin     & 13 & 8 & --- & \tasaExito{13}{8}{0} \\ \hline
+    P018 & Shipi       & 8 & 7 & 0 & \tasaExito{8}{7}{0} \\ \hline
+    P018 & Juan Andres & 10 & 8 & 2 & \tasaExito{10}{8}{2} \\ \hline
+    P018 & Danniel     & 11 & 9 & 1 & \tasaExito{11}{9}{1} \\ \hline
+    P018 & Jeremy      & 5 & 2 & 1 & \tasaExito{5}{2}{1} \\ \hline
+
+    P019 & Alex        & 47 & 10 & 22 & \tasaExito{47}{10}{22} \\ \hline
+    P019 & Joaquin     & 13 & 1 & --- & \tasaExito{13}{1}{0} \\ \hline
+    P019 & Shipi       & 5 & 11 & 0 & \tasaExito{5}{11}{0} \\ \hline
+    P019 & Juan Andres & 3 & 3 & 3 & \tasaExito{3}{3}{3} \\ \hline
+    P019 & Danniel     & 12 & 8 & 0 & \tasaExito{12}{8}{0} \\ \hline
+    P019 & Jeremy      & 3 & 3 & 1 & \tasaExito{3}{3}{1} \\ \hline
+
+    P020 & Alex        & 24 & 13 & 4 & \tasaExito{24}{13}{4} \\ \hline
+    P020 & Joaquin     & 10 & 9 & --- & \tasaExito{10}{9}{0} \\ \hline
+    P020 & Shipi       & 5 & 10 & 1 & \tasaExito{5}{10}{1} \\ \hline
+    P020 & Juan Andres & 5 & 9 & 1 & \tasaExito{5}{9}{1} \\ \hline
+    P020 & Danniel     & 9 & 3 & 1 & \tasaExito{9}{3}{1} \\ \hline
+    P020 & Jeremy      & 2 & 4 & 1 & \tasaExito{2}{4}{1} \\ \hline
+
+    P021 & Alex        & 47 & 4 & 26 & \tasaExito{47}{4}{26} \\ \hline
+    P021 & Joaquin     & 13 & 5 & --- & \tasaExito{13}{5}{0} \\ \hline
+    P021 & Shipi       & 7 & 8 & 0 & \tasaExito{7}{8}{0} \\ \hline
+    P021 & Juan Andres & 3 & 11 & 2 & \tasaExito{3}{11}{2} \\ \hline
+    P021 & Danniel     & 7 & 10 & 1 & \tasaExito{7}{10}{1} \\ \hline
+    P021 & Jeremy      & 3 & 4 & 1 & \tasaExito{3}{4}{1} \\ \hline
+
+    P022 & Alex        & 75 & 0 & 40 & \tasaExito{75}{0}{40} \\ \hline
+    P022 & Joaquin     & 13 & 5 & --- & \tasaExito{13}{5}{0} \\ \hline
+    P022 & Shipi       & 5 & 11 & 0 & \tasaExito{5}{11}{0} \\ \hline
+    P022 & Juan Andres & 4 & 8 & 3 & \tasaExito{4}{8}{3} \\ \hline
+    P022 & Danniel     & 10 & 2 & 1 & \tasaExito{10}{2}{1} \\ \hline
+    P022 & Jeremy      & 6 & 2 & 0 & \tasaExito{6}{2}{0} \\ \hline
+
+    P023 & Alex        & 30 & 10 & 5 & \tasaExito{30}{10}{5} \\ \hline
+    P023 & Joaquin     & 12 & 6 & --- & \tasaExito{12}{6}{0} \\ \hline
+    P023 & Shipi       & 5 & 11 & 0 & \tasaExito{5}{11}{0} \\ \hline
+    P023 & Juan Andres & 5 & 6 & 2 & \tasaExito{5}{6}{2} \\ \hline
+    P023 & Danniel     & 11 & 10 & 0 & \tasaExito{11}{10}{0} \\ \hline
+    P023 & Jeremy      & 5 & 3 & 0 & \tasaExito{5}{3}{0} \\ \hline
+
+    P024 & Alex        & 79 & 2 & 31 & \tasaExito{79}{2}{31} \\ \hline
+    P024 & Joaquin     & 11 & 10 & --- & \tasaExito{11}{10}{0} \\ \hline
+    P024 & Shipi       & 7 & 8 & 0 & \tasaExito{7}{8}{0} \\ \hline
+    P024 & Juan Andres & 6 & 13 & 0 & \tasaExito{6}{13}{0} \\ \hline
+    P024 & Danniel     & 10 & 2 & 0 & \tasaExito{10}{2}{0} \\ \hline
+    P024 & Jeremy      & 12 & 2 & 0 & \tasaExito{12}{2}{0} \\ \hline
+
+    P025 & Alex        & 51 & 7 & 24 & \tasaExito{51}{7}{24} \\ \hline
+    P025 & Joaquin     & 13 & 1 & --- & \tasaExito{13}{1}{0} \\ \hline
+    P025 & Shipi       & 6 & 9 & 0 & \tasaExito{6}{9}{0} \\ \hline
+    P025 & Juan Andres & 1 & 5 & 5 & \tasaExito{1}{5}{5} \\ \hline
+    P025 & Danniel     & 8 & 2 & 1 & \tasaExito{8}{2}{1} \\ \hline
+    P025 & Jeremy      & 9 & 2 & 3 & \tasaExito{9}{2}{3} \\ \hline
+
+    P026 & Alex        & 87 & 2 & 31 & \tasaExito{87}{2}{31} \\ \hline
+    P026 & Joaquin     & 14 & 2 & --- & \tasaExito{14}{2}{0} \\ \hline
+    P026 & Shipi       & 14 & 6 & 1 & \tasaExito{14}{6}{1} \\ \hline
+    P026 & Juan Andres & 14 & 21 & 0 & \tasaExito{14}{21}{0} \\ \hline
+    P026 & Danniel     & 9 & 14 & 0 & \tasaExito{9}{14}{0} \\ \hline
+    P026 & Jeremy      & 7 & 1 & 0 & \tasaExito{7}{1}{0} \\ \hline
+
+    P027 & Alex        & 23 & 13 & 9 & \tasaExito{23}{13}{9} \\ \hline
+    P027 & Joaquin     & 11 & 3 & --- & \tasaExito{11}{3}{0} \\ \hline
+    P027 & Shipi       & 11 & 3 & 0 & \tasaExito{11}{3}{0} \\ \hline
+    P027 & Juan Andres & 8 & 7 & 1 & \tasaExito{8}{7}{1} \\ \hline
+    P027 & Danniel     & 10 & 9 & 1 & \tasaExito{10}{9}{1} \\ \hline
+    P027 & Jeremy      & 5 & 1 & 2 & \tasaExito{5}{1}{2} \\ \hline
+
+    P028 & Alex        & 21 & 14 & 2 & \tasaExito{21}{14}{2} \\ \hline
+    P028 & Joaquin     & 13 & 0 & --- & \tasaExito{13}{0}{0} \\ \hline
+    P028 & Shipi       & 7 & 7 & 2 & \tasaExito{7}{7}{2} \\ \hline
+    P028 & Juan Andres & 7 & 12 & 1 & \tasaExito{7}{12}{1} \\ \hline
+    P028 & Danniel     & 8 & 9 & 2 & \tasaExito{8}{9}{2} \\ \hline
+    P028 & Jeremy      & 2 & 4 & 1 & \tasaExito{2}{4}{1} \\ \hline
+
+    P029 & Alex        & 23 & 12 & 2 & \tasaExito{23}{12}{2} \\ \hline
+    P029 & Joaquin     & 11 & 3 & --- & \tasaExito{11}{3}{0} \\ \hline
+    P029 & Shipi       & 1 & 14 & 0 & \tasaExito{1}{14}{0} \\ \hline
+    P029 & Juan Andres & 6 & 10 & 1 & \tasaExito{6}{10}{1} \\ \hline
+    P029 & Danniel     & 9 & 8 & 2 & \tasaExito{9}{8}{2} \\ \hline
+    P029 & Jeremy      & 5 & 3 & 0 & \tasaExito{5}{3}{0} \\ \hline
+
+    P030 & Alex        & 43 & 11 & 14 & \tasaExito{43}{11}{14} \\ \hline
+    P030 & Joaquin     & 12 & 2 & --- & \tasaExito{12}{2}{0} \\ \hline
+    P030 & Shipi       & 8 & 8 & 0 & \tasaExito{8}{8}{0} \\ \hline
+    P030 & Juan Andres & 8 & 8 & 1 & \tasaExito{8}{8}{1} \\ \hline
+    P030 & Danniel     & 10 & 2 & 0 & \tasaExito{10}{2}{0} \\ \hline
+    P030 & Jeremy      & 6 & 1 & 1 & \tasaExito{6}{1}{1} \\ \hline
+
+    P031 & Alex        & 81 & 2 & 29 & \tasaExito{81}{2}{29} \\ \hline
+    P031 & Joaquin     & 12 & 3 & --- & \tasaExito{12}{3}{0} \\ \hline
+    P031 & Shipi       & 7 & 8 & 0 & \tasaExito{7}{8}{0} \\ \hline
+    P031 & Juan Andres & 5 & 12 & 1 & \tasaExito{5}{12}{1} \\ \hline
+    P031 & Danniel     & 9 & 4 & 1 & \tasaExito{9}{4}{1} \\ \hline
+    P031 & Jeremy      & 6 & 1 & 0 & \tasaExito{6}{1}{0} \\ \hline
+
+    P032 & Alex        & 30 & 13 & 5 & \tasaExito{30}{13}{5} \\ \hline
+    P032 & Joaquin     & 11 & 9 & --- & \tasaExito{11}{9}{0} \\ \hline
+    P032 & Shipi       & 8 & 6 & 0 & \tasaExito{8}{6}{0} \\ \hline
+    P032 & Juan Andres & 7 & 10 & 0 & \tasaExito{7}{10}{0} \\ \hline
+    P032 & Danniel     & 9 & 8 & 1 & \tasaExito{9}{8}{1} \\ \hline
+    P032 & Jeremy      & 3 & 4 & 1 & \tasaExito{3}{4}{1} \\ \hline
+
+    P033 & Alex        & 25 & 17 & 4 & \tasaExito{25}{17}{4} \\ \hline
+    P033 & Joaquin     & 13 & 0 & --- & \tasaExito{13}{0}{0} \\ \hline
+    P033 & Shipi       & 16 & 2 & 2 & \tasaExito{16}{2}{2} \\ \hline
+    P033 & Juan Andres & 1 & 5 & 15 & \tasaExito{1}{5}{15} \\ \hline
+    P033 & Danniel     & 10 & 11 & 2 & \tasaExito{10}{11}{2} \\ \hline
+    P033 & Jeremy      & 4 & 3 & 1 & \tasaExito{4}{3}{1} \\ \hline
+
+    P034 & Alex        & 91 & 0 & 20 & \tasaExito{91}{0}{20} \\ \hline
+    P034 & Joaquin     & 14 & 8 & --- & \tasaExito{14}{8}{0} \\ \hline
+    P034 & Shipi       & 12 & 8 & 0 & \tasaExito{12}{8}{0} \\ \hline
+    P034 & Juan Andres & 12 & 6 & 2 & \tasaExito{12}{6}{2} \\ \hline
+    P034 & Danniel     & 10 & 13 & 1 & \tasaExito{10}{13}{1} \\ \hline
+    P034 & Jeremy      & 6 & 1 & 0 & \tasaExito{6}{1}{0} \\ \hline
+
+    P036 & Alex        & 25 & 15 & 3 & \tasaExito{25}{15}{3} \\ \hline
+    P036 & Joaquin     & 14 & 1 & --- & \tasaExito{14}{1}{0} \\ \hline
+    P036 & Shipi       & 5 & 10 & 1 & \tasaExito{5}{10}{1} \\ \hline
+    P036 & Juan Andres & 3 & 15 & 0 & \tasaExito{3}{15}{0} \\ \hline
+    P036 & Danniel     & 9 & 7 & 0 & \tasaExito{9}{7}{0} \\ \hline
+    P036 & Jeremy      & 7 & 1 & 0 & \tasaExito{7}{1}{0} \\ \hline
+
+\end{longtable}
+
+\begin{longtable}{|c|c|c|}
+
+    \caption{Error de \textit{timing} promedio por minijuego de cada participante}
+    \label{tab:timingPromedio}\\
+    \hline
+
+    \textbf{ID} &
+    \textbf{Minijuego} &
+    \textbf{Error de \textit{timing} promedio \(s\)} \\ \hline
+
+    \endfirsthead
+
+    \multicolumn{3}{c}{
+        Cuadro \thetable{} -- Continuación
+    } \\
+    \hline
+
+    \textbf{ID} &
+    \textbf{Minijuego} &
+    \textbf{Error de \textit{timing} promedio \(s\)} \\ \hline
+
+    \endhead
+
+    P001 & Alex        & 0.0183 \\ \hline
+    P001 & Joaquin     & 0.0709 \\ \hline
+    P001 & Shipi       & 0.8156 \\ \hline
+    P001 & Juan Andres & 2.0931 \\ \hline
+    P001 & Danniel     & 0.1383 \\ \hline
+    P001 & Jeremy      & 0.1863 \\ \hline
+
+    P002 & Alex        & 0.0154 \\ \hline
+    P002 & Joaquin     & 0.0666 \\ \hline
+    P002 & Shipi       & 0.1511 \\ \hline
+    P002 & Juan Andres & 1.0302 \\ \hline
+    P002 & Danniel     & 0.0859 \\ \hline
+    P002 & Jeremy      & 0.2093 \\ \hline
+
+    P003 & Alex        & 0.0180 \\ \hline
+    P003 & Joaquin     & 0.1105 \\ \hline
+    P003 & Shipi       & 0.6338 \\ \hline
+    P003 & Juan Andres & 1.2467 \\ \hline
+    P003 & Danniel     & 0.1001 \\ \hline
+    P003 & Jeremy      & 0.1889 \\ \hline
+
+    P004 & Alex        & 0.0209 \\ \hline
+    P004 & Joaquin     & 0.0740 \\ \hline
+    P004 & Shipi       & 0.5074 \\ \hline
+    P004 & Juan Andres & 0.9198 \\ \hline
+    P004 & Danniel     & 0.1081 \\ \hline
+    P004 & Jeremy      & 0.1039 \\ \hline
+
+    P005 & Alex        & 0.0165 \\ \hline
+    P005 & Joaquin     & 0.0895 \\ \hline
+    P005 & Shipi       & 0.4602 \\ \hline
+    P005 & Juan Andres & 1.0559 \\ \hline
+    P005 & Danniel     & 0.0957 \\ \hline
+    P005 & Jeremy      & 0.0675 \\ \hline
+
+    P006 & Alex        & 0.0149 \\ \hline
+    P006 & Joaquin     & 0.1011 \\ \hline
+    P006 & Shipi       & 0.1886 \\ \hline
+    P006 & Juan Andres & 1.0486 \\ \hline
+    P006 & Danniel     & 0.0658 \\ \hline
+    P006 & Jeremy      & 0.0564 \\ \hline
+
+    P007 & Alex        & 0.0166 \\ \hline
+    P007 & Joaquin     & 0.1106 \\ \hline
+    P007 & Shipi       & 0.5327 \\ \hline
+    P007 & Juan Andres & 1.3500 \\ \hline
+    P007 & Danniel     & 0.0776 \\ \hline
+    P007 & Jeremy      & 0.1139 \\ \hline
+
+    P008 & Alex        & 0.0318 \\ \hline
+    P008 & Joaquin     & 0.0854 \\ \hline
+    P008 & Shipi       & 0.3879 \\ \hline
+    P008 & Juan Andres & 0.7733 \\ \hline
+    P008 & Danniel     & 0.0998 \\ \hline
+    P008 & Jeremy      & 0.1404 \\ \hline
+
+    P010 & Alex        & 0.0284 \\ \hline
+    P010 & Joaquin     & 0.0928 \\ \hline
+    P010 & Shipi       & 0.4312 \\ \hline
+    P010 & Juan Andres & 2.0007 \\ \hline
+    P010 & Danniel     & 0.1313 \\ \hline
+    P010 & Jeremy      & 0.01227 \\ \hline
+
+    P011 & Alex        & 0.0207 \\ \hline
+    P011 & Joaquin     & 0.0787 \\ \hline
+    P011 & Shipi       & 0.5483 \\ \hline
+    P011 & Juan Andres & 0.6314 \\ \hline
+    P011 & Danniel     & 0.0879 \\ \hline
+    P011 & Jeremy      & 0.1447 \\ \hline
+
+    P012 & Alex        & 0.0133 \\ \hline
+    P012 & Joaquin     & 0.0809 \\ \hline
+    P012 & Shipi       & 0.6107 \\ \hline
+    P012 & Juan Andres & 1.1437 \\ \hline
+    P012 & Danniel     & 0.0589 \\ \hline
+    P012 & Jeremy      & 0.0976 \\ \hline
+
+    P013 & Alex        & 0.0195 \\ \hline
+    P013 & Joaquin     & 0.0949 \\ \hline
+    P013 & Shipi       & 0.2698 \\ \hline
+    P013 & Juan Andres & 1.4372 \\ \hline
+    P013 & Danniel     & 0.1252 \\ \hline
+    P013 & Jeremy      & 0.0771 \\ \hline
+
+    P014 & Alex        & 0.0162 \\ \hline
+    P014 & Joaquin     & 0.0925 \\ \hline
+    P014 & Shipi       & 0.3465 \\ \hline
+    P014 & Juan Andres & 1.0418 \\ \hline
+    P014 & Danniel     & 0.0861 \\ \hline
+    P014 & Jeremy      & 0.2566 \\ \hline
+
+    P015 & Alex        & 0.0179 \\ \hline
+    P015 & Joaquin     & 0.1198  \\ \hline
+    P015 & Shipi       & 0.6087 \\ \hline
+    P015 & Juan Andres & 1.5104 \\ \hline
+    P015 & Danniel     & 0.0997 \\ \hline
+    P015 & Jeremy      & 0.0907 \\ \hline
+
+    P016 & Alex        & 0.0108 \\ \hline
+    P016 & Joaquin     & 0.0844 \\ \hline
+    P016 & Shipi       & 0.2603 \\ \hline
+    P016 & Juan Andres & 2.2060 \\ \hline
+    P016 & Danniel     & 0.1149 \\ \hline
+    P016 & Jeremy      & 0.1035 \\ \hline
+
+    P017 & Alex        & 0.0122 \\ \hline
+    P017 & Joaquin     & 0.1032 \\ \hline
+    P017 & Shipi       & 0.5625 \\ \hline
+    P017 & Juan Andres & 0.6671 \\ \hline
+    P017 & Danniel     & 0.0814 \\ \hline
+    P017 & Jeremy      & 0.1608 \\ \hline
+
+    P018 & Alex        & 0.0319 \\ \hline
+    P018 & Joaquin     & 0.0968 \\ \hline
+    P018 & Shipi       & 0.5302 \\ \hline
+    P018 & Juan Andres & 0.8598 \\ \hline
+    P018 & Danniel     & 0.0812 \\ \hline
+    P018 & Jeremy      & 0.1182 \\ \hline
+
+    P019 & Alex        & 0.0169 \\ \hline
+    P019 & Joaquin     & 0.1274 \\ \hline
+    P019 & Shipi       & 0.6417 \\ \hline
+    P019 & Juan Andres & 3.5200 \\ \hline
+    P019 & Danniel     & 0.1069 \\ \hline
+    P019 & Jeremy      & 0.1214 \\ \hline
+
+    P020 & Alex        & 0.0271 \\ \hline
+    P020 & Joaquin     & 0.1317 \\ \hline
+    P020 & Shipi       & 0.3699 \\ \hline
+    P020 & Juan Andres & 1.0268 \\ \hline
+    P020 & Danniel     & 0.1183 \\ \hline
+    P020 & Jeremy      & 0.1386 \\ \hline
+
+    P021 & Alex        & 0.0177 \\ \hline
+    P021 & Joaquin     & 0.1167  \\ \hline
+    P021 & Shipi       & 0.3531 \\ \hline
+    P021 & Juan Andres & 0.8215 \\ \hline
+    P021 & Danniel     & 0.1140 \\ \hline
+    P021 & Jeremy      & 0.0897 \\ \hline
+
+    P022 & Alex        & 0.0152 \\ \hline
+    P022 & Joaquin     & 0.1017 \\ \hline
+    P022 & Shipi       & 0.4386 \\ \hline
+    P022 & Juan Andres & 0.9195 \\ \hline
+    P022 & Danniel     & 0.0998 \\ \hline
+    P022 & Jeremy      & 0.2764 \\ \hline
+
+    P023 & Alex        & 0.0130 \\ \hline
+    P023 & Joaquin     & 0.0934  \\ \hline
+    P023 & Shipi       & 0.5093 \\ \hline
+    P023 & Juan Andres & 1.6739 \\ \hline
+    P023 & Danniel     & 0.0990 \\ \hline
+    P023 & Jeremy      & 0.1058 \\ \hline
+
+    P024 & Alex        & 0.0194 \\ \hline
+    P024 & Joaquin     & 0.0994 \\ \hline
+    P024 & Shipi       & 0.4943 \\ \hline
+    P024 & Juan Andres & 0.8938 \\ \hline
+    P024 & Danniel     & 0.1023 \\ \hline
+    P024 & Jeremy      & 0.0805 \\ \hline
+
+    P025 & Alex        & 0.0129 \\ \hline
+    P025 & Joaquin     & 0.0877 \\ \hline
+    P025 & Shipi       & 0.2606 \\ \hline
+    P025 & Juan Andres & 1.1518 \\ \hline
+    P025 & Danniel     & 0.0884 \\ \hline
+    P025 & Jeremy      & 0.0352 \\ \hline
+
+    P026 & Alex        & 0.0272 \\ \hline
+    P026 & Joaquin     & 0.0669 \\ \hline
+    P026 & Shipi       & 0.2418 \\ \hline
+    P026 & Juan Andres & 0.8081 \\ \hline
+    P026 & Danniel     & 0.1019 \\ \hline
+    P026 & Jeremy      & 0.1263 \\ \hline
+
+    P027 & Alex        & 0.0175 \\ \hline
+    P027 & Joaquin     & 0.0944 \\ \hline
+    P027 & Shipi       & 0.3576 \\ \hline
+    P027 & Juan Andres & 1.0065 \\ \hline
+    P027 & Danniel     & 0.0702 \\ \hline
+    P027 & Jeremy      & 0.1538 \\ \hline
+
+    P028 & Alex        & 0.0136 \\ \hline
+    P028 & Joaquin     & 0.0722 \\ \hline
+    P028 & Shipi       & 0.2893 \\ \hline
+    P028 & Juan Andres & 0.7798 \\ \hline
+    P028 & Danniel     & 0.0709 \\ \hline
+    P028 & Jeremy      & 0.1306 \\ \hline
+
+    P029 & Alex        & 0.0116 \\ \hline
+    P029 & Joaquin     & 0.0964 \\ \hline
+    P029 & Shipi       & 0.6535 \\ \hline
+    P029 & Juan Andres & 1.2425 \\ \hline
+    P029 & Danniel     & 0.0968 \\ \hline
+    P029 & Jeremy      & 0.1690 \\ \hline
+
+    P030 & Alex        & 0.0196 \\ \hline
+    P030 & Joaquin     & 0.1240 \\ \hline
+    P030 & Shipi       & 0.2724 \\ \hline
+    P030 & Juan Andres & 1.0029 \\ \hline
+    P030 & Danniel     & 0.0873 \\ \hline
+    P030 & Jeremy      & 0.1660 \\ \hline
+
+    P031 & Alex        & 0.0256 \\ \hline
+    P031 & Joaquin     & 0.0935 \\ \hline
+    P031 & Shipi       & 0.6180 \\ \hline
+    P031 & Juan Andres & 1.0489 \\ \hline
+    P031 & Danniel     & 0.0816 \\ \hline
+    P031 & Jeremy      & 0.2085 \\ \hline
+
+    P032 & Alex        & 0.0305 \\ \hline
+    P032 & Joaquin     & 0.0984 \\ \hline
+    P032 & Shipi       & 0.4086 \\ \hline
+    P032 & Juan Andres & 0.9036 \\ \hline
+    P032 & Danniel     & 0.0873 \\ \hline
+    P032 & Jeremy      & 0.1400 \\ \hline
+
+    P033 & Alex        & 0.0163 \\ \hline
+    P033 & Joaquin     & 0.1046 \\ \hline
+    P033 & Shipi       & 0.1901 \\ \hline
+    P033 & Juan Andres & 1.3919 \\ \hline
+    P033 & Danniel     & 0.1119 \\ \hline
+    P033 & Jeremy      & 0.1453 \\ \hline
+
+    P034 & Alex        & 0.0197 \\ \hline
+    P034 & Joaquin     & 0.1097 \\ \hline
+    P034 & Shipi       & 0.2249 \\ \hline
+    P034 & Juan Andres & 0.9649 \\ \hline
+    P034 & Danniel     & 0.0940 \\ \hline
+    P034 & Jeremy      & 0.0829 \\ \hline
+
+    P036 & Alex        & 0.0183 \\ \hline
+    P036 & Joaquin     & 0.0881 \\ \hline
+    P036 & Shipi       & 0.4438 \\ \hline
+    P036 & Juan Andres & 1.2354 \\ \hline
+    P036 & Danniel     & 0.1171 \\ \hline
+    P036 & Jeremy      & 0.1248 \\ \hline
+
+\end{longtable}
+
+\begin{longtable}{|c|c|}
+
+    \caption{Tiempo de reacción promedio para el minijuego de Shipi de cada participante}
+    \label{tab:reaccionPromedio}\\
+    \hline
+
+    \textbf{ID} &
+    \textbf{Tiempo de reacción promedio \(s\)} \\ \hline
+
+    \endfirsthead
+
+    \multicolumn{2}{c}{
+        Cuadro \thetable{} -- Continuación
+    } \\
+    \hline
+
+    \textbf{ID} &
+    \textbf{Tiempo de reacción promedio \(s\)} \\ \hline
+
+    \endhead
+
+    P001 & 0.2474 \\ \hline
+    P002 & 0.7549 \\ \hline
+    P003 & 0.4355 \\ \hline
+    P004 & 0.6413 \\ \hline
+    P005 & 0.5079 \\ \hline
+    P006 & 0.6198 \\ \hline
+    P007 & 0.5596 \\ \hline
+    P008 & 0.4569 \\ \hline
+    P010 & 0.6248 \\ \hline
+    P011 & 0.4323 \\ \hline
+    P012 & 0.4453 \\ \hline
+    P013 & 0.4985 \\ \hline
+    P014 & 0.7270 \\ \hline
+    P015 & 0.4121 \\ \hline
+    P016 & 0.9162 \\ \hline
+    P017 & 0.6126 \\ \hline
+    P018 & 0.4874 \\ \hline
+    P019 & 0.4039 \\ \hline
+    P020 & 0.6794 \\ \hline
+    P021 & 0.6285 \\ \hline
+    P022 & 0.5284 \\ \hline
+    P023 & 0.4830 \\ \hline
+    P024 & 0.5834 \\ \hline
+    P025 & 0.7466 \\ \hline
+    P026 & 0.7304 \\ \hline
+    P027 & 0.7862 \\ \hline
+    P028 & 0.7421 \\ \hline
+    P029 & 0.3455 \\ \hline
+    P030 & 0.7501 \\ \hline
+    P031 & 0.3998 \\ \hline
+    P032 & 0.6475 \\ \hline
+    P033 & 0.8151 \\ \hline
+    P034 & 0.5994 \\ \hline
+    P036 & 0.5418 \\ \hline
+
+\end{longtable}
+
+\begin{longtable}{
+    |c|c|
+    >{\centering\arraybackslash}p{3.5cm}|
+    >{\centering\arraybackslash}p{3.5cm}|
+}
+
+    \caption{Precisión de dirección y uso de mano correcta promedio por minijuego de cada participante}
+    \label{tab:precisionManoPromedio}\\
+    \hline
+
+    \textbf{ID} &
+    \textbf{Minijuego} &
+    \textbf{Precisión de dirección promedio} &
+    \textbf{Uso de mano correcta promedio} \\ \hline
+
+    \endfirsthead
+
+    \multicolumn{4}{c}{
+        Cuadro \thetable{} -- Continuación
+    } \\
+    \hline
+
+    \textbf{ID} &
+    \textbf{Minijuego} &
+    \textbf{Precisión de dirección promedio} &
+    \textbf{Uso de mano correcta promedio} \\ \hline
+
+    \endhead
+
+    P001 & Shipi       & 18.18\% & --- \\ \hline
+    P001 & Juan Andres & 42.86\% & 50.00\% \\ \hline
+    P001 & Jeremy      & 75.00\% & 87.50\% \\ \hline
+
+    P002 & Shipi       & 88.89\% & --- \\ \hline
+    P002 & Juan Andres & 70.59\% & 64.71\% \\ \hline
+    P002 & Jeremy      & 75.00\% & 100.00\% \\ \hline
+
+    P003 & Shipi       & 20.00\% & --- \\ \hline
+    P003 & Juan Andres & 35.71\% & 57.14\% \\ \hline
+    P003 & Jeremy      & 25.00\% & 100.00\% \\ \hline
+
+    P004 & Shipi       & 50.00\% & --- \\ \hline
+    P004 & Juan Andres & 100.00\% & 80.00\% \\ \hline
+    P004 & Jeremy      & 76.19\% & 85.71\% \\ \hline
+
+    P005 & Shipi       & 66.67\% & --- \\ \hline
+    P005 & Juan Andres & 55.56\% & 88.89\% \\ \hline
+    P005 & Jeremy      & 92.31\% & 84.62\% \\ \hline
+
+    P006 & Shipi       & 61.54\% & --- \\ \hline
+    P006 & Juan Andres & 63.16\% & 73.68\% \\ \hline
+    P006 & Jeremy      & 81.82\% & 90.91\% \\ \hline
+
+    P007 & Shipi       & 57.14\% & --- \\ \hline
+    P007 & Juan Andres & 38.89\% & 61.11\% \\ \hline
+    P007 & Jeremy      & 60.00\% & 100.00\% \\ \hline
+
+    P008 & Shipi       & 66.67\% & --- \\ \hline
+    P008 & Juan Andres & 69.57\% & 69.57\% \\ \hline
+    P008 & Jeremy      & 42.86\% & 100.00\% \\ \hline
+
+    P010 & Shipi       & 63.64\% & --- \\ \hline
+    P010 & Juan Andres & 33.33\% & 88.89\% \\ \hline
+    P010 & Jeremy      & 72.73\% & 100.00\% \\ \hline
+
+    P011 & Shipi       & 35.71\% & --- \\ \hline
+    P011 & Juan Andres & 31.25\% & 68.75\% \\ \hline
+    P011 & Jeremy      & 71.43\% & 85.71\% \\ \hline
+
+    P012 & Shipi       & 22.22\% & --- \\ \hline
+    P012 & Juan Andres & 82.35\% & 76.47\% \\ \hline
+    P012 & Jeremy      & 100.00\% & 100.00\% \\ \hline
+
+    P013 & Shipi       & 63.16\% & --- \\ \hline
+    P013 & Juan Andres & 50.00\% & 75.00\% \\ \hline
+    P013 & Jeremy      & 84.62\% & 53.85\% \\ \hline
+
+    P014 & Shipi       & 57.14\% & --- \\ \hline
+    P014 & Juan Andres & 50.00\% & 85.71\% \\ \hline
+    P014 & Jeremy      & 83.33\% & 100.00\% \\ \hline
+
+    P015 & Shipi       & 66.67\% & --- \\ \hline
+    P015 & Juan Andres & 14.29\% & 71.43\% \\ \hline
+    P015 & Jeremy      & 12.50\% & 100.00\% \\ \hline
+
+    P016 & Shipi       & 100.00\% & --- \\ \hline
+    P016 & Juan Andres & 61.54\% & 84.62\% \\ \hline
+    P016 & Jeremy      & 100.00\% & 100.00\% \\ \hline
+
+    P017 & Shipi       & 46.15\% & --- \\ \hline
+    P017 & Juan Andres & 55.56\% & 77.78\% \\ \hline
+    P017 & Jeremy      & 66.67\% & 83.33\% \\ \hline
+
+    P018 & Shipi       & 72.73\% & --- \\ \hline
+    P018 & Juan Andres & 61.11\% & 77.78\% \\ \hline
+    P018 & Jeremy      & 71.43\% & 100.00\% \\ \hline
+
+    P019 & Shipi       & 38.46\% & --- \\ \hline
+    P019 & Juan Andres & 50.00\% & 50.00\% \\ \hline
+    P019 & Jeremy      & 50.00\% & 100.00\% \\ \hline
+
+    P020 & Shipi       & 41.67\% & --- \\ \hline
+    P020 & Juan Andres & 42.86\% & 85.71\% \\ \hline
+    P020 & Jeremy      & 50.00\% & 83.33\% \\ \hline
+
+    P021 & Shipi       & 41.67\% & --- \\ \hline
+    P021 & Juan Andres & 35.71\% & 64.29\% \\ \hline
+    P021 & Jeremy      & 42.86\% & 100.00\% \\ \hline
+
+    P022 & Shipi       & 45.45\% & --- \\ \hline
+    P022 & Juan Andres & 50.00\% & 83.33\% \\ \hline
+    P022 & Jeremy      & 87.50\% & 87.50\% \\ \hline
+
+    P023 & Shipi       & 38.46\% & --- \\ \hline
+    P023 & Juan Andres & 63.64\% & 81.82\% \\ \hline
+    P023 & Jeremy      & 62.50\% & 100.00\% \\ \hline
+
+    P024 & Shipi       & 53.85\% & --- \\ \hline
+    P024 & Juan Andres & 68.42\% & 47.37\% \\ \hline
+    P024 & Jeremy      & 92.86\% & 85.71\% \\ \hline
+
+    P025 & Shipi       & 46.15\% & --- \\ \hline
+    P025 & Juan Andres & 33.33\% & 83.33\% \\ \hline
+    P025 & Jeremy      & 90.91\% & 90.91\% \\ \hline
+
+    P026 & Shipi       & 70.59\% & --- \\ \hline
+    P026 & Juan Andres & 60.00\% & 68.57\% \\ \hline
+    P026 & Jeremy      & 100.00\% & 87.50\% \\ \hline
+
+    P027 & Shipi       & 80.00\% & --- \\ \hline
+    P027 & Juan Andres & 60.00\% & 93.33\% \\ \hline
+    P027 & Jeremy      & 83.33\% & 100.00\% \\ \hline
+
+    P028 & Shipi       & 50.00\% & --- \\ \hline
+    P028 & Juan Andres & 63.16\% & 47.37\% \\ \hline
+    P028 & Jeremy      & 33.33\% & 83.33\% \\ \hline
+
+    P029 & Shipi       & 11.11\% & --- \\ \hline
+    P029 & Juan Andres & 43.75\% & 93.75\% \\ \hline
+    P029 & Jeremy      & 62.50\% & 100.00\% \\ \hline
+
+    P030 & Shipi       & 41.67\% & --- \\ \hline
+    P030 & Juan Andres & 56.25\% & 87.50\% \\ \hline
+    P030 & Jeremy      & 85.71\% & 100.00\% \\ \hline
+
+    P031 & Shipi       & 50.00\% & --- \\ \hline
+    P031 & Juan Andres & 47.06\% & 70.59\% \\ \hline
+    P031 & Jeremy      & 85.71\% & 100.00\% \\ \hline
+
+    P032 & Shipi       & 70.00\% & --- \\ \hline
+    P032 & Juan Andres & 52.94\% & 82.35\% \\ \hline
+    P032 & Jeremy      & 57.14\% & 85.71\% \\ \hline
+
+    P033 & Shipi       & 87.50\% & --- \\ \hline
+    P033 & Juan Andres & 16.67\% & 50.00\% \\ \hline
+    P033 & Jeremy      & 71.43\% & 85.71\% \\ \hline
+
+    P034 & Shipi       & 58.82\% & --- \\ \hline
+    P034 & Juan Andres & 72.22\% & 88.89\% \\ \hline
+    P034 & Jeremy      & 85.71\% & 100.00\% \\ \hline
+
+    P036 & Shipi       & 41.67\% & --- \\ \hline
+    P036 & Juan Andres & 38.89\% & 66.67\% \\ \hline
+    P036 & Jeremy      & 87.50\% & 100.00\% \\ \hline
+
+\end{longtable}
+
+
+\section{Comportamiento del sistema adaptativo}
+Además de las interacciones, los registros almacenan los estados 
+asignados al jugador y los cambios de dificultad realizados durante la 
+ejecución. A continuación, se presentan la frecuencia de aparición de 
+los estados registrados por el sistema y las modificaciones efectuadas 
+entre los niveles de dificultad disponibles. Los resultados se agrupan 
+por participante y minijuego para mostrar cuántas veces se registra cada 
+estado y cuántas modificaciones de dificultad se producen durante la 
+experiencia. También se indetifica la dirección de cada cambio, 
+diferenciando los incrementos, reducciones y períodos en los que la 
+dificultad permanece sin modificación.
+
+
+\begin{table}[H]
+    \centering
+    \caption{Cantidad de estados \textit{idle}, \textit{engaged} y \textit{overloaded} registrados por participante}
+    \label{tab:cantidadEstados}
+
+    \begin{tabular}{|c|c|c|c|c|}
         \hline
-        \textbf{Métrica} & \textbf{Valor} \\ \hline
-        Aciertos & 87\% \\ \hline
-        Errores & 13\% \\ \hline
-        Precisión & 89\% \\ \hline
+        \textbf{ID del participante} &
+        \textbf{\textit{Idle}} &
+        \textbf{\textit{Engaged}} &
+        \textbf{\textit{Overloaded}} &
+        \textbf{Total} \\ \hline
+
+        P001 & 8 & 12 & 7 & 27 \\ \hline
+        P002 & 8 & 14 & 7 & 29 \\ \hline
+        P003 & 5 & 11 & 10 & 26 \\ \hline
+        P004 & 8 & 11 & 5 & 24 \\ \hline
+        P005 & 7 & 9 & 4 & 20 \\ \hline
+        P006 & 6 & 9 & 4 & 19 \\ \hline
+        P007 & 6 & 10 & 6 & 22 \\ \hline
+        P008 & 5 & 9 & 7 & 21 \\ \hline
+        P010 & 8 & 11 & 5 & 24 \\ \hline
+        P011 & 7 & 10 & 7 & 24 \\ \hline
+        P012 & 4 & 10 & 7 & 21 \\ \hline
+        P013 & 8 & 13 & 6 & 27 \\ \hline
+        P014 & 7 & 10 & 5 & 22 \\ \hline
+        P015 & 8 & 12 & 8 & 28 \\ \hline
+        P016 & 8 & 11 & 5 & 24 \\ \hline
+        P017 & 6 & 10 & 7 & 23 \\ \hline
+        P018 & 6 & 11 & 7 & 24 \\ \hline
+        P019 & 7 & 10 & 6 & 23 \\ \hline
+        P020 & 9 & 12 & 6 & 27 \\ \hline
+        P021 & 8 & 13 & 9 & 30 \\ \hline
+        P022 & 7 & 11 & 6 & 24 \\ \hline
+        P023 & 5 & 8 & 6 & 19 \\ \hline
+        P024 & 5 & 8 & 4 & 17 \\ \hline
+        P025 & 7 & 13 & 8 & 28 \\ \hline
+        P026 & 6 & 9 & 5 & 20 \\ \hline
+        P027 & 5 & 8 & 5 & 18 \\ \hline
+        P028 & 7 & 9 & 7 & 23 \\ \hline
+        P029 & 6 & 8 & 5 & 19 \\ \hline
+        P030 & 9 & 14 & 6 & 29 \\ \hline
+        P031 & 8 & 10 & 4 & 22 \\ \hline
+        P032 & 4 & 10 & 8 & 22 \\ \hline
+        P033 & 8 & 13 & 8 & 29 \\ \hline
+        P034 & 4 & 7 & 5 & 16 \\ \hline
+        P036 & 5 & 11 & 7 & 23 \\ \hline
     \end{tabular}
 \end{table}
+
+
+\begin{table}[H]
+    \centering
+    \caption{Cantidad de aumentos y disminuciones de dificultad registrados por participante}
+    \label{tab:cambiosDificultad}
+
+    \renewcommand{\arraystretch}{1.3}
+    \setlength{\tabcolsep}{4pt}
+
+    \begin{tabularx}{\textwidth}{
+        |>{\centering\arraybackslash}X
+        |>{\centering\arraybackslash}X
+        |>{\centering\arraybackslash}X
+        |>{\centering\arraybackslash}X|
+    }
+        \hline
+
+        \textbf{ID del participante} &
+        \textbf{Aumento de dificultad} &
+        \textbf{Disminución de dificultad} &
+        \textbf{Cambios totales} \\ \hline
+
+        P001 & 8 & 12 & 7 \\ \hline
+
+    \end{tabularx}
+\end{table}
+
+
+
+% Alex & Calabazas y Martillos
+% Joaquin & Pelea de Guitarras
+% Shipi & Cortar comida
+% Juan Andres & Lavar al Perro
+% Danniel & Disparar a enemigos
+% Jeremy & Cortar enemigos 

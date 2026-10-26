@@ -20,6 +20,11 @@
 \usepackage{chngcntr}
 \usepackage{float}
 \usepackage{pdflscape}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{xltabular}
+\usepackage{array}
+\usepackage{xfp}
 
 % Configuraciones iniciales
 \bibliographystyle{IEEEtran}
@@ -41,6 +46,9 @@
     labelfont=normalfont
 }
 \counterwithout{table}{chapter}
+\newcommand{\tasaExito}[3]{%
+    \fpeval{round((#1)/(#1+#2+#3)*100,2)}\%
+}
 
 
 \begin{document}
