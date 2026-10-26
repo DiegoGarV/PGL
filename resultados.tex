@@ -22,9 +22,10 @@ los indicadores generales se presentan de forma conjunta y las métricas
 específicas se reportan únicamente para las actividades en las que son 
 registradas por el sistema.
 
+% Tasa de éxito en cada minijuego por participante
 \begin{longtable}{|c|c|c|c|c|c|}
 
-    \caption{Cantidad de aciertos, errores y omisiones por minijuego}
+    \caption{Tasa de éxito en cada minijuego por participante.}
     \label{tab:metricas}\\
     \hline
 
@@ -291,9 +292,10 @@ registradas por el sistema.
 
 \end{longtable}
 
+% Error de timing promedio por minijuego de cada participante
 \begin{longtable}{|c|c|c|}
 
-    \caption{Error de \textit{timing} promedio por minijuego de cada participante}
+    \caption{Error de \textit{timing} promedio por minijuego de cada participante.}
     \label{tab:timingPromedio}\\
     \hline
 
@@ -554,9 +556,11 @@ registradas por el sistema.
 
 \end{longtable}
 
+% Tiempo de reacción promedio para el minijuego de Shipi de cada 
+% participante
 \begin{longtable}{|c|c|}
 
-    \caption{Tiempo de reacción promedio para el minijuego de Shipi de cada participante}
+    \caption{Tiempo de reacción promedio para el minijuego de Shipi de cada participante.}
     \label{tab:reaccionPromedio}\\
     \hline
 
@@ -612,13 +616,15 @@ registradas por el sistema.
 
 \end{longtable}
 
+% Precisión de dirección y uso de mano correcta promedio por minijuego 
+% de cada participante
 \begin{longtable}{
     |c|c|
     >{\centering\arraybackslash}p{3.5cm}|
     >{\centering\arraybackslash}p{3.5cm}|
 }
 
-    \caption{Precisión de dirección y uso de mano correcta promedio por minijuego de cada participante}
+    \caption{Precisión de dirección y uso de mano correcta promedio por minijuego de cada participante.}
     \label{tab:precisionManoPromedio}\\
     \hline
 
@@ -792,15 +798,25 @@ experiencia. También se indetifica la dirección de cada cambio,
 diferenciando los incrementos, reducciones y períodos en los que la 
 dificultad permanece sin modificación.
 
-
+% Cantidad de estados idle, engaged y overloaded registrados por 
+% participante
 \begin{table}[H]
     \centering
-    \caption{Cantidad de estados \textit{idle}, \textit{engaged} y \textit{overloaded} registrados por participante}
+    \caption{Cantidad de estados \textit{idle}, \textit{engaged} y \textit{overloaded} registrados por participante.}
     \label{tab:cantidadEstados}
 
-    \begin{tabular}{|c|c|c|c|c|}
+    \renewcommand{\arraystretch}{1.3}
+    \setlength{\tabcolsep}{4pt}
+
+    \begin{tabularx}{\textwidth}{
+        |>{\centering\arraybackslash}X
+        |>{\centering\arraybackslash}X
+        |>{\centering\arraybackslash}X
+        |>{\centering\arraybackslash}X
+        |>{\centering\arraybackslash}X|
+    }
         \hline
-        \textbf{ID del participante} &
+        \textbf{ID} &
         \textbf{\textit{Idle}} &
         \textbf{\textit{Engaged}} &
         \textbf{\textit{Overloaded}} &
@@ -840,13 +856,14 @@ dificultad permanece sin modificación.
         P033 & 8 & 13 & 8 & 29 \\ \hline
         P034 & 4 & 7 & 5 & 16 \\ \hline
         P036 & 5 & 11 & 7 & 23 \\ \hline
-    \end{tabular}
+    \end{tabularx}
 \end{table}
 
-
+% Cantidad de aumentos y disminuciones de dificultad registrados por 
+% participante
 \begin{table}[H]
     \centering
-    \caption{Cantidad de aumentos y disminuciones de dificultad registrados por participante}
+    \caption{Cantidad de aumentos y disminuciones de dificultad registrados por participante.}
     \label{tab:cambiosDificultad}
 
     \renewcommand{\arraystretch}{1.3}
@@ -860,21 +877,757 @@ dificultad permanece sin modificación.
     }
         \hline
 
-        \textbf{ID del participante} &
+        \textbf{ID} &
         \textbf{Aumento de dificultad} &
         \textbf{Disminución de dificultad} &
         \textbf{Cambios totales} \\ \hline
 
-        P001 & 8 & 12 & 7 \\ \hline
+        P001 & 3 & 4 & 7 \\ \hline
+        P002 & 5 & 6 & 11 \\ \hline
+        P003 & 4 & 5 & 9 \\ \hline
+        P004 & 4 & 4 & 8 \\ \hline
+        P005 & 4 & 3 & 7 \\ \hline
+        P006 & 4 & 4 & 8 \\ \hline
+        P007 & 1 & 2 & 3 \\ \hline
+        P008 & 1 & 2 & 3 \\ \hline
+        P010 & 2 & 3 & 5 \\ \hline
+        P011 & 3 & 4 & 7 \\ \hline
+        P012 & 6 & 5 & 11 \\ \hline
+        P013 & 5 & 6 & 11 \\ \hline
+        P014 & 1 & 2 & 3 \\ \hline
+        P015 & 3 & 4 & 7 \\ \hline
+        P016 & 2 & 3 & 5 \\ \hline
+        P017 & 2 & 3 & 5 \\ \hline
+        P018 & 5 & 6 & 11 \\ \hline
+        P019 & 2 & 3 & 5 \\ \hline
+        P020 & 1 & 2 & 3 \\ \hline
+        P021 & 5 & 6 & 11 \\ \hline
+        P022 & 2 & 3 & 5 \\ \hline
+        P023 & 1 & 2 & 3 \\ \hline
+        P024 & 3 & 2 & 5 \\ \hline
+        P025 & 5 & 6 & 11 \\ \hline
+        P026 & 4 & 4 & 8 \\ \hline
+        P027 & 1 & 2 & 3 \\ \hline
+        P028 & 1 & 2 & 3 \\ \hline
+        P029 & 1 & 2 & 3 \\ \hline
+        P030 & 4 & 5 & 9 \\ \hline
+        P031 & 1 & 2 & 3 \\ \hline
+        P032 & 2 & 3 & 5 \\ \hline
+        P033 & 3 & 4 & 7 \\ \hline
+        P034 & 3 & 4 & 7 \\ \hline
+        P036 & 2 & 2 & 4 \\ \hline
 
     \end{tabularx}
 \end{table}
 
+% Estados overload y engaged y cambios de dificultad por minijuego por 
+% participante
+\begin{longtable}{
+    |c|c|
+    >{\centering\arraybackslash}p{2.5cm}|
+    >{\centering\arraybackslash}p{2.5cm}|
+    >{\centering\arraybackslash}p{2.5cm}|
+    >{\centering\arraybackslash}p{2.5cm}|
+}
 
+    \caption{Estados \textit{overload} y \textit{engaged} y cambios de dificultad por minijuego por participante.}
+    \label{tab:cambiosYEstadosPorMinijuego}\\
+    \hline
 
-% Alex & Calabazas y Martillos
-% Joaquin & Pelea de Guitarras
-% Shipi & Cortar comida
-% Juan Andres & Lavar al Perro
-% Danniel & Disparar a enemigos
-% Jeremy & Cortar enemigos 
+    \textbf{ID} &
+    \textbf{Minijuego} &
+    \textbf{Estados \textit{Overload}} &
+    \textbf{Estados \textit{Engaged}} &
+    \textbf{Aumento de dificultad} &
+    \textbf{Disminución de dificultad} \\ \hline
+
+    \endfirsthead
+
+    \multicolumn{6}{c}{
+        Cuadro \thetable{} -- Continuación
+    } \\
+    \hline
+
+    \textbf{ID} &
+    \textbf{Minijuego} &
+    \textbf{Estados \textit{Overload}} &
+    \textbf{Estados \textit{Engaged}} &
+    \textbf{Aumento de dificultad} &
+    \textbf{Disminución de dificultad} \\ \hline
+
+    \endhead
+
+    P001 & Alex        & 2 & 3 & 2 & 2 \\ \hline
+    P001 & Joaquin     & 1 & 1 & 1 & 1 \\ \hline
+    P001 & Shipi       & 2 & 3 & 0 & 1 \\ \hline
+    P001 & Juan Andres & 1 & 2 & 0 & 0 \\ \hline
+    P001 & Danniel     & 1 & 2 & 0 & 0 \\ \hline
+    P001 & Jeremy      & 0 & 1 & 0 & 0 \\ \hline
+
+    P002 & Alex        & 4 & 5 & 5 & 4 \\ \hline
+    P002 & Joaquin     & 1 & 2 & 0 & 1 \\ \hline
+    P002 & Shipi       & 0 & 1 & 0 & 0 \\ \hline
+    P002 & Juan Andres & 2 & 3 & 0 & 1 \\ \hline
+    P002 & Danniel     & 0 & 2 & 0 & 0 \\ \hline
+    P002 & Jeremy      & 0 & 1 & 0 & 0 \\ \hline
+
+    P003 & Alex        & 3 & 4 & 3 & 3 \\ \hline
+    P003 & Joaquin     & 2 & 2 & 1 & 2 \\ \hline
+    P003 & Shipi       & 1 & 1 & 0 & 0 \\ \hline
+    P003 & Juan Andres & 2 & 2 & 0 & 0 \\ \hline
+    P003 & Danniel     & 1 & 1 & 0 & 0 \\ \hline
+    P003 & Jeremy      & 1 & 1 & 0 & 0 \\ \hline
+
+    P004 & Alex        & 2 & 3 & 1 & 2 \\ \hline
+    P004 & Joaquin     & 0 & 0 & 1 & 0 \\ \hline
+    P004 & Shipi       & 2 & 3 & 0 & 1 \\ \hline
+    P004 & Juan Andres & 0 & 1 & 1 & 0 \\ \hline
+    P004 & Danniel     & 0 & 1 & 1 & 0 \\ \hline
+    P004 & Jeremy      & 1 & 3 & 0 & 1 \\ \hline
+
+    P005 & Alex        & 1 & 2 & 1 & 1 \\ \hline
+    P005 & Joaquin     & 1 & 1 & 1 & 1 \\ \hline
+    P005 & Shipi       & 1 & 2 & 0 & 1 \\ \hline
+    P005 & Juan Andres & 1 & 1 & 0 & 0 \\ \hline
+    P005 & Danniel     & 0 & 2 & 1 & 0 \\ \hline
+    P005 & Jeremy      & 0 & 1 & 1 & 0 \\ \hline
+
+    P006 & Alex        & 2 & 3 & 2 & 2 \\ \hline
+    P006 & Joaquin     & 0 & 0 & 1 & 0 \\ \hline
+    P006 & Shipi       & 1 & 2 & 0 & 1 \\ \hline
+    P006 & Juan Andres & 1 & 2 & 0 & 1 \\ \hline
+    P006 & Danniel     & 0 & 1 & 1 & 0 \\ \hline
+    P006 & Jeremy      & 0 & 1 & 0 & 0 \\ \hline
+
+    P007 & Alex        & 2 & 2 & 0 & 1 \\ \hline
+    P007 & Joaquin     & 0 & 1 & 1 & 0 \\ \hline
+    P007 & Shipi       & 2 & 3 & 0 & 1 \\ \hline
+    P007 & Juan Andres & 1 & 1 & 0 & 0 \\ \hline
+    P007 & Danniel     & 0 & 2 & 0 & 0 \\ \hline
+    P007 & Jeremy      & 1 & 1 & 0 & 0 \\ \hline
+
+    P008 & Alex        & 3 & 4 & 0 & 1 \\ \hline
+    P008 & Joaquin     & 0 & 0 & 1 & 0 \\ \hline
+    P008 & Shipi       & 0 & 1 & 0 & 0 \\ \hline
+    P008 & Juan Andres & 2 & 2 & 0 & 1 \\ \hline
+    P008 & Danniel     & 1 & 1 & 0 & 0 \\ \hline
+    P008 & Jeremy      & 1 & 1 & 0 & 0 \\ \hline
+
+    P010 & Alex        & 2 & 3 & 1 & 1 \\ \hline
+    P010 & Joaquin     & 1 & 1 & 0 & 1 \\ \hline
+    P010 & Shipi       & 0 & 1 & 0 & 0 \\ \hline
+    P010 & Juan Andres & 1 & 2 & 0 & 0 \\ \hline
+    P010 & Danniel     & 0 & 2 & 1 & 0 \\ \hline
+    P010 & Jeremy      & 1 & 2 & 0 & 1 \\ \hline
+
+    P011 & Alex        & 3 & 4 & 2 & 3 \\ \hline
+    P011 & Joaquin     & 0 & 0 & 1 & 0 \\ \hline
+    P011 & Shipi       & 2 & 2 & 0 & 1 \\ \hline
+    P011 & Juan Andres & 1 & 1 & 0 & 0 \\ \hline
+    P011 & Danniel     & 1 & 2 & 0 & 0 \\ \hline
+    P011 & Jeremy      & 0 & 1 & 0 & 0 \\ \hline
+
+    P012 & Alex        & 4 & 5 & 3 & 3 \\ \hline
+    P012 & Joaquin     & 1 & 1 & 1 & 1 \\ \hline
+    P012 & Shipi       & 2 & 1 & 0 & 1 \\ \hline
+    P012 & Juan Andres & 0 & 1 & 0 & 0 \\ \hline
+    P012 & Danniel     & 0 & 1 & 1 & 0 \\ \hline
+    P012 & Jeremy      & 0 & 1 & 1 & 0 \\ \hline
+
+    P013 & Alex        & 1 & 2 & 2 & 1 \\ \hline
+    P013 & Joaquin     & 1 & 1 & 1 & 1 \\ \hline
+    P013 & Shipi       & 1 & 2 & 1 & 1 \\ \hline
+    P013 & Juan Andres & 2 & 4 & 0 & 2 \\ \hline
+    P013 & Danniel     & 0 & 2 & 1 & 0 \\ \hline
+    P013 & Jeremy      & 1 & 2 & 0 & 1 \\ \hline
+
+    P014 & Alex        & 2 & 2 & 0 & 1 \\ \hline
+    P014 & Joaquin     & 0 & 1 & 1 & 0 \\ \hline
+    P014 & Shipi       & 1 & 3 & 0 & 1 \\ \hline
+    P014 & Juan Andres & 2 & 1 & 0 & 0 \\ \hline
+    P014 & Danniel     & 0 & 2 & 0 & 0 \\ \hline
+    P014 & Jeremy      & 0 & 1 & 0 & 0 \\ \hline
+
+    P015 & Alex        & 3 & 4 & 3 & 3 \\ \hline
+    P015 & Joaquin     & 0 & 0 & 0 & 0 \\ \hline
+    P015 & Shipi       & 2 & 3 & 0 & 1 \\ \hline
+    P015 & Juan Andres & 0 & 3 & 0 & 0 \\ \hline
+    P015 & Danniel     & 2 & 1 & 0 & 0 \\ \hline
+    P015 & Jeremy      & 1 & 1 & 0 & 0 \\ \hline
+
+    P016 & Alex        & 2 & 3 & 1 & 2 \\ \hline
+    P016 & Joaquin     & 0 & 1 & 1 & 0 \\ \hline
+    P016 & Shipi       & 1 & 3 & 0 & 1 \\ \hline
+    P016 & Juan Andres & 1 & 1 & 0 & 0 \\ \hline
+    P016 & Danniel     & 1 & 2 & 0 & 0 \\ \hline
+    P016 & Jeremy      & 0 & 1 & 0 & 0 \\ \hline
+
+    P017 & Alex        & 1 & 2 & 0 & 1 \\ \hline
+    P017 & Joaquin     & 1 & 1 & 1 & 1 \\ \hline
+    P017 & Shipi       & 1 & 1 & 0 & 0 \\ \hline
+    P017 & Juan Andres & 1 & 2 & 1 & 0 \\ \hline
+    P017 & Danniel     & 2 & 2 & 0 & 1 \\ \hline
+    P017 & Jeremy      & 1 & 2 & 0 & 0 \\ \hline
+
+    P018 & Alex        & 2 & 3 & 3 & 2 \\ \hline
+    P018 & Joaquin     & 1 & 1 & 0 & 1 \\ \hline
+    P018 & Shipi       & 1 & 2 & 1 & 1 \\ \hline
+    P018 & Juan Andres & 1 & 3 & 1 & 1 \\ \hline
+    P018 & Danniel     & 1 & 1 & 0 & 1 \\ \hline
+    P018 & Jeremy      & 1 & 1 & 0 & 0 \\ \hline
+
+    P019 & Alex        & 2 & 3 & 1 & 2 \\ \hline
+    P019 & Joaquin     & 0 & 0 & 1 & 0 \\ \hline
+    P019 & Shipi       & 2 & 2 & 0 & 1 \\ \hline
+    P019 & Juan Andres & 0 & 4 & 0 & 0 \\ \hline
+    P019 & Danniel     & 1 & 0 & 0 & 0 \\ \hline
+    P019 & Jeremy      & 1 & 1 & 0 & 0 \\ \hline
+
+    P020 & Alex        & 2 & 3 & 1 & 1 \\ \hline
+    P020 & Joaquin     & 0 & 1 & 0 & 0 \\ \hline
+    P020 & Shipi       & 2 & 3 & 0 & 1 \\ \hline
+    P020 & Juan Andres & 1 & 2 & 0 & 0 \\ \hline
+    P020 & Danniel     & 0 & 2 & 0 & 0 \\ \hline
+    P020 & Jeremy      & 1 & 1 & 0 & 0 \\ \hline
+
+    P021 & Alex        & 4 & 5 & 4 & 4 \\ \hline
+    P021 & Joaquin     & 1 & 1 & 1 & 1 \\ \hline
+    P021 & Shipi       & 1 & 3 & 0 & 1 \\ \hline
+    P021 & Juan Andres & 1 & 1 & 0 & 0 \\ \hline
+    P021 & Danniel     & 1 & 2 & 0 & 0 \\ \hline
+    P021 & Jeremy      & 1 & 1 & 0 & 0 \\ \hline
+
+    P022 & Alex        & 1 & 2 & 1 & 1 \\ \hline
+    P022 & Joaquin     & 1 & 1 & 1 & 1 \\ \hline
+    P022 & Shipi       & 2 & 3 & 0 & 1 \\ \hline
+    P022 & Juan Andres & 2 & 2 & 0 & 0 \\ \hline
+    P022 & Danniel     & 0 & 2 & 0 & 0 \\ \hline
+    P022 & Jeremy      & 0 & 1 & 0 & 0 \\ \hline
+
+    P023 & Alex        & 2 & 3 & 1 & 1 \\ \hline
+    P023 & Joaquin     & 0 & 0 & 0 & 0 \\ \hline
+    P023 & Shipi       & 2 & 2 & 0 & 1 \\ \hline
+    P023 & Juan Andres & 1 & 1 & 0 & 0 \\ \hline
+    P023 & Danniel     & 1 & 1 & 0 & 0 \\ \hline
+    P023 & Jeremy      & 0 & 1 & 0 & 0 \\ \hline
+
+    P024 & Alex        & 0 & 1 & 1 & 0 \\ \hline
+    P024 & Joaquin     & 1 & 1 & 0 & 1 \\ \hline
+    P024 & Shipi       & 2 & 2 & 0 & 1 \\ \hline
+    P024 & Juan Andres & 1 & 1 & 0 & 0 \\ \hline
+    P024 & Danniel     & 0 & 2 & 1 & 0 \\ \hline
+    P024 & Jeremy      & 0 & 1 & 1 & 0 \\ \hline
+
+    P025 & Alex        & 4 & 5 & 3 & 4 \\ \hline
+    P025 & Joaquin     & 0 & 0 & 1 & 0 \\ \hline
+    P025 & Shipi       & 2 & 3 & 0 & 1 \\ \hline
+    P025 & Juan Andres & 1 & 1 & 0 & 0 \\ \hline
+    P025 & Danniel     & 0 & 2 & 1 & 0 \\ \hline
+    P025 & Jeremy      & 1 & 2 & 0 & 1 \\ \hline
+
+    P026 & Alex        & 1 & 2 & 1 & 1 \\ \hline
+    P026 & Joaquin     & 0 & 0 & 1 & 0 \\ \hline
+    P026 & Shipi       & 1 & 1 & 1 & 1 \\ \hline
+    P026 & Juan Andres & 2 & 3 & 0 & 2 \\ \hline
+    P026 & Danniel     & 1 & 2 & 0 & 0 \\ \hline
+    P026 & Jeremy      & 0 & 1 & 1 & 0 \\ \hline
+
+    P027 & Alex        & 3 & 4 & 1 & 2 \\ \hline
+    P027 & Joaquin     & 0 & 0 & 0 & 0 \\ \hline
+    P027 & Shipi       & 0 & 1 & 0 & 0 \\ \hline
+    P027 & Juan Andres & 1 & 1 & 0 & 0 \\ \hline
+    P027 & Danniel     & 1 & 1 & 0 & 0 \\ \hline
+    P027 & Jeremy      & 0 & 1 & 0 & 0 \\ \hline
+
+    P028 & Alex        & 2 & 3 & 0 & 1 \\ \hline
+    P028 & Joaquin     & 0 & 0 & 1 & 0 \\ \hline
+    P028 & Shipi       & 1 & 3 & 0 & 1 \\ \hline
+    P028 & Juan Andres & 1 & 0 & 0 & 0 \\ \hline
+    P028 & Danniel     & 2 & 2 & 0 & 0 \\ \hline
+    P028 & Jeremy      & 1 & 1 & 0 & 0 \\ \hline
+
+    P029 & Alex        & 1 & 2 & 0 & 1 \\ \hline
+    P029 & Joaquin     & 0 & 0 & 1 & 0 \\ \hline
+    P029 & Shipi       & 2 & 3 & 0 & 1 \\ \hline
+    P029 & Juan Andres & 1 & 1 & 0 & 0 \\ \hline
+    P029 & Danniel     & 1 & 1 & 0 & 0 \\ \hline
+    P029 & Jeremy      & 0 & 1 & 0 & 0 \\ \hline
+
+    P030 & Alex        & 4 & 5 & 3 & 4 \\ \hline
+    P030 & Joaquin     & 0 & 0 & 1 & 0 \\ \hline
+    P030 & Shipi       & 1 & 4 & 0 & 1 \\ \hline
+    P030 & Juan Andres & 1 & 1 & 0 & 0 \\ \hline
+    P030 & Danniel     & 0 & 3 & 0 & 0 \\ \hline
+    P030 & Jeremy      & 0 & 1 & 0 & 0 \\ \hline
+
+    P031 & Alex        & 1 & 2 & 1 & 1 \\ \hline
+    P031 & Joaquin     & 0 & 0 & 0 & 0 \\ \hline
+    P031 & Shipi       & 2 & 3 & 0 & 1 \\ \hline
+    P031 & Juan Andres & 1 & 1 & 0 & 0 \\ \hline
+    P031 & Danniel     & 0 & 3 & 0 & 0 \\ \hline
+    P031 & Jeremy      & 0 & 1 & 0 & 0 \\ \hline
+
+    P032 & Alex        & 2 & 3 & 2 & 1 \\ \hline
+    P032 & Joaquin     & 2 & 2 & 0 & 2 \\ \hline
+    P032 & Shipi       & 1 & 2 & 0 & 0 \\ \hline
+    P032 & Juan Andres & 1 & 0 & 0 & 0 \\ \hline
+    P032 & Danniel     & 1 & 2 & 0 & 0 \\ \hline
+    P032 & Jeremy      & 1 & 1 & 0 & 0 \\ \hline
+
+    P033 & Alex        & 4 & 5 & 1 & 2 \\ \hline
+    P033 & Joaquin     & 0 & 0 & 1 & 0 \\ \hline
+    P033 & Shipi       & 0 & 2 & 1 & 0 \\ \hline
+    P033 & Juan Andres & 1 & 2 & 0 & 1 \\ \hline
+    P033 & Danniel     & 2 & 3 & 0 & 1 \\ \hline
+    P033 & Jeremy      & 1 & 1 & 0 & 0 \\ \hline
+
+    P034 & Alex        & 1 & 2 & 2 & 1 \\ \hline
+    P034 & Joaquin     & 1 & 1 & 1 & 1 \\ \hline
+    P034 & Shipi       & 1 & 1 & 0 & 1 \\ \hline
+    P034 & Juan Andres & 0 & 1 & 0 & 0 \\ \hline
+    P034 & Danniel     & 2 & 1 & 0 & 1 \\ \hline
+    P034 & Jeremy      & 0 & 1 & 0 & 0 \\ \hline
+
+    P036 & Alex        & 4 & 5 & 0 & 1 \\ \hline
+    P036 & Joaquin     & 0 & 0 & 1 & 0 \\ \hline
+    P036 & Shipi       & 2 & 2 & 0 & 1 \\ \hline
+    P036 & Juan Andres & 1 & 1 & 0 & 0 \\ \hline
+    P036 & Danniel     & 0 & 2 & 0 & 0 \\ \hline
+    P036 & Jeremy      & 0 & 1 & 1 & 0 \\ \hline
+
+\end{longtable}
+
+% Cantidad de cambios entre cada dificultad por participante
+\begin{table}[H]
+    \centering
+    \caption{Cantidad de cambios entre cada dificultad por participante.}
+    \label{tab:cambiosPorDificultad}
+
+    \renewcommand{\arraystretch}{1.3}
+    \setlength{\tabcolsep}{4pt}
+
+    \begin{tabularx}{\textwidth}{
+        |>{\centering\arraybackslash}X
+        |>{\centering\arraybackslash}X
+        |>{\centering\arraybackslash}X
+        |>{\centering\arraybackslash}X
+        |>{\centering\arraybackslash}X|
+    }
+        \hline
+
+        \textbf{ID} &
+        \textbf{Fácil a normal} &
+        \textbf{Normal a díficil} &
+        \textbf{Díficil a normal} &
+        \textbf{Normal a fácil} \\ \hline
+
+        P001 & 2 & 1 & 1 & 3 \\ \hline
+        P002 & 1 & 4 & 4 & 2 \\ \hline
+        P003 & 0 & 4 & 4 & 1 \\ \hline
+        P004 & 2 & 2 & 2 & 2 \\ \hline
+        P005 & 1 & 3 & 2 & 1 \\ \hline
+        P006 & 2 & 2 & 2 & 2 \\ \hline
+        P007 & 1 & 0 & 0 & 2 \\ \hline
+        P008 & 1 & 0 & 0 & 2 \\ \hline
+        P010 & 2 & 0 & 0 & 3 \\ \hline
+        P011 & 1 & 2 & 2 & 2 \\ \hline
+        P012 & 2 & 4 & 3 & 2 \\ \hline
+        P013 & 1 & 4 & 4 & 2 \\ \hline
+        P014 & 1 & 0 & 0 & 2 \\ \hline
+        P015 & 1 & 2 & 2 & 2 \\ \hline
+        P016 & 2 & 0 & 0 & 3 \\ \hline
+        P017 & 2 & 0 & 0 & 3 \\ \hline
+        P018 & 2 & 3 & 3 & 3 \\ \hline
+        P019 & 1 & 1 & 1 & 2 \\ \hline
+        P020 & 1 & 0 & 0 & 2 \\ \hline
+        P021 & 2 & 3 & 3 & 3 \\ \hline
+        P022 & 0 & 2 & 2 & 1 \\ \hline
+        P023 & 1 & 0 & 0 & 2 \\ \hline
+        P024 & 1 & 2 & 1 & 1 \\ \hline
+        P025 & 2 & 3 & 3 & 3 \\ \hline
+        P026 & 1 & 3 & 3 & 1 \\ \hline
+        P027 & 1 & 0 & 0 & 2 \\ \hline
+        P028 & 1 & 0 & 0 & 2 \\ \hline
+        P029 & 1 & 0 & 0 & 2 \\ \hline
+        P030 & 2 & 2 & 2 & 3 \\ \hline
+        P031 & 0 & 1 & 1 & 1 \\ \hline
+        P032 & 1 & 1 & 1 & 2 \\ \hline
+        P033 & 2 & 1 & 1 & 3 \\ \hline
+        P034 & 0 & 3 & 3 & 1 \\ \hline
+        P036 & 2 & 0 & 0 & 2 \\ \hline
+
+    \end{tabularx}
+\end{table}
+
+% Dificultad máxima alcanzada en cada minijuego por participante
+\begin{longtable}{
+    |
+    >{\centering\arraybackslash}p{4.5cm}|
+    >{\centering\arraybackslash}p{4.5cm}|
+    >{\centering\arraybackslash}p{4.5cm}|
+}
+
+    \caption{Dificultad máxima alcanzada en cada minijuego por participante.}
+    \label{tab:maxDificultad}\\
+    \hline
+
+    \textbf{ID} &
+    \textbf{Minijuego} &
+    \textbf{Dificultad Máxima}  \\ \hline
+
+    \endfirsthead
+
+    \multicolumn{3}{c}{
+        Cuadro \thetable{} -- Continuación
+    } \\
+    \hline
+
+    \textbf{ID} &
+    \textbf{Minijuego} &
+    \textbf{Dificultad Máxima}  \\ \hline
+
+    \endhead
+
+    P001 & Alex        & Normal \\ \hline
+    P001 & Joaquin     & Hard \\ \hline
+    P001 & Shipi       & Normal \\ \hline
+    P001 & Juan Andres & Easy \\ \hline
+    P001 & Danniel     & Easy \\ \hline
+    P001 & Jeremy      & Easy \\ \hline
+
+    P0011 & Alex        & Hard \\ \hline
+    P0011 & Joaquin     & Normal \\ \hline
+    P0011 & Shipi       & Normal \\ \hline
+    P0011 & Juan Andres & Easy \\ \hline
+    P0011 & Danniel     & Easy \\ \hline
+    P0011 & Jeremy      & Easy \\ \hline
+
+    P002 & Alex        & Hard \\ \hline
+    P002 & Joaquin     & Hard \\ \hline
+    P002 & Shipi       & Normal \\ \hline
+    P002 & Juan Andres & Normal \\ \hline
+    P002 & Danniel     & Easy \\ \hline
+    P002 & Jeremy      & Easy \\ \hline
+
+    P003 & Alex        & Hard \\ \hline
+    P003 & Joaquin     & Hard \\ \hline
+    P003 & Shipi       & Easy \\ \hline
+    P003 & Juan Andres & Easy \\ \hline
+    P003 & Danniel     & Easy \\ \hline
+    P003 & Jeremy      & Easy \\ \hline
+
+    P004 & Alex        & Hard \\ \hline
+    P004 & Joaquin     & Normal \\ \hline
+    P004 & Shipi       & Normal \\ \hline
+    P004 & Juan Andres & Normal \\ \hline
+    P004 & Danniel     & Hard \\ \hline
+    P004 & Jeremy      & Hard \\ \hline
+
+    P005 & Alex        & Hard \\ \hline
+    P005 & Joaquin     & Hard \\ \hline
+    P005 & Shipi       & Normal \\ \hline
+    P005 & Juan Andres & Easy \\ \hline
+    P005 & Danniel     & Normal \\ \hline
+    P005 & Jeremy      & Hard \\ \hline
+
+    P006 & Alex        & Hard \\ \hline
+    P006 & Joaquin     & Hard \\ \hline
+    P006 & Shipi       & Hard \\ \hline
+    P006 & Juan Andres & Normal \\ \hline
+    P006 & Danniel     & Normal \\ \hline
+    P006 & Jeremy      & Normal \\ \hline
+
+    P007 & Alex        & Normal \\ \hline
+    P007 & Joaquin     & Normal \\ \hline
+    P007 & Shipi       & Normal \\ \hline
+    P007 & Juan Andres & Easy \\ \hline
+    P007 & Danniel     & Easy \\ \hline
+    P007 & Jeremy      & Easy \\ \hline
+
+    P008 & Alex        & Normal \\ \hline
+    P008 & Joaquin     & Normal \\ \hline
+    P008 & Shipi       & Normal \\ \hline
+    P008 & Juan Andres & Normal \\ \hline
+    P008 & Danniel     & Easy \\ \hline
+    P008 & Jeremy      & Easy \\ \hline
+
+    P010 & Alex        & Normal \\ \hline
+    P010 & Joaquin     & Normal \\ \hline
+    P010 & Shipi       & Easy \\ \hline
+    P010 & Juan Andres & Easy \\ \hline
+    P010 & Danniel     & Normal \\ \hline
+    P010 & Jeremy      & Normal \\ \hline
+
+    P012 & Alex        & Hard \\ \hline
+    P012 & Joaquin     & Hard \\ \hline
+    P012 & Shipi       & Normal \\ \hline
+    P012 & Juan Andres & Easy \\ \hline
+    P012 & Danniel     & Normal \\ \hline
+    P012 & Jeremy      & Hard \\ \hline
+
+    P013 & Alex        & Hard \\ \hline
+    P013 & Joaquin     & Hard \\ \hline
+    P013 & Shipi       & Hard \\ \hline
+    P013 & Juan Andres & Hard \\ \hline
+    P013 & Danniel     & Normal \\ \hline
+    P013 & Jeremy      & Normal \\ \hline
+
+    P014 & Alex        & Normal \\ \hline
+    P014 & Joaquin     & Normal \\ \hline
+    P014 & Shipi       & Normal \\ \hline
+    P014 & Juan Andres & Easy \\ \hline
+    P014 & Danniel     & Easy \\ \hline
+    P014 & Jeremy      & Easy \\ \hline
+
+    P015 & Alex        & Hard \\ \hline
+    P015 & Joaquin     & Normal \\ \hline
+    P015 & Shipi       & Normal \\ \hline
+    P015 & Juan Andres & Easy \\ \hline
+    P015 & Danniel     & Easy \\ \hline
+    P015 & Jeremy      & Easy \\ \hline
+
+    P016 & Alex        & Normal \\ \hline
+    P016 & Joaquin     & Normal \\ \hline
+    P016 & Shipi       & Normal \\ \hline
+    P016 & Juan Andres & Easy \\ \hline
+    P016 & Danniel     & Easy \\ \hline
+    P016 & Jeremy      & Easy \\ \hline
+
+    P017 & Alex        & Normal \\ \hline
+    P017 & Joaquin     & Normal \\ \hline
+    P017 & Shipi       & Easy \\ \hline
+    P017 & Juan Andres & Normal \\ \hline
+    P017 & Danniel     & Normal \\ \hline
+    P017 & Jeremy      & Easy \\ \hline
+
+    P018 & Alex        & Hard \\ \hline
+    P018 & Joaquin     & Hard \\ \hline
+    P018 & Shipi       & Normal \\ \hline
+    P018 & Juan Andres & Normal \\ \hline
+    P018 & Danniel     & Normal \\ \hline
+    P018 & Jeremy      & Easy \\ \hline
+
+    P019 & Alex        & Hard \\ \hline
+    P019 & Joaquin     & Normal \\ \hline
+    P019 & Shipi       & Normal \\ \hline
+    P019 & Juan Andres & Easy \\ \hline
+    P019 & Danniel     & Easy \\ \hline
+    P019 & Jeremy      & Easy \\ \hline
+
+    P020 & Alex        & Normal \\ \hline
+    P020 & Joaquin     & Normal \\ \hline
+    P020 & Shipi       & Normal \\ \hline
+    P020 & Juan Andres & Easy \\ \hline
+    P020 & Danniel     & Easy \\ \hline
+    P020 & Jeremy      & Easy \\ \hline
+
+    P021 & Alex        & Hard \\ \hline
+    P021 & Joaquin     & Normal \\ \hline
+    P021 & Shipi       & Normal \\ \hline
+    P021 & Juan Andres & Easy \\ \hline
+    P021 & Danniel     & Easy \\ \hline
+    P021 & Jeremy      & Easy \\ \hline
+
+    P022 & Alex        & Hard \\ \hline
+    P022 & Joaquin     & Hard \\ \hline
+    P022 & Shipi       & Normal \\ \hline
+    P022 & Juan Andres & Easy \\ \hline
+    P022 & Danniel     & Easy \\ \hline
+    P022 & Jeremy      & Easy \\ \hline
+
+    P023 & Alex        & Normal \\ \hline
+    P023 & Joaquin     & Normal \\ \hline
+    P023 & Shipi       & Normal \\ \hline
+    P023 & Juan Andres & Easy \\ \hline
+    P023 & Danniel     & Easy \\ \hline
+    P023 & Jeremy      & Easy \\ \hline
+
+    P024 & Alex        & Hard \\ \hline
+    P024 & Joaquin     & Hard \\ \hline
+    P024 & Shipi       & Normal \\ \hline
+    P024 & Juan Andres & Easy \\ \hline
+    P024 & Danniel     & Normal \\ \hline
+    P024 & Jeremy      & Hard \\ \hline
+
+    P025 & Alex        & Hard \\ \hline
+    P025 & Joaquin     & Normal \\ \hline
+    P025 & Shipi       & Normal \\ \hline
+    P025 & Juan Andres & Easy \\ \hline
+    P025 & Danniel     & Normal \\ \hline
+    P025 & Jeremy      & Normal \\ \hline
+
+    P026 & Alex        & Hard \\ \hline
+    P026 & Joaquin     & Hard \\ \hline
+    P026 & Shipi       & Hard \\ \hline
+    P026 & Juan Andres & Hard \\ \hline
+    P026 & Danniel     & Easy \\ \hline
+    P026 & Jeremy      & Normal \\ \hline
+
+    P027 & Alex        & Normal \\ \hline
+    P027 & Joaquin     & Easy \\ \hline
+    P027 & Shipi       & Easy \\ \hline
+    P027 & Juan Andres & Easy \\ \hline
+    P027 & Danniel     & Easy \\ \hline
+    P027 & Jeremy      & Easy \\ \hline
+
+    P028 & Alex        & Normal \\ \hline
+    P028 & Joaquin     & Normal \\ \hline
+    P028 & Shipi       & Normal \\ \hline
+    P028 & Juan Andres & Easy \\ \hline
+    P028 & Danniel     & Easy \\ \hline
+    P028 & Jeremy      & Easy \\ \hline
+
+    P029 & Alex        & Normal \\ \hline
+    P029 & Joaquin     & Normal \\ \hline
+    P029 & Shipi       & Normal \\ \hline
+    P029 & Juan Andres & Easy \\ \hline
+    P029 & Danniel     & Easy \\ \hline
+    P029 & Jeremy      & Easy \\ \hline
+
+    P030 & Alex        & Hard \\ \hline
+    P030 & Joaquin     & Normal \\ \hline
+    P030 & Shipi       & Normal \\ \hline
+    P030 & Juan Andres & Easy \\ \hline
+    P030 & Danniel     & Easy \\ \hline
+    P030 & Jeremy      & Easy \\ \hline
+
+    P031 & Alex        & Hard \\ \hline
+    P031 & Joaquin     & Normal \\ \hline
+    P031 & Shipi       & Normal \\ \hline
+    P031 & Juan Andres & Easy \\ \hline
+    P031 & Danniel     & Easy \\ \hline
+    P031 & Jeremy      & Easy \\ \hline
+
+    P032 & Alex        & Hard \\ \hline
+    P032 & Joaquin     & Hard \\ \hline
+    P032 & Shipi       & Easy \\ \hline
+    P032 & Juan Andres & Easy \\ \hline
+    P032 & Danniel     & Easy \\ \hline
+    P032 & Jeremy      & Easy \\ \hline
+
+    P033 & Alex        & Normal \\ \hline
+    P033 & Joaquin     & Normal \\ \hline
+    P033 & Shipi       & Hard \\ \hline
+    P033 & Juan Andres & Hard \\ \hline
+    P033 & Danniel     & Normal \\ \hline
+    P033 & Jeremy      & Easy \\ \hline
+
+    P034 & Alex        & Hard \\ \hline
+    P034 & Joaquin     & Hard \\ \hline
+    P034 & Shipi       & Hard \\ \hline
+    P034 & Juan Andres & Normal \\ \hline
+    P034 & Danniel     & Normal \\ \hline
+    P034 & Jeremy      & Easy \\ \hline
+
+    P036 & Alex        & Normal \\ \hline
+    P036 & Joaquin     & Normal \\ \hline
+    P036 & Shipi       & Normal \\ \hline
+    P036 & Juan Andres & Easy \\ \hline
+    P036 & Danniel     & Easy \\ \hline
+    P036 & Jeremy      & Normal \\ \hline
+
+\end{longtable}
+
+\section{Percepción de dificultad e interacción}
+La sección de dificultad e interacción de la encuesta recolecta la 
+valoración posterior de cda participante sobre distintos aspectos de la
+experiencia. Se consideran las preguntas relacionadas con la atención 
+prestada a la canción, la diversión general de la interacción, el nivel
+de agobio experimentado, la valoración del propio desempeño y el
+minijuego identificado como más frustrante.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{imagenes/atencionCancion}
+    \caption{Gráfica de distribución de atención a la canción entre participantes.}
+    \label{fig:atencionCancion}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{imagenes/diversion}
+    \caption{Gráfica de distribución de diversión general entre participantes.}
+    \label{fig:diversion}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{imagenes/nivelAgobio}
+    \caption{Gráfica de distribución del nivel de agobio entre participantes.}
+    \label{fig:nivelAgobio}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{imagenes/desempeno}
+    \caption{Gráfica de distribución de desempeño autopercibido entre participantes.}
+    \label{fig:desempeno}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{imagenes/juegoFrustrante}
+    \caption{Gráfica de distribución de minijuegos considerados como los más frustrantes.}
+    \label{fig:juegoFrustrante}
+\end{figure}
+
+\section{Relación entre telemetría y percepción}
+En esta sección se presentan comparaciones entre variables seleccionadas 
+de ambas fuentes. Se relacionan, principalmente, el minijuego señalado
+como más frustrante con las métricas de desempeño de cada actividad; el
+nivel de agobio reportado con la frecuencia de estados 
+\textit{Overloaded}; la valoración del desemepeño con la tasa de éxito 
+registrada; y la atención presentada a la canción con los indicadores
+de desempeño y adaptación obtenidos durante la experiencia.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{imagenes/frustracionVSExito}
+    \caption{Mapa de calor de minijuego percibido como más frustrante contra minjuego en el que se tuvo menor tasa de éxito.}
+    \label{fig:frustracionVSExito}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{imagenes/FrecuenciaOverloaded}
+    \caption{Gráfica de dispersión del nivel de agobio percibido contra la frecuencia de estados \textit{overloaded} cada 100 interacciones.}
+    \label{fig:FrecuenciaOverloaded}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.65\textwidth]{imagenes/desempenioVSExito}
+    \caption{Gráfica de dispersión del desemepeño autopercibido contra la tasa de éxitos.}
+    \label{fig:desempenioVSExito}
+\end{figure}
+
+% Gráficas de dispersión de nivel de atención a la canción contra 
+% a) estados \textit{overloaded} registrados y 
+% b) disminución de la dificultad.
+\begin{figure}[H]
+    \centering
+
+    \begin{subfigure}[c]{0.48\textwidth}
+        \phantomsubcaption
+        \label{fig:atencionVSOverload}
+
+        \begin{minipage}{\linewidth}
+            \makebox[0.10\linewidth][l]{a)}
+            \includegraphics[width=0.88\linewidth]{imagenes/atencionVSOverload}
+        \end{minipage}
+    \end{subfigure}
+    \hfill
+    
+    \begin{subfigure}[c]{0.48\textwidth}
+        \phantomsubcaption
+        \label{fig:atencionVSDificultad}
+
+        \begin{minipage}{\linewidth}
+            \makebox[0.10\linewidth][l]{b)}
+            \includegraphics[width=0.88\linewidth]{imagenes/atencionVSDificultad}
+        \end{minipage}
+    \end{subfigure}
+
+    \caption{Gráficas de dispersión de nivel de atención a la canción contra a) estados \textit{overloaded} registrados y b) disminución de la dificultad.}
+    \label{fig:atencionVSDDA}
+\end{figure}
