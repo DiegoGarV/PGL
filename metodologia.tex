@@ -603,14 +603,14 @@ puede analizar si el desempeño reciente justifica un incremento de dificultad.
 La entrada al estado \textit{overloaded} necesita al menos cinco resultados recientes, de los cuales
 un mínimo de dos deben correspnder a acciones realizadas directamente por el jugador.
 Una vez alcanzada esta cantidad de evidencia, el estado se activa cuando los
-resultados de falla y omisión representan al menos el 60% de la venta evaluada o cuando se acumulean tres
+resultados de falla y omisión representan al menos el 60\% de la venta evaluada o cuando se acumulean tres
 errores consecutivos. El uso combinado de una proporción de errores y una
 secuencia consecutiva permite reconocer tanto un período general de bajo desempeño,como una
 sucesión inmediata de dificultades sin depender de un único fallo aislado. Cuando existe una 
 cantidad suficiente de resultados, la tasa de error debe reducirse hasta 
-un máximo del 30,% y no debe existir una secuencia activa de errores 
+un máximo del 30\% y no debe existir una secuencia activa de errores 
 consecutivos para regresar a \textit{Engaged}. Esta diferencia entre el 
-60% requerido para ingresar y el 30% utilizado para salir introduce 
+60\% requerido para ingresar y el 30\% utilizado para salir introduce 
 histéresis entre ambas condiciones y evita que pequeñas variaciones 
 alrededor de un mismo límite produzcan cambios continuos entre estados.
 
@@ -662,7 +662,7 @@ Para incrementar la dificultad se requiere que el jugador se encuentre
 en estado \textit{engaged}. La configuración final exige disponer de 
 los ocho resultados de la ventana y que al menos siete de ellos 
 correspondan a acciones realizadas directamente por el jugador, además 
-de alcanzar una tasa de éxito mínima del 80%. Una vez cumplidas estas 
+de alcanzar una tasa de éxito mínima del 80\%. Una vez cumplidas estas 
 condiciones, el sistema incrementa la dificultad en un nivel y elimina 
 la ventana utilizada para tomar la decisión, por lo que debe acumularse 
 nueva evidencia antes de que pueda producirse otro incremento. 
@@ -674,7 +674,7 @@ inmediatamente una reducción de un nivel, siempre que la dificultad
 actual permita hacerlo. Adicionalmente, la lógica contempla la 
 permanencia en \textit{overloaded} mediante una condición que requiere 
 al menos cinco resultados recientes, dos acciones realizadas por el 
-jugador y una tasa de error mínima del 60%, proporcionando una segunda 
+jugador y una tasa de error mínima del 60\%, proporcionando una segunda 
 condición de reducción ante un patrón persistente de errores.
 
 Las ventanas de desempeño también se reinician cuando cambia el nivel de 

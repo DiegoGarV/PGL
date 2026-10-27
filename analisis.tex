@@ -1,1 +1,231 @@
 \chapter{Discusión de resultados}
+Los resultados permiten analizar el funcionamiento del sistema desde
+tres niveles relacionados entre sí. Estos son, la capacidad de registrar
+el comportamiento producido durante las interacciones, la representación
+de ese comportamiento mediante estados y la modificación de las condiciones
+de juego por medio del sistema de dificultad dinámica adaptaivo 
+(DDA, por sus siglas en inglés). Las respuestas de la encuesta complementan esta 
+información al proporcionar una valoración subjetiva posterior a la 
+experiencia. Esta combinación permite evaluar el ciclo de medición,
+interpretación y adaptación planteado en el objetivo general sin asumir 
+que las métricas objetivas representan directamente la percepción del 
+participante.
+
+\section{Desempeño registrado y capacidad de medición}
+Las diferencias observadas en el cuadro \ref{tab:metricas} muestran que el
+sistema registra comportamientos distintos entre participantes y entre mecánicas.
+Al considerar conjuntamente los intentos de cada minijuego, las tasas de
+éxito se distribuyen desde, aproximadamente, un 35.37\% en Juan Andrés hasta
+un 71.09\% en Joaquin, mientras que los demás se encuentran entre estos extremos.
+Esta variación resulta relevante para el sistema adaptativo, ya que confirma
+que una configuración uniforme de dificultad no produce el mismo nivel de
+desempeño en todas las actividades ni para todos los participantes.
+
+Las métricas específicas complementan esta información al caracterizar
+aspectos de la ejecución que la tasa de éxito por sí sola no permite
+distinguir. El cuadro \ref{tab:precisionManoPromedio} muestra diferencias
+entre la dirección realizada y el uso de la mano requerida en Shipi, Juan
+Andrés y Jeremy, mientras que el cuadro \ref{tab:reaccionPromedio} presenta
+tiempos de reacción que varían entre 0.25 y 0.92 segundos entre participantes.
+Esta separación resulta consistente con el uso de múltiples indicadores 
+de comportamiento en el modelado del jugador, ya que un único resultado
+de éxito o fallo no describe completamente la forma en que se ejecuta
+una acción.
+
+El cuadro \ref{tab:timingPromedio} también evidencia por qué las métricas
+específicas deben interpretarse dentro del contexto de cada mecánica. Los
+errores temporales presentan escalas diferentes entre minijuegos porque el
+instante esperado y la ventana disponible para actuar no representan
+exactamente la misma acción en todas las actividades. Por esta razón, un
+error de \textit{timing} mayor en una mecánica no implica necesariamente
+un peor desempeño que un valor menor en otra, y el análisis utiliza estas
+variables principalmente para caracterizar el comportamiento dentro de cada
+actividad.
+
+En conjunto, estos resultados respaldan el mecanismo de captura definido
+en el segundo objetivo específico \ref{sec:objetivosEspecificos}. Los cuatro
+cuadros ateriormente mencionados contienen información procedente de los seis
+minijuegos y de todos los participantes, lo que permite reconstruir tanto
+el resultado general de una acción como características específicas de
+su ejecución. La telemetría no queda limitada a una puntuación final, sino que
+conserva información suficiente para analizar posteriormente tendencias y
+diferencias de desempeño, condición necesaria para alimentar un sistema de
+adaptación basado en comportamiento.
+
+\section{Modelado de estados y comportamiento del DDA}
+En el cuadro \ref{tab:cantidadEstados} se muestra que el modelo no permanece
+en una única clasificación durante las sesiones. En los registros aparecen 
+225 entradas a \textit{idle}, 357 a \textit{engaged} y 212 a \textit{overloaded},
+lo que indica que las reglas implementadas permiten representar variaciones del
+comportamiento durante la experiencia. Estos valores corresponden a transiciones
+registradas y no al tiempo total que el participante permanece en cada estado,
+por lo que su interpretación se limita a la frecuencia con la que el modelo cambia
+su clasificación.
+
+La presencia de los tres estados operativos entre los participantes resulta
+coherente con el propósito del modelado de sintetizar tendencias recientes
+en lugar de representar una característica permanente del usuario. Los modelos
+temporales de jugador consideran que el desempeño puede cambiar conforme el usuarioa
+aprende una mecánica, encuentra nuevas condiciones o presenta variaciones durante 
+una misma sesión. En este caso el uso de una ventana reciente permite que una 
+misma persona pase entre períodos de actividad regular, inactividad y acumulación
+de errores sin mantener una clasificación fija para toda la experiencia.
+
+Esta variabilidad se refleja en las decisiones del DDA. El cuadro 
+\ref{tab:cambiosPorDificultad} contiene un total de 216 modificaciones entre los 34
+participantes, de las cuales 96 corresponden a aumentos y 120 a 
+disminuciones, y todos los participantes presentan cambios en algún
+momento de la experiencia. En conjunto con el cuadro 
+\ref{tab:cambiosDificultad}, esto muestra que el sistema no sigue una progresión
+predeterminada hacia dificultades mayores, sino que se desplaza en ambas direcciones
+de acuerdo con el desempeño reciente y el estado identificado.
+
+El cuadro \ref{tab:maxDificultad} refuerza esta característica al mostrar
+que los participantes no alcanzan los mismos niveles máximos en todos los minijuegos.
+Parte de esta diferencia responde a las características particulares de 
+cada mecánica, pero también debe considerarse que el nivel global se 
+conserva entre minijuegos, por lo que el comportamiento registrado en segmentos
+anteriores influye en el nivel con el que se inicia una actividad posterior.
+
+La evidencia más directa sobre la respuesta del sistema se encuentra en 
+la figura \ref{fig:rendimientoDDA}, donde se compara el desempeño
+inmediato antes y después de los ajustes. En las 68 reducciones de dificultad
+que cumplen las condiciones para realizar esta comparación, la tasa de
+éxito pasa en promedio de 34.71\% a 62.06\%, lo que corresponde a un aumento de 27.35
+puntos porcentiales. 53 de los 68 casos presentan una mejora, 12 premanecen
+sin cambio y 3 disminuyen. En sentido contrario, los 69 aumentos analizables
+parten de una tasa promedio de 91.30\% y luego presentan 60.00\% con una disminución 
+media de 31.30 puntos porcentuales. 52 casos reducen de su desempeño, 16 permanecen sin cambio
+permanecen sin cambio y únicamente uno muestra un aumento.
+
+La dirección de estos cambios es consistente con la función asignada al 
+DDA. Una reducción ocurre después de identificar dificultades recientes 
+y es seguida frecuentemente por una recuperación de la tasa de éxito, 
+mientras que un incremento ocurre después de un período de rendimiento 
+alto y produce una condición de mayor exigencia en la que el porcentaje 
+de aciertos disminuye. Esto aporta evidencia de que los niveles fácil, 
+normal y difícil no funcionan únicamente como etiquetas internas, 
+sino que las modificaciones de velocidad, cantidad y complejidad 
+asociadas con ellos producen diferencias observables en la ejecución, 
+tal como se espera de un sistema de ajuste dinámico de dificultad.
+
+Sin embargo, esta comparación no permite atribuir causalmente toda la 
+variación al cambio de dificultad. Los incrementos se activan 
+precisamente después de ventanas con un desempeño alto y las reducciones 
+después de condiciones de bajo desempeño o sobrecarga, por lo que una 
+parte de la diferencia posterior puede estar asociada con la propia 
+forma en que se seleccionan los momentos de adaptación. Aun con esta 
+limitación, la consistencia en la dirección de los cambios muestra que el 
+sistema responde a variaciones del jugador y modifica las condiciones de 
+interacción en la dirección prevista, mientras que las ventanas de 
+observación evitan utilizar un único evento aislado como criterio de 
+adaptación.
+
+\section{Correspondencia entre telemetría y percepción}
+La comparación entre las métricas objetivas y las respuestas posteriores 
+muestra que ambas fuentes describen dimensiones diferentes de la 
+experiencia. En la figura \ref{fig:frustracionVSExito}, el minijuego 
+seleccionado como más frustrante coincide con el de menor tasa de éxito 
+únicamente para 13 de los 34 participantes. Aunque Juan Andrés aparece 
+tanto como el minijuego con la menor tasa de éxito global como el 
+señalado con mayor frecuencia como más frustrante en la figura
+\ref{fig:juegoFrustrante}, esta relación general no se reproduce de forma
+consistente a nivel individual.
+
+Este resultado indica que la frustración percibida no puede 
+representarse únicamente mediante la proporción de aciertos. Factores 
+como el tipo de movimiento requerido, la cantidad de condiciones que 
+deben cumplirse simultáneamente, la claridad de las indicaciones o la 
+familiaridad con una mecánica pueden intervenir en la valoración del 
+jugador, aunque estas variables no se miden de forma independiente en 
+este estudio. La diferencia entre ambos tipos de información coincide 
+con la necesidad de combinar datos objetivos y subjetivos al evaluar 
+experiencias de realidad virtual (VR, por sus siglas en inglés), debido 
+a que la telemetría describe el 
+comportamiento observable pero no sustituye directamente la valoración 
+realizada por el participante.
+
+Una situación similar aparece al comparar la valoración del desempeño 
+con la tasa de éxito registrada. Como se observa en la figura
+\ref{fig:desempenioVSExito}, los participantes que califican su 
+desempeño como malo presentan una tasa media cercana al 56.27\%, 
+quienes lo consideran intermedio alcanzan aproximadamente 59.38\% y 
+quienes lo califican como bueno presentan aproximadamente 56.48\%. La 
+ausencia de una progresión clara entre estas categorías muestra que 
+la percepción global del propio desempeño no corresponde de forma 
+directa con la proporción total de interacciones exitosas.
+
+La comparación del agobio percibido con el estado \textit{overloaded} 
+muestra una correspondencia igualmente limitada. La figura \ref{fig:FrecuenciaOverloaded}
+presenta una amplia superposición entre las categorías de agobio y la 
+frecuencia de entradas a \textit{overloaded} por cada 100 interacciones, 
+sin observarse un incremento progresivo a medida que aumenta la 
+valoración subjetiva. Los promedios se mantienen cercanos entre las 
+categorías, por lo que el estado computacional no funciona como una 
+medida directa de cuánto declara sentirse abrumado el participante.
+
+Este resultado no contradice la función definida para \textit{overloaded}, 
+ya que el estado se construye a partir de errores y omisiones recientes y 
+no como una estimación psicológica del usuario. Su utilidad se encuentra 
+en identificar patrones de desempeño que justifican una respuesta del DDA, 
+algo que se observa posteriormente en la recuperación asociada con las 
+reducciones de dificultad de la figura \ref{fig:rendimientoDDA}. Por lo
+tanto, los resultados apoyan el uso de \textit{overloaded} como un 
+estado operacional para la adaptación, pero no respaldan utilizarlo como 
+equivalente del agobio subjetivamente reportado.
+
+\section{Relación entre exigencia de interacción y atención a la música}
+La atención a la canción constituye un indicador relevante debido a que 
+las mecánicas se incorporan dentro de un videoclip gamificado y no como 
+actividades aisladas. La figura \ref{fig:atencionCancion} muestra que 23
+de 34 participantes, equivalente al 67.65\%, seleccionan valores de 4 o 5
+en la escala de atención, y el promedio general alcanza 3.74 sobre 5. Al
+mismo tiempo, la figura \ref{fig:diversion} muestra que 32 de las 33 
+respuestas válidas califican la diversión con 4 o 5, con un promedio de 
+4.42, lo que indica que la presencia de mecánicas interactivas resulta 
+compatible con una valoración alta de entretenimiento durante la 
+experiencia.
+
+La percepción de carga tampoco se concentra en los niveles superiores. 
+Como muestra la figura \ref{fig:nivelAgobio}, 25 de los 34 participantes 
+se describen como nada o ligeramente abrumados, mientras que solamente 
+uno selecciona la categoría de mayor agobio. Considerados junto con la 
+atención reportada, estos resultados muestran que la interacción puede 
+coexistir con la escucha de la canción para una proporción mayoritaria 
+de la muestra, aspecto importante en una experiencia donde el 
+\textit{gameplay} debe acompañar la música sin sustituirla completamente.
+
+No obstante, la figura \ref{fig:atencionVSDDA} no presenta una 
+relación clara entre la atención y la cantidad de estados 
+\textit{overloaded} o reducciones de dificultad. Los participantes con 
+niveles altos de atención aparecen tanto en sesiones con pocas como con 
+varias intervenciones del sistema, y el mismo solapamiento se observa en 
+los niveles inferiores. En consecuencia, los datos permiten afirmar que 
+la experiencia adaptativa mantiene niveles favorables de atención musical 
+en buena parte de la muestra, pero no permiten atribuir esa atención 
+específicamente al funcionamiento del DDA.
+
+\section{Limitaciones}
+La evaluación presenta limitaciones que delimitan el alcance de estas 
+conclusiones. De los 216 cambios de dificultad registrados en la tabla
+\ref{tab:cambiosDificultad}, 137 disponen de cinco interacciones válidas 
+antes y después bajo las condiciones necesarias para realizar la 
+comparación de la figura \ref{fig:rendimientoDDA}, por lo que el análisis 
+de variación inmediata no representa todos los ajustes realizados. 
+Además, las métricas específicas no son equivalentes entre minijuegos, 
+el estado \textit{overloaded} representa una clasificación operacional y 
+no una medida subjetiva, y la ausencia de una condición sin DDA impide 
+atribuir causalmente al sistema las valoraciones de atención, diversión 
+o agobio.
+
+Finalmente, el nivel de dificultad global se conserva a lo largo de una 
+secuencia fija de minijuegos, lo que introduce una dependencia entre el 
+desempeño previo y las condiciones encontradas posteriormente. Este 
+diseño permite mantener continuidad en la adaptación, pero dificulta 
+separar completamente el efecto de la mecánica del efecto acumulado de 
+segmentos anteriores al comparar la tabla \ref{tab:maxDificultad}. Por
+ello, los resultados sustentan el funcionamiento del sistema 
+implementado y su capacidad de responder al comportamiento registrado, 
+mientras que una evaluación futura con orden contrabalanceado o 
+condiciones con dificultad fija permitiría estudiar con mayor precisión 
+la efectividad de la adaptación sobre la experiencia del usuario.
