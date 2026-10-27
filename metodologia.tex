@@ -688,7 +688,7 @@ anterior.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{imagenes/placeholder}
+    \includegraphics[width=1\textwidth]{imagenes/DDAcicle}
     \caption{Ciclo completo de adaptación y cambio de dificultad.}
     \label{fig:difChangeCicle}
 \end{figure}
@@ -712,44 +712,6 @@ incluye información como el estado y la tasa reciente de éxito o error.
 Este registro permitió reconstruir posteriormente no solo cuántas 
 modificaciones se produjeron, sino también el contexto inmediato de 
 cada decisión.
-
-\section{Integración del sistema adaptativo con la experiencia global}
-Una vez implementados los componentes anteriores, el sistema se integró 
-con el flujo general del videoclip gamificado. La integración se realizó 
-mediante eventos que permitieron recibir información procedente del 
-sistema global y comunicar resultados relacionados con el desempeño del 
-jugador. De esta forma, las acciones realizadas durante los minijuegos 
-podían influir en el desarrollo de la experiencia y en la actualización 
-de las métricas correspondientes.
-
-El sistema adaptativo recibió notificaciones necesarias para conocer el 
-contexto general de ejecución, por ejemplo, el inicio o finalización de 
-una actividad o el ingreso a un período de transición. Estas señales se 
-utilizaron para controlar cuándo debía comenzar o detenerse la captura e 
-interpretación de las métricas. De manera inversa, los minijuegos y los 
-sistemas de interacción emitieron información relacionada con aciertos, 
-errores, progreso y desempeño. Esta comunicación permitió mantener 
-desacoplada la lógica adaptativa de los componentes responsables del 
-flujo global de la experiencia.
-
-\section{Pruebas de calibración y ajustes}
-Las pruebas del sistema adaptativo se realizaron provocando diferentes 
-patrones de desempeño para comprobar que las reglas reaccionaran en la 
-dirección esperada. Se evaluaron escenarios de desempeño sostenido, 
-sucesión de errores, ausencia temporal de interacción y recuperación 
-posterior del jugador. Esto permitió observar las transiciones entre 
-estados y verificar que los parámetros de dificultad fueran modificados 
-únicamente cuando se cumplían las condiciones establecidas.
-
-Posteriormente, se ajustaron los umbrales, períodos de observación, 
-límites de los parámetros y tiempos entre modificaciones. Esta 
-calibración se hizo para evitar oscilaciones frecuentes entre 
-configuraciones de dificultad. Con esto el sistema ya solo aplicaba una 
-modificación cuando existían suficientes indicios de que el nivel de 
-dificultad debía mantenerse, aumentarse o reducirse. Finalmente, el 
-prototipo fue probado como una experiencia integrada utilizando el Meta 
-Quest 2 para comprobar la interacción física, la retroalimentación, la 
-captura de datos y la respuesta del sistema adaptativo. 
 
 
 
