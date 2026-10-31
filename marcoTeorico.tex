@@ -1,4 +1,14 @@
 \chapter{Marco Teórico}
+A continuación, se reúnen los conceptos y tecnologías que sustentan el 
+desarrollo del sistema de interacción adaptativa propuesto. 
+Primero se abordan los fundamentos de interacción en realidad virtual y 
+de las experiencias musicales interactivas, seguidos por los principios 
+de adaptación dinámica, ajuste de dificultad, telemetría y modelado del 
+jugador. Finalmente, se describen las herramientas utilizadas para 
+llevar estos conceptos a la implementación del prototipo, estableciendo 
+así la base teórica y técnica necesaria para comprender las decisiones de 
+diseño presentadas posteriormente en la metodología.
+
 
 \section{Realidad Virtual e interacción inmersiva}
 La investigación sobre la realidad virtual (VR, 
@@ -92,18 +102,20 @@ no todos utilizan las mismas definiciones ni miden exactamente los
 mismos componentes. Por esta razón, la selección de instrumentos y 
 métricas debe responder a los objeticos concretos de cada investigación.
 
-La carga generada por una tarea puede influir en el nivel de malestar 
-experimentado por el usuario dentro de un entorno virtual \cite{sepich2022workload}.
-Esto implica que la dificultad de una actividad inmersiva no debe 
-evaluarse únicamente mediante tasas de éxito o fracaso. Una tarea 
-excesivamente rápida, compleja o demandante también puede afectar la 
-claridad de la interacción y el \textit{confort} del participante. La 
-adaptación dentro de una aplicación inmersiva no puede plantearse 
-únicamente como un mecanismo para aumentar o disminuir la dificultad, 
-sino como una herramienta para mantener condiciones de interacción 
-apropiadas para el comportamiento observado del usuario. Por ello, un 
-sistemas adaptativos, debe modificar la dificultad tomando en cuenta 
-como eso altera las exigencias que la experiencia impone al usuario.
+La carga de la tarea se refiere al conjunto de exigencias que una 
+actividad impone al usuario durante la interacción, como la velocidad de 
+los estímulos, la cantidad de elementos que requieren atención, la 
+precisión necesaria y el tiempo disponible para responder. En entornos 
+de realidad virtual, un aumento de estas exigencias puede influir en el 
+esfuerzo requerido para completar la actividad y contribuir a una 
+experiencia menos confortable \cite{sepich2022workload}. Por esta razón, 
+la dificultad de una actividad inmersiva no debe analizarse únicamente 
+mediante tasas de éxito o fracaso, ya que una tarea excesivamente rápida, 
+compleja o demandante también puede afectar la claridad de la interacción. 
+En este contexto, un sistema adaptativo debe modificar la dificultad 
+considerando cómo los cambios realizados sobre el \textit{gameplay} 
+alteran las exigencias impuestas al usuario y no únicamente si este 
+acierta o falla.
 
 \section{Videojuegos y experiencias musicales interactivas}
 La relación entre música e interacción de videojuegos ha sido estudiada 
@@ -322,7 +334,7 @@ Estos fundamentos proporcionan la base conceptual necesaria para el
 diseño del sistema de interacción adaptativa desarrollado en el 
 presente trabajo.
 
-\section{Métricas, modelado del jugador y ciclo de adaptación}
+\section{Herramientas y tecnologías de desarrollo}
 Una vez establecidos los fundamentos conceptuales que sustentan la 
 interacción adaptativa, resulta necesario identificar las herramientas 
 y tecnologías que permiten llevar estos principios a una implementación 
@@ -335,7 +347,7 @@ recursos tridimensionales y herramientas de desarrollo proporcionadas
 por Meta para permitir la ejecución e interacción de la experiencia 
 mediante los Meta Quest 2. Estas tecnologías cumplen funciones 
 diferentes dentro del proceso, pero forman en conjunto el entorno 
-técnico sobre el cual se implementará el sistema de interacción 
+técnico utilizado para implementar el sistema de interacción 
 adaptativa.
 
 \subsection{Unity 6}
@@ -380,21 +392,20 @@ videojuegos y otras aplicaciones interactivas, lo que permite
 desarrollar ciertos elementos visuales en un entorno independiente antes 
 de integrarlos en el motor. 
 
-Para una experiencia ejecutada en un dispositivo de VR autónomo, la 
-complejidad de los modelos tridimensionales es un factor relevante 
-debido a las limitaciones de procesamiento del hardware. En este 
-proyecto, esta herramienta permitirá elaborar y modificar a los 
-personajes, objetos y elementos visuales asociados a los minijuegos 
-antes de ser importados a Unity. El uso de una dirección visual 
-estilizada y \textit{low-poly} permiten controlar la complejidad 
-geométrica de estos recursos y mantener una apariencia visual coherente 
-entre los diferentes elementos de la experiencia.
+En este trabajo, Blender se utiliza para crear y modificar personajes, 
+objetos y otros elementos visuales asociados con los minijuegos antes de 
+su importación a Unity. Debido a que la experiencia se ejecuta en un 
+dispositivo de VR autónomo, se emplea una dirección visual estilizada y 
+de baja complejidad geométrica, conocida como \textit{low poly}. Este 
+enfoque permite mantener una apariencia visual coherente entre los 
+distintos elementos y controlar la complejidad de los recursos 
+utilizados dentro de la experiencia.
 
 \subsection{Meta Quest 2 y herramientas de Meta XR}
 Meta Quest 2 es un dispositivo autónomo de VR perteneciente a la familia 
 Meta Quest. Este dispositivo integra visualización estereoscópica, 
 seguimiento de la posición y orientación de la cabeza y mecanismos de 
-entrada que permiten representar las acciones físicar del usuario dentro 
+entrada que permiten representar las acciones físicas del usuario dentro 
 del entorno virtual. Unity 6 incluye los Quest 2 entre los dispositivos
 XR autónomos soportados por su arquitectura de desarrollo.
 
@@ -410,7 +421,7 @@ Meta proporciona diferentes paquetes y herramientas que conforman su
 entorno Meta XR. Dentro de Unity, Meta XR Core SDK proporciona 
 funcionalidades fundamentales para el desarrollo de aplicaciones 
 inmersivas y componentes específicos de la plataforma \cite{metaquestunity}.
-Meta, además, proporciona además un rig XR que relaciona la 
+Meta, además, proporciona un rig XR que relaciona la 
 representación de la cabeza y los dispositivos de entrada físicos con 
 cámaras y elementos virtuales dentro de la escena.
 
