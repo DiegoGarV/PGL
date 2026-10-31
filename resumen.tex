@@ -1,23 +1,30 @@
-El presente proyecto propone la implementación de un sistema de 
-interacción adaptativa en realidad virtual (VR, por sus siglas 
-en inglés) para una experiencia de videoclip gamificado. Su 
-enfoque es el desarrollo de un mecanismo capaz de registrar 
-métricas de desempeño del usuario en tiempo real, interpretar 
-estados de interacción y ajustar dinámicamente parámetros del 
-\textit{gameplay}, como la velocidad, cantidad de objetos y complejidad 
-de las tareas. Esto, basándose en el diseño de interfaces de 
-interacción en VR, técnicas de interacción en entornos 
-inmersivos, adaptación basada en experiencia del jugador, 
-retroalimentación multisensorial y evaluación de presencia 
-y experiencia de usuario.
+El presente trabajo desarrolla un sistema de interacción adaptativa en 
+realidad virtual (VR, por sus siglas en inglés) para una experiencia de 
+videoclip musical gamificado de la banda \textit{Los Skeepers}. Como 
+parte de este trabajo se diseñan e implementan tres de estos minijuegos 
+y se desarrolla un sistema global capaz de registrar métricas de 
+desempeño, modelar estados de interacción y ajustar dinámicamente la 
+dificultad de los seis minijuegos durante la ejecución.
 
-Para el desarrollo del sistema se utiliza Unity para la lógica 
-interactiva y el prototipado de la experiencia, mientras que los 
-modelos en 3D se crean en Blender. El desarrollo conlleva un 
-prototipo funcional que integre entrada de VR, detección de 
-interacción, almacenamiento de métricas en tiempo real, lógica de 
-estados del jugador y adaptación dinámica. Como resultado, se 
-busca aportar una base técnica y metodológica para experiencias 
-inmersivas que no solo respondan a las entradas del usuario, sino
-también ajusten su comportamiento en función del desempeño y de 
-indicadores de involucramiento durante la experiencia.
+El prototipo se implementa en Unity 6 para dispositivos Meta Quest 2 y 
+utiliza métricas generadas por las acciones del jugador para representar 
+su comportamiento mediante los estados \textit{idle}, \textit{engaged}, 
+\textit{overloaded} y \textit{transitioning}. A partir del desempeño 
+reciente, el sistema de dificultad dinámica adaptativa (DDA, por sus 
+siglas en inglés) selecciona entre tres niveles de dificultad y modifica 
+parámetros específicos de cada actividad, como la velocidad, frecuencia 
+de aparición, cantidad de objetivos y complejidad de las acciones 
+requeridas.
+
+La evaluación se realiza con 34 participantes y genera 5048 registros de 
+interacción. Durante las sesiones se producen 216 cambios de dificultad 
+y, en los casos que permiten comparar el desempeño antes y después de un 
+ajuste, las reducciones de dificultad presentan un aumento promedio en 
+la tasa de éxito de 34.71\% a 62.06\%, mientras que los aumentos 
+presentan una disminución de 91.30\% a 60.00\%. En la evaluación 
+subjetiva, el 67.65\% de los participantes reporta niveles altos de 
+atención a la canción, el 96.97\% de las respuestas válidas califica la 
+diversión con valores de 4 o 5 y el 73.53\% indica sentirse nada o 
+ligeramente abrumado. Los resultados muestran que el sistema completa el 
+ciclo de registro, interpretación y adaptación planteado, aunque las 
+valoraciones subjetivas no pueden atribuirse causalmente al DDA.
