@@ -4,17 +4,17 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {1}{\ignorespaces Métricas registradas en cada interacción de los minijuegos.}}{28}{table.caption.16}%
+\contentsline {table}{\numberline {1}{\ignorespaces Métricas registradas en cada interacción de los minijuegos.}}{27}{table.caption.16}%
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2}{\ignorespaces Tasa de éxito en cada minijuego por participante.}}{35}{table.6.2}%
-\contentsline {table}{\numberline {3}{\ignorespaces Error de \textit {timing} promedio por minijuego de cada participante.}}{41}{table.6.3}%
-\contentsline {table}{\numberline {4}{\ignorespaces Tiempo de reacción promedio para el minijuego de Shipi de cada participante.}}{46}{table.6.4}%
-\contentsline {table}{\numberline {5}{\ignorespaces Precisión de dirección y uso de mano correcta promedio por minijuego de cada participante.}}{47}{table.6.5}%
-\contentsline {table}{\numberline {6}{\ignorespaces Cantidad de estados \textit {idle}, \textit {engaged} y \textit {overloaded} registrados por participante.}}{51}{table.caption.20}%
-\contentsline {table}{\numberline {7}{\ignorespaces Cantidad de aumentos y disminuciones de dificultad registrados por participante.}}{52}{table.caption.21}%
-\contentsline {table}{\numberline {8}{\ignorespaces Estados \textit {overload} y \textit {engaged} y cambios de dificultad por minijuego por participante.}}{53}{table.6.8}%
-\contentsline {table}{\numberline {9}{\ignorespaces Cantidad de cambios entre cada dificultad por participante.}}{59}{table.caption.22}%
-\contentsline {table}{\numberline {10}{\ignorespaces Dificultad máxima alcanzada en cada minijuego por participante.}}{60}{table.6.10}%
+\contentsline {table}{\numberline {2}{\ignorespaces Tasa de éxito en cada minijuego por participante.}}{34}{table.6.2}%
+\contentsline {table}{\numberline {3}{\ignorespaces Error de \textit {timing} promedio por minijuego de cada participante.}}{40}{table.6.3}%
+\contentsline {table}{\numberline {4}{\ignorespaces Tiempo de reacción promedio para el minijuego de Shipi de cada participante.}}{45}{table.6.4}%
+\contentsline {table}{\numberline {5}{\ignorespaces Precisión de dirección y uso de mano correcta promedio por minijuego de cada participante.}}{46}{table.6.5}%
+\contentsline {table}{\numberline {6}{\ignorespaces Cantidad de estados \textit {idle}, \textit {engaged} y \textit {overloaded} registrados por participante.}}{50}{table.caption.20}%
+\contentsline {table}{\numberline {7}{\ignorespaces Cantidad de aumentos y disminuciones de dificultad registrados por participante.}}{51}{table.caption.21}%
+\contentsline {table}{\numberline {8}{\ignorespaces Estados \textit {overload} y \textit {engaged} y cambios de dificultad por minijuego por participante.}}{52}{table.6.8}%
+\contentsline {table}{\numberline {9}{\ignorespaces Cantidad de cambios entre cada dificultad por participante.}}{58}{table.caption.22}%
+\contentsline {table}{\numberline {10}{\ignorespaces Dificultad máxima alcanzada en cada minijuego por participante.}}{59}{table.6.10}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

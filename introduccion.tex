@@ -4,126 +4,100 @@ La realidad virtual (VR, por sus siglas en inglés) se ha
 consolidado como un campo de investigación relevante dentro del 
 desarrollo de experiencias digitales inmersivas, sobre todo en lo
 relacionado con el diseño de interfaces, técnicas de interacción
-y evaluación de la experiencia de 
-usuario \cite{chen2024interfaces}. Estudios recientes muestran 
-que la interacción en entornos virtuales no puede abordarse 
-únicamente desde una perspectiva técnica, sino que requiere 
-considerar criterios de usabilidad, naturalidad, 
-retroalimentación y un contexto adecuado para la experiencia 
-\cite{chen2024interfaces,spittle2023interaction,yeo2024interfaces}. Con eso 
-en mente, este proyecto propone la implementación de un sistema de 
-interacción adaptativa en VR para una experiencia de videoclip gamificado. 
-La propuesta se enfoca en el desarrollo de una solución capaz de registrar 
-métricas de desempeño del usuario en tiempo real, interpretar estados de 
-interacción y ajustar dinámicamente parámetros del \textit{gameplay}, con el
-fin de construir una experiencia más sensible al comportamiento del jugador 
-y una mejor integridad al flujo general de la aplicación.
+y evaluación de la experiencia de usuario \cite{chen2024interfaces}. 
+La interacción en estos entornos no depende únicamente de la 
+representación tridimensional, sino también de aspectos como la 
+usabilidad, la naturalidad de las acciones y la retroalimentación 
+proporcionada al usuario 
+\cite{chen2024interfaces,spittle2023interaction,yeo2024interfaces}. 
+Dentro de este contexto, el presente trabajo aborda el desarrollo de un 
+sistema de interacción adaptativa para un videoclip musical gamificado en VR.
 
-El valor de este proyecto se sustenta en investigaciones recientes sobre 
-adaptación en videojuegos y entornos interactivos han señalado que, aunque 
-existen avances importantes en personalización, modelado del jugador y 
-ajuste dinámico del contenido, aún queda una brecha en la integración 
-completa del ciclo conformado por las sensaciones del usuario, la 
-interpretación de su estado y la modificación adaptativa de la experiencia 
-en tiempo real \cite{lopes2025closing}. Debido a esto, resulta académica y
-técnicamente relevante desarrollar prototipos que articulen la telemetría 
-del usuario con mecanismos de adaptación concretos dentro de experiencias 
-inmersivas. A su vez, investigaciones sobre ajustes dinámicos de dificultad 
-en VR evidencian que la adaptación puede ir más allá de simples cambios de 
-nivel, permitiendo modificar velocidad, complejidad y estructura de las 
-tareas de acuerdo con las capacidades o desempeño del usuario 
-\cite{huber2021dda}. Esto resulta particularmente valioso en una experiencia 
-de videoclip gamificado, donde el equilibrio entre reto, ritmo, claridad e
-involucramiento constituye un factor central para sostener la atención del 
-jugador y favorecer una participación más fluida.
+La experiencia se desarrolla alrededor de la música de la banda 
+\textit{Los Skeepers} y transforma el videoclip en una secuencia de seis 
+minijuegos interactivos. Cada actividad parte de una propuesta asociada 
+con uno de los integrantes de la banda y representa, mediante acciones 
+cotidianas o responsabilidades, distintos aspectos de la transición 
+hacia la vida adulta. De esta manera, la interacción no se incorpora como 
+un elemento independiente de la propuesta musical, sino como parte de la 
+representación narrativa y visual que acompaña la canción.
 
-De igual manera, dentro de la industria, la relevancia que adquiere el 
-proyecto se relaciona con la creciente necesidad de diseñar experiencias 
-inmersivas que no sean estáticas, sino capaces de responder al usuario de 
-manera contextual \cite{lopes2025closing,huber2021dda}. La revisión 
-sistemática de Lopes et al. señala que los sistemas adaptativos orientados 
-por la experiencia del jugador representan una dirección prometedora para 
-incrementar la personalización y la inmersión en aplicaciones interactivas
-\cite{lopes2025closing}. Las investigaciones sobre evaluación en VR también 
-reportan que constructos como presencia, experiencia de usuario y mareos 
-virtuales constituyen dimensiones centrales para valorar la calidad de una 
-experiencia inmersiva, y que su análisis suele beneficiarse de la 
-combinación entre métricas objetivas y herramientas subjetivas de 
-evaluación \cite{wang2025presence,bareisyte2024questionnaires}. De la misma 
-manera, se ha documentado que el \textit{feedback} visual y háptico puede contribuir 
-positivamente a la sensación de presencia, mientras que la carga de tareas 
-y las exigencias impuestas al usuario pueden influir en el nivel de malestar 
-o mareos virtuales \cite{sepich2022workload,gibbs2022feedback}. Por ello, 
-el proyecto no solo resulta importante por su componente técnico, sino 
-también por su potencial para explorar cómo la adaptación dinámica puede 
-incidir en la calidad de la experiencia inmersiva.
+El desarrollo completo de la experiencia se distribuye entre dos trabajos 
+complementarios. El presente trabajo comprende el diseño e implementación 
+de tres de los seis minijuegos, correspondientes a Jeremy, Juan Andrés y 
+Shipi, además del desarrollo del sistema global de interacción adaptativa 
+que registra y analiza el desempeño del jugador y modifica la dificultad 
+de los seis minijuegos. Los tres minijuegos restantes y los componentes
+relacionados con la coordinación global de la experiencia se desarrollan 
+en el trabajo complementario \textit{Implementación de un sistema de 
+secuenciación usando la Arquitectura Dirigida por Eventos en un 
+videoclip musical en realidad virtual para analizar la percepción de 
+presencia mediante el I-Group Presence Questionnaire}, realizado por 
+Ángela Rosana García Donis. Sin embargo, lo desarrollado en dicho trabajo
+se integra al mismo mecanismo de métricas y adaptación para que el DDA 
+pueda operar sobre la experiencia completa.
 
-Como antecedentes, se han desarrollado diferentes propuestas que demuestran 
-la viabilidad de utilizar información observable del jugador para modificar 
-una experiencia interactiva durante su ejecución. Algunos sistemas han 
-construido modelos a partir del comportamiento registrado durante la partida
-para seleccionar modificaciones orientadas a mejorar la experiencia estimada
-del usuario \cite{yannakakis2009adaptation}. Otros trabajos han considerado 
-la dificultad como un fenómeno temporal, analizando tendencias a lo largo de
-varias interacciones antes de decidir si el desafío debe incrementarse, 
-mantenerse o reducirse \cite{zook2012temporal,xue2017dda}. Dentro del contexto específico de VR, también se han implementado mecanismos de ajuste
-dinámico capaces de modificar la estructura y complejidad de las tareas de acuerdo con
-información obtenida del usuario \cite{huber2021dda}. Estas aproximaciones 
-evidencian que el desempeño del jugador puede utilizarse como una variable 
-dinámica y no únicamente como un resultado evaluado al finalizar una sesión. 
-También muestran que la adaptación en VR puede intervenir directamente sobre 
-variables del \textit{gameplay} y no limitarse a niveles generales de 
-dificultad. Paralelamente, los videojuegos musicales han desarrollado 
-distintas formas de integrar la música con las acciones del jugador, 
-utilizando elementos sonoros y temporales como parte de las propias reglas 
-de interacción \cite{pichlmair2007sound}. Sin embargo, la integración 
-conjunta de una experiencia musical en VR con un sistema que registre y 
-modifique parámetros del \textit{gameplay} en tiempo real representa una 
-convergencia menos desarrollada.
+La adaptación dinámica resulta relevante en este contexto porque una 
+misma configuración de dificultad no necesariamente produce condiciones 
+de interacción apropiadas para todos los usuarios. Investigaciones sobre 
+adaptación en videojuegos señalan que todavía existe una brecha entre la 
+captura de información del jugador, la interpretación de su 
+comportamiento y la aplicación de modificaciones concretas durante la 
+ejecución \cite{lopes2025closing}. De igual manera, trabajos sobre 
+ajuste dinámico de dificultad en VR muestran que la adaptación puede 
+modificar aspectos como la velocidad, la complejidad o la estructura de 
+una actividad a partir del desempeño observado \cite{huber2021dda}. 
+Estas características permiten plantear un sistema que responda a 
+variaciones del jugador sin limitar la dificultad a una configuración 
+seleccionada antes de comenzar la experiencia.
 
-El proyecto se desarrolla en un lapso de cinco meses y está orientado a la 
-construcción de un prototipo académico funcional en Unity, utilizando 
-Blender para la creación de algunos recursos tridimensionales. El desarrollo
-se enfoca en la interacción base en VR, el registro de métricas de desempeño, 
-el modelado de estados de interacción y la adaptación dinámica del gameplay.
-Para ello, se consideran las siguientes métricas: errores, tiempo de 
-reacción, precisión y frecuencia de interacción. Estas métricas permiten 
-observar tendencias en el comportamiento del jugador durante la ejecución de
-la experiencia. A partir de ellas, el sistema utilizará estados discretos como 
-representaciones computacionales del comportamiento observado y podrá 
-modificar parámetros directamente relacionados con el \textit{gameplay}, 
-principalmente velocidad, cantidad de objetos y complejidad de las tareas. 
-Estos estados no pretenden construir diagnósticos psicológicos o clínicos, 
-sino abstracciones operativas orientadas a la toma de decisiones dentro del 
-sistema adaptativo.
+Este problema adquiere una consideración adicional al tratarse de una 
+experiencia musical. Los videojuegos musicales pueden incorporar 
+elementos sonoros y temporales directamente dentro de las reglas de 
+interacción, haciendo que la música determine cuándo y cómo participa el 
+jugador \cite{pichlmair2007sound}. Sin embargo, una exigencia excesiva 
+del \textit{gameplay} puede desplazar la atención hacia el cumplimiento 
+de objetivos, mientras que una actividad con poca exigencia puede reducir 
+el involucramiento. Por esta razón, el sistema desarrollado busca 
+modificar las condiciones de interacción de acuerdo con el 
+comportamiento reciente del jugador sin separar las mecánicas del flujo 
+musical de la experiencia.
 
-El alcance contempla también los mecanismos necesarios para producir y 
-registrar dichas interacciones, entre ellos entrada mediante controles, 
-detección de colisiones, reglas de juego y retroalimentación visual y háptica. 
-Por otra parte, quedan fuera del desarrollo los componentes relacionados con
-la secuenciación temporal global del videoclip, la administración general
-del tiempo de la canción, la activación global de escenas, la sincronización
-audiovisual general y la persistencia del progreso. Estos elementos podrán 
-comunicarse con el sistema adaptativo, pero no forman parte del mecanismo de 
-medición, modelado y ajuste desarrollado en este trabajo. Asimismo, se 
-excluyen la comercialización del producto final y cualquier validación 
-clínica de estados cognitivos complejos.
+El sistema implementado registra resultados de interacción durante la 
+ejecución y utiliza esta información para construir una representación 
+operacional del comportamiento del jugador. A partir de las 
+interacciones recientes, el usuario puede ser clasificado en estados 
+como \textit{idle}, \textit{engaged}, \textit{overloaded} y 
+\textit{transitioning}, utilizados exclusivamente como categorías 
+computacionales para la toma de decisiones y no como diagnósticos 
+psicológicos. El sistema de dificultad dinámica adaptativa 
+(DDA, por sus siglas en inglés) utiliza esta información para 
+seleccionar entre tres niveles de dificultad y modificar parámetros 
+específicos de los minijuegos, como la velocidad, la cantidad de 
+objetivos, la frecuencia de aparición o la complejidad de las acciones 
+solicitadas.
 
-Las pruebas realizadas con 34 participantes generan 5048 registros de 
-interacción distribuidos entre los seis minijuegos de la experiencia y 
-muestran que el sistema es capaz de registrar diferencias de desempeño, 
-representar cambios mediante estados operativos y modificar la 
-dificultad durante la ejecución. El sistema de adapatación dinámica de 
-dificultad (DDA, por sus siglas en inglés) realiza 216 cambios de 
-dificultad y, entre los ajustes que permiten comparar cinco 
-interacciones antes y después, las reducciones presentan un aumento 
-promedio en la tasa de éxito de 34.71\% a 62.06\%, mientras que los 
-aumentos de dificultad producen una reducción de 91.30\% a 60.00\%, 
-evidenciando un cambio observable en la exigencia de las actividades. 
-En la evaluación subjetiva, el 67.65\% de los participantes reporta 
-niveles altos de atención a la canción, el 96.97\% de las respuestas 
-válidas califica la diversión con valores de 4 o 5 y el 73.53\% indica 
-sentirse nada o ligeramente abrumado. Estos resultados respaldan el 
-funcionamiento del sistema de interacción adaptativa, aunque no permiten 
-atribuir directamente las valoraciones subjetivas al DDA.
+La implementación se realiza en Unity 6 y utiliza un Meta Quest 2 como 
+dispositivo de ejecución y prueba. También se utiliza Blender como herramienta
+para la creación o modificación de algunos de los elementos visuales.
+El alcance incluye la interacción mediante controladores, detección de 
+colisiones, reglas específicas de los minijuegos, retroalimentación 
+visual y háptica, registro de métricas, modelado de estados y adaptación 
+dinámica. Los componentes relacionados con la secuenciación global del 
+videoclip, la administración general del tiempo de la canción y la 
+coordinación audiovisual global corresponden al trabajo complementario y 
+no forman parte del mecanismo de medición y adaptación desarrollado en 
+este documento.
 
+Las pruebas se realizan con 34 participantes y generan 5048 registros de 
+interacción distribuidos entre los seis minijuegos. Durante las sesiones, 
+el DDA efectúa 216 modificaciones de dificultad y los cambios 
+analizables muestran una respuesta observable en el desempeño: después de 
+una reducción, la tasa de éxito aumenta en promedio de 34.71\% a 62.06\%, 
+mientras que después de un aumento disminuye de 91.30\% a 60.00\%. En la 
+evaluación subjetiva, el 67.65\% de los participantes reporta niveles 
+altos de atención a la canción, el 96.97\% de las respuestas válidas 
+califica la diversión con valores de 4 o 5 y el 73.53\% indica sentirse 
+nada o ligeramente abrumado; estos resultados describen la experiencia 
+con el sistema adaptativo activo, aunque no permiten atribuir 
+causalmente estas valoraciones al DDA.
