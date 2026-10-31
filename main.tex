@@ -26,6 +26,7 @@
 \usepackage{array}
 \usepackage{xfp}
 \usepackage{subcaption}
+\usepackage[nottoc]{tocbibind}
 
 % Configuraciones iniciales
 \bibliographystyle{IEEEtran}
@@ -56,6 +57,25 @@
 \setlength{\LTright}{\fill}
 \setlength{\tabcolsep}{4pt}
 \renewcommand{\arraystretch}{1.15}
+\renewcommand{\bibname}{Bibliografía}
+\makeatletter
+\renewenvironment{thebibliography}[1]
+     {\chapter{\bibname}%
+      \@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}%
+      \list{\@biblabel{\@arabic\c@enumiv}}%
+           {\settowidth\labelwidth{\@biblabel{#1}}%
+            \leftmargin\labelwidth
+            \advance\leftmargin\labelsep
+            \@openbib@code
+            \usecounter{enumiv}%
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+      \sloppy\clubpenalty4000\widowpenalty4000%
+      \sfcode`\.\@m}
+     {\def\@noitemerr
+       {\@latex@warning{Empty `thebibliography' environment}}%
+      \endlist}
+\makeatother
 
 
 
@@ -71,6 +91,17 @@
 % Indice
 \tableofcontents
 
+% Lista de figuras
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Lista de figuras}
+\listoffigures
+
+% Lista de cuadros
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Lista de cuadros}
+\listoftables
 
 % Resumen
 \clearpage
@@ -117,7 +148,6 @@
 
 % Bibliografía
 \clearpage
-\addcontentsline{toc}{chapter}{Bibliografía}
 \bibliography{referencias}
 
 % Anexos
