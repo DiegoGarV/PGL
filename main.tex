@@ -26,7 +26,6 @@
 \usepackage{array}
 \usepackage{xfp}
 \usepackage{subcaption}
-\usepackage[nottoc]{tocbibind}
 
 % Configuraciones iniciales
 \bibliographystyle{IEEEtran}
@@ -76,13 +75,33 @@
        {\@latex@warning{Empty `thebibliography' environment}}%
       \endlist}
 \makeatother
+\newcommand{\paginaEnBlanco}{%
+    \clearpage
+    \thispagestyle{empty}
+    \null
+    \clearpage
+}
+\input{datosEstudiante}
 
 
 
 \begin{document}
 
-% Carátula
+% Carátula y páginas de guarda
 \input{caratula}
+
+\paginaEnBlanco
+\paginaEnBlanco
+\paginaEnBlanco
+
+\input{caratula}
+
+\paginaEnBlanco
+
+% Firmas de examinador y asesor
+\input{firmas}
+
+\paginaEnBlanco
 
 % Páginas preliminares
 \pagenumbering{roman}
@@ -93,12 +112,14 @@
 
 % Lista de figuras
 \clearpage
+\renewcommand{\listfigurename}{Lista de figuras}
 \phantomsection
 \addcontentsline{toc}{chapter}{Lista de figuras}
 \listoffigures
 
 % Lista de cuadros
 \clearpage
+\renewcommand{\listtablename}{Lista de cuadros}
 \phantomsection
 \addcontentsline{toc}{chapter}{Lista de cuadros}
 \listoftables
