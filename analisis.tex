@@ -53,23 +53,56 @@ diferencias de desempeño, condición necesaria para alimentar un sistema de
 adaptación basado en comportamiento.
 
 \section{Modelado de estados y comportamiento del DDA}
-En el cuadro \ref{tab:cantidadEstados} se muestra que el modelo no permanece
-en una única clasificación durante las sesiones. En los registros aparecen 
-225 entradas a \textit{idle}, 357 a \textit{engaged} y 212 a \textit{overloaded},
-lo que indica que las reglas implementadas permiten representar variaciones del
-comportamiento durante la experiencia. Estos valores corresponden a transiciones
-registradas y no al tiempo total que el participante permanece en cada estado,
-por lo que su interpretación se limita a la frecuencia con la que el modelo cambia
-su clasificación.
+En el cuadro \ref{tab:cantidadEstados} se observa que el modelo no 
+permanece en una única clasificación durante las sesiones. En los 
+registros aparecen 225 entradas a \textit{idle}, 357 a \textit{engaged} y 
+212 a \textit{overloaded}, mostrando que un mismo participante puede 
+atravesar diferentes condiciones de interacción durante la experiencia. 
+Sin embargo, la cantidad de transiciones por sí sola no indica cuánto 
+tiempo permanece el jugador en cada estado, por lo que los cuadros 
+\ref{tab:tiempoPorEstado} y \ref{tab:tiempoContinuoPorEstado} 
+complementan esta información mediante la duración acumulada y la 
+duración máxima continua de cada clasificación.
 
-La presencia de los tres estados operativos entre los participantes resulta
-coherente con el propósito del modelado de sintetizar tendencias recientes
-en lugar de representar una característica permanente del usuario. Los modelos
-temporales de jugador consideran que el desempeño puede cambiar conforme el usuarioa
-aprende una mecánica, encuentra nuevas condiciones o presenta variaciones durante 
-una misma sesión. En este caso el uso de una ventana reciente permite que una 
-misma persona pase entre períodos de actividad regular, inactividad y acumulación
-de errores sin mantener una clasificación fija para toda la experiencia.
+La figura \ref{fig:graficaTiempoAcumulado} muestra que \textit{engaged} 
+concentra la mayor mediana de tiempo acumulado en la mayoría de los 
+minijuegos. Los valores alcanzan aproximadamente 32.41 segundos en Alex, 
+31.97 en Joaquin, 26.43 en Danniel, 21.94 en Shipi y 17.59 en Jeremy. 
+Juan Andrés presenta un comportamiento distinto, con una mediana de 13.19 
+segundos en \textit{engaged} y 13.80 segundos en \textit{overloaded}. 
+Además, el estado \textit{overloaded} presenta medianas prácticamente 
+nulas en Alex, Joaquin y Jeremy, mientras que alcanza aproximadamente 
+5.11 segundos en Shipi y 2.14 en Danniel. Estas diferencias muestran que 
+la frecuencia con la que aparece un estado y el tiempo que permanece 
+activo representan aspectos distintos del comportamiento registrado.
+
+La duración máxima continua presentada en la figura \ref{fig:graficaTiempoContinuo} 
+permite distinguir si esos períodos se concentran en una sola permanencia 
+prolongada o se distribuyen entre varias transiciones. En Joaquin, por 
+ejemplo, la mediana de tiempo acumulado en \textit{engaged} es de 
+aproximadamente 31.97 segundos y la duración continua máxima alcanza 30.99 
+segundos, lo que muestra que gran parte de ese tiempo corresponde a un 
+período sostenido. En Alex ocurre una diferencia mayor, ya que los 32.41 
+segundos acumulados en \textit{engaged} se acompañan de una duración 
+continua máxima de aproximadamente 13.98 segundos, indicando que ese 
+tiempo se distribuye entre varios intervalos. Para \textit{overloaded}, 
+Juan Andrés presenta una mediana acumulada de 13.80 segundos y una 
+duración continua máxima de 11.27 segundos, mientras que en Shipi ambos 
+valores se mantienen cercanos a 5.11 segundos, lo que muestra que los 
+períodos de bajo desempeño detectados en estos minijuegos pueden 
+mantenerse durante intervalos continuos y no únicamente aparecer como 
+transiciones breves.
+
+El estado \textit{idle} también presenta diferencias entre actividades. 
+La mediana de tiempo acumulado es cercana a cero en Alex y Jeremy, 
+mientras que en Danniel alcanza aproximadamente 7.40 segundos y su 
+duración continua máxima llega a 6.61 segundos. Esto indica que en este 
+segmento se registran períodos de inactividad más prolongados, aunque 
+los datos no permiten determinar la causa específica de dicha ausencia de 
+interacción. En conjunto, las medidas temporales permiten interpretar los 
+estados como condiciones que pueden variar tanto en frecuencia como en 
+persistencia, proporcionando una representación más completa del 
+comportamiento reciente que la cantidad de transiciones por sí sola.
 
 Esta variabilidad se refleja en las decisiones del DDA. El cuadro 
 \ref{tab:cambiosPorDificultad} contiene un total de 216 modificaciones entre los 34
@@ -92,7 +125,7 @@ la figura \ref{fig:rendimientoDDA}, donde se compara el desempeño
 inmediato antes y después de los ajustes. En las 68 reducciones de dificultad
 que cumplen las condiciones para realizar esta comparación, la tasa de
 éxito pasa en promedio de 34.71\% a 62.06\%, lo que corresponde a un aumento de 27.35
-puntos porcentiales. 53 de los 68 casos presentan una mejora, 12 premanecen
+puntos porcentuales. 53 de los 68 casos presentan una mejora, 12 premanecen
 sin cambio y 3 disminuyen. En sentido contrario, los 69 aumentos analizables
 parten de una tasa promedio de 91.30\% y luego presentan 60.00\% con una disminución 
 media de 31.30 puntos porcentuales. 52 casos reducen de su desempeño, 16 permanecen sin cambio
