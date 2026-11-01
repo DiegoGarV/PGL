@@ -58,7 +58,7 @@ modificar la dificultad.
 
 El DDA utilizó tres niveles globales de dificultad: fácil, normal y 
 difícil. La experiencia comenzó en dificultad normal y el nivel se 
-mantuvo mantuvo entre minijuegos, mientras que la evidencia reciente 
+mantuvo entre minijuegos, mientras que la evidencia reciente 
 utilizada para evaluar el desempeño se reinició al cambiar de actividad
 o después de aplicar una modificación de dificultad. De esta forma, el 
 nivel alcanzado por el jugador se conservó a lo largo de la experiencia
@@ -75,17 +75,20 @@ objetivos, su cantidad simultanea, el tiempo disponible para responder,
 la velocidad de desplazamiento o la incorporación de condiciones
 adicionales de interacción.
 
-Este diseño permitió mantener separada la lógica encargada de decidir 
-cuándo modificar la dificultad de la lógica que determinaba cómo debía 
-cambiar cada minijuego. A su vez, permitió integrar el DDA con los tres
-minijuegos desarrollados en este trabajo y con los tres minijuegos de
-minijuegos restantes de la experiencia sin requerir una implementación 
-diferente del DDA para cada uno.
+Este funcionamiento puede observarse mediante un minijuego individual. 
+En el caso de Jeremy, la acción realizada por el jugador se evalúa y se 
+transforma en un resultado de interacción que es procesado por los 
+sistemas de métricas, estado del jugador y dificultad. Si el DDA 
+determina que debe modificarse el nivel, el minijuego recibe el nuevo 
+valor y aplica el perfil correspondiente, alterando parámetros como la 
+frecuencia de aparición de enemigos, su velocidad y la probabilidad de 
+requerir una mano específica. La figura \ref{fig:flujoDDA} representa 
+este ciclo utilizando dicho minijuego como ejemplo.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{imagenes/flujoDDA}
-    \caption{Flujo completo de funcionamiento del sistema de interacción dinámico.}
+    \includegraphics[width=0.7\textwidth]{imagenes/interactionCicle.png}
+    \caption{Ejemplo del flujo de interacción y adaptación utilizando el minijuego de Jeremy.}
     \label{fig:flujoDDA}
 \end{figure}
 
@@ -122,7 +125,7 @@ inicialmente como una escena independiente antes de incorporarse a la
 experiencia completa. Esta separación permitió ejecutar únicamente los
 componentes necesarios para una actividad determinada y realizar 
 modificaciones sin depender del resto de los segmentos del videoclip.
-Los elementos compartido se organizaron de manera que pudieran usarse
+Los elementos compartidos se organizaron de manera que pudieran usarse
 luego dentro de la experiencia integrada, incluyendo los mecanismos de 
 interacción, retroalimentación háptica y comunicación mediante eventos.
 
@@ -180,7 +183,9 @@ el registro de métricas y el sistema DDA.
 Como parte de este trabajo se desarrollaron tres de los seis minijuegos
 que conforman la experiencia: Shipi, Juan Andrés y Jeremy, nombrados tras
 los miembros de la banda \textit{Los Skeepers} al que representan. Cada
-actividad se diseño alrededor de una acción física diferente con el
+actividad representa, mediante acciones cotidianas o responsabilidades, 
+distintos aspectos de la transición hacia la vida adulta. Cada una se 
+diseño alrededor de una acción física diferente con el
 proposito de aprovechar el movimiento de los controladores y producir
 resultados de interacción que pudieran ser evaluados por los sistemas
 comunes de métricas y adaptación. Aunque las tres mecánicas presentan
@@ -248,7 +253,7 @@ musical. Para lograrlo, el sistema calcula el tiempo necesario para
 recorrer la distancia desde el punto de aparición utilizando la velocidad
 correspondiente y programa anticipadamente la generación del enemigo. Los
 enemigos se gestionan mediante un sistema de reutilización de objetos para permitir
-la aparición continua de elementos sin dependerr de instanciaciones repetidas.
+la aparición continua de elementos sin depender de instanciaciones repetidas.
 
 Cada enemigo presenta una indicación visual de la dirección en la que debe
 realizarse el corte y, cuando corresponde, la mano con la que debe ejecutarse. Las direcciones
@@ -266,15 +271,20 @@ la acción se registra como omitida y el objeto regresa al sistema de reutilizac
     \label{fig:enemigoJeremy}
 \end{figure}
 
-Para reconocer los cortes se calculó continuamente la velocidad de cada espada a partir de su desplazamiento
-entre cuadros. Una colisión solo se considera un corte cuando la magnitud de la velocidad
-supera un valor mínimo, evitando que un contacto estático o un movimiento muy lento
-resuelva accidentalmente un enemigo. La dirección se obtiene proyectando el
-movimiento respecto a los ejes horizontales y verticales de una referencia
-asociada a la vista del jugador, y posteriormente se compara con la indicación
-almacenada por el enemigo. El resultado se registra como exitoso cuando
-coinciden las condiciones de dirección y mano, y como fallido cuando alguna
-de ellas no corresponde con la acción solicitada.
+Para reconocer los cortes se calculó continuamente la velocidad de cada 
+espada a partir de su desplazamiento entre cuadros. Una colisión solo 
+se considera un corte cuando la magnitud de la velocidad supera un valor 
+mínimo de 0.5 unidades por segundo, evitando que un contacto estático o 
+un movimiento muy lento resuelva accidentalmente un enemigo. La 
+dirección se obtiene proyectando el movimiento respecto a los ejes 
+horizontales y verticales de una referencia asociada a la vista del 
+jugador y seleccionando el eje con mayor componente absoluta. Este 
+criterio introduce un margen implícito de aproximadamente 45 grados 
+respecto a cada dirección cardinal, por lo que el movimiento no 
+necesita ser perfectamente horizontal o vertical para ser reconocido. 
+El resultado se registra como exitoso cuando coinciden las condiciones 
+de dirección y mano, y como fallido cuando alguna de ellas no 
+corresponde con la acción solicitada.
 
 La dificultad de esta actividad se estructuró mediante perfiles que modifican
 la frecuencia de aparición de los enemigos, su velocidad de movimiento y
@@ -406,14 +416,25 @@ La detección inicial de cada acción permaneció bajo la responsabilidad de
 la mecánica correspondiente, debido a que las condiciones necesarias para
 reconocer un corte, un golpe, un disparo o un gesto de \textit{grooming}
 eran diferentes. Sin embargo, una vez evaluada la acción todos los minijuegos
-utilizaron una misma representación para comunicar su resultado, lo que permitió
-desacoplar la lógica particular de las actividades de los sistemas de métricas,
-estados y dificultad. La detección física se realizó principalmente mediante colisionadores asociado
-con las herramientas y los objetos interactivos, complementados con condiciones
-específicas para determinar cuándo un contacto debía considerares una acción
-válida. También se incorporaron mecanismos para marcar un objetivo como resuelto
-después de una interacción válida, evitando que una misma acción física produjera varios 
-resultados sobre el mismo objeto.
+utilizaron una misma representación mediante \texttt{InteractionResult}, 
+al cual se suscribieron los sistemas encargados del registro de métricas, 
+modelado del jugador y adaptación de dificultad. Como se muestra en la 
+figura \ref{fig:canalInteraccion}, esta organización permitió desacoplar la lógica 
+particular de cada actividad de los sistemas que posteriormente procesan 
+la información. La detección física se realizó principalmente mediante 
+colisionadores asociados con las herramientas y los objetos interactivos, 
+complementados con condiciones específicas para determinar cuándo un 
+contacto debía considerares una acción válida. También se incorporaron 
+mecanismos para marcar un objetivo como resuelto después de una 
+interacción válida, evitando que una misma acción física produjera 
+varios resultados sobre el mismo objeto.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{imagenes/interactionRegistered}
+    \caption{Arquitectura de comunicación de resultados de interacción mediante el canal común \texttt{InteractionRegistered}.}
+    \label{fig:canalInteraccion}
+\end{figure}
 
 Las interacciones se clasificaron utilizando tres resultados principales: acierto, error y omisión.
 El primero representa una acción ejecutada de acuerdo con las condiciones definidas por el minijuego,
@@ -433,25 +454,19 @@ Los distintos tipos de acción se diferenciaron dentro de esta estructura
 para conservar información sobre el origen de cada evento sin requerir 
 formatos de registro independientes. Entre los tipos utilizados se encuentran
 los cortes con espada, cortes de alimentos, alimentos que se deben dejar pasar,
-gestos de \textit{grooming}, disparos, golpes de guitarra, contactos y golpes con martillo.
+gestos de \textit{grooming}, disparos, golpes de guitarra, contactos y golpes con martillo,
+como se puede ver en el cuadro \ref{tab:metricasInteracciones}.
 Esta identificación permitió que los sistemas globales procesaran de manera
 homogénea los resultados y, al mismo tiempo, que fuera posible filtrar
 únicamente las acciones relevantes para el análisis de cada minijuego.
 
-Una vez construido el resultado, estee se publica mediante un canal de eventos basado en
+Una vez construido el resultado, este se publica mediante un canal de eventos basado en
 \texttt{ScriptableObjects}. Los sistemas que necesitan conocer las acciones del jugador
 se suscriben al mismo canal, por lo que el minijuego no requiere referencias
 directas hacia el sistema de métricas, el modelo de estados, la lógica de dificultad ni
 del sistema de puntuación. Esta organización permitió que los seis minijuegos utilizaran
 la misma infraestructura y que luego pudieran modificarse los consumidores de la información sin alterar
 la lógica encargada de detectar cada interacción.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.7\textwidth]{imagenes/interactionToSystems.png}
-    \caption{Diagrama representativo de la comunicación de las interacciones con los demás sistemas.}
-    \label{fig:interactionEvent}
-\end{figure}
 
 La retroalimentación se mantuvo separada de la evaluación lógica de la
 acción para permitir que cada mecánica utilizara las respuestas apropiadas
@@ -496,7 +511,7 @@ medir una respuesta. En la implementación final esta métrica se utilizó en el
 de Shipi, donde se registró el intervalo entre la entrada del alimento a la zona de corte
 y el momento en que el jugador realizó el corte. La precisión también se representó mediante campos opcionales para adaptarse
 a las características de cada actividad. En los minijuegos desarrollados, la medida
-principal fue la precisión de dirección y en el uso correcto de una mano espcífica.
+principal fue la precisión de dirección y en el uso correcto de una mano específica.
 
 % Métricas registradas en cada interacción de los minijuegos.
 \begin{table}[H]
@@ -540,25 +555,39 @@ principal fue la precisión de dirección y en el uso correcto de una mano espc�
     \end{tabularx}
 \end{table}
 
-La frecuencia de interacción se obtuvo a partir de la secuencia temporal
-de los eventos registrados en lugar de almacenarse como un valor independiente
-para cada acción. Cada línea del registro incluye la fecha y hora exactas en que
-se produce el evento, por lo que la cantidad de interacciones dentro de un 
-intervalo determinado puede obtenerse directamente a partir de estas marcas
-temporales. Esta decisión permitió conservar los datos elementales de la sesión y
-calcular posteriormente frecuencias para diferentes intervalos sin limitar el 
+La frecuencia de interacción se obtuvo a partir de la secuencia temporal 
+de los eventos almacenados en el archivo de métricas, en lugar de 
+registrarse como un valor independiente para cada acción. Cada 
+interacción se escribió directamente como una nueva línea en un archivo 
+de texto e incluyó la fecha y hora exactas en que se produjo el evento, 
+por lo que la cantidad de interacciones dentro de un intervalo 
+determinado pudo calcularse posteriormente a partir de estas marcas 
+temporales. Esta decisión permitió conservar los datos elementales de la 
+sesión y obtener frecuencias para diferentes intervalos sin limitar el 
 análisis a una única ventana establecida durante la ejecución.
 
-El almacenamiento permanente de las métricas se realizó mediante el componente
-\texttt{MetricsLogger}. Antes de iniciar las pruebas se asignó a cada participante un
-identificador que se incorporó al nombre del archivo junto con la fecha
-y hora de creación, permitiendo mantener separadas las sesiones y relacionarlas
-posteriormente con las encuestas correspondientes. Además de las interacciones individuales, 
-el mismo archivo registró los cambios de estado del jugador y las 
-modificaciones de dificultad realizadas durante la sesión, los cuales se 
-explicarán más adelante. Al finalizar la sesión también se añadió un 
-resumen acumulado con la cantidad total de interacciones, aciertos, fallos, omisiones,
-tasa de éxito y los promedios correspondientes a las métricas válidas de cada interacción.
+El almacenamiento permanente se realizó mediante el componente 
+\texttt{MetricsLogger}, que creó para cada sesión un archivo 
+\texttt{.txt} dentro de la ruta proporcionada por \\ \texttt{Application.persistentDataPath}. 
+El nombre del archivo incorporó el identificador asignado al participante 
+y la fecha y hora de creación, mientras que cada interacción, cambio de 
+estado y modificación de dificultad se añadió directamente al mismo 
+registro conforme ocurrió. Este mecanismo funcionó tanto durante la 
+ejecución desde el Editor de Unity como en la aplicación compilada para 
+Meta Quest 2, ya que \texttt{persistentDataPath} utiliza una ubicación 
+de almacenamiento persistente correspondiente a la plataforma de 
+ejecución y no requiere que el visor permanezca conectado a la 
+computadora.
+
+Al finalizar la experiencia, \texttt{MetricsLogger} añadió al archivo 
+un resumen acumulado con la cantidad total de interacciones, aciertos, 
+fallos, omisiones, tasa de éxito y los promedios correspondientes a las 
+métricas válidas. Posteriormente, el componente \texttt{MetricsUploader} 
+intentó enviar el registro al almacenamiento remoto configurado para las 
+pruebas. Si el envío no podía completarse, el archivo permanecía 
+guardado localmente y podía volver a intentarse en una ejecución 
+posterior, evitando que la falta temporal de conexión produjera la 
+pérdida de los datos registrados.
 
 \begin{figure}[H]
     \centering
@@ -573,7 +602,7 @@ A partir de los resultados de interacción se implementó el componente\\
 del comportamiento reciente del jugador. Este sistema se suscribe directamente
 al mismo canal de eventos utilizado por el sistema de métricas y procesa las
 interacciones comforme se producen durante la experiencia. En lugar de utilizar
-los calores acumulados de toda la sesión, mantiene una ventana independiente
+los valores acumulados de toda la sesión, mantiene una ventana independiente
 con un máximo de ocho resultados recientes, permitiendo que la clasificación
 responda principalmente al comportamiento observado durante el minijuego actual.
 
@@ -603,7 +632,7 @@ puede analizar si el desempeño reciente justifica un incremento de dificultad.
 La entrada al estado \textit{overloaded} necesita al menos cinco resultados recientes, de los cuales
 un mínimo de dos deben correspnder a acciones realizadas directamente por el jugador.
 Una vez alcanzada esta cantidad de evidencia, el estado se activa cuando los
-resultados de falla y omisión representan al menos el 60\% de la venta evaluada o cuando se acumulean tres
+resultados de falla y omisión representan al menos el 60\% de la ventana evaluada o cuando se acumulean tres
 errores consecutivos. El uso combinado de una proporción de errores y una
 secuencia consecutiva permite reconocer tanto un período general de bajo desempeño,como una
 sucesión inmediata de dificultades sin depender de un único fallo aislado. Cuando existe una 
@@ -612,7 +641,18 @@ un máximo del 30\% y no debe existir una secuencia activa de errores
 consecutivos para regresar a \textit{Engaged}. Esta diferencia entre el 
 60\% requerido para ingresar y el 30\% utilizado para salir introduce 
 histéresis entre ambas condiciones y evita que pequeñas variaciones 
-alrededor de un mismo límite produzcan cambios continuos entre estados.
+alrededor de un mismo límite produzcan cambios continuos entre estados. 
+La figura \ref{fig:playerStateFlow} muestra cómo \texttt{PlayerStateSystem} 
+utiliza la evidencia reciente para determinar transiciones entre los 
+estados operativos y comunicar los cambios a los componentes que 
+dependen de esta información.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/playerStateCicle.png}
+    \caption{Flujo de evaluación y comunicación de cambios de estado en el \texttt{PlayerStateSystem}.}
+    \label{fig:playerStateFlow}
+\end{figure}
 
 \textit{Transitioning} se utilizó como un estado de control durante 
 períodos en los que la experiencia no debía interpretar las 
@@ -686,10 +726,20 @@ descartan para el modelado, lo que evita que objetos programados antes
 de una modificación introduzcan información correspondiente al nivel 
 anterior.
 
+Las condiciones descritas anteriormente se integraron dentro de un mismo 
+proceso de evaluación para determinar si la dificultad debía mantenerse, 
+aumentarse o reducirse. La figura \ref{fig:difChangeCicle} resume este 
+flujo de decisión, mostrando cómo \texttt{DynamicDifficultySystem} 
+combina el estado actual del jugador con la evidencia de desempeño 
+reciente y los límites del nivel vigente. El diagrama también representa 
+las acciones realizadas después de una modificación efectiva, incluyendo 
+la publicación del nuevo nivel y el reinicio de la evidencia utilizada 
+para la evaluación.
+
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{imagenes/DDAcicle}
-    \caption{Ciclo completo de adaptación y cambio de dificultad.}
+    \includegraphics[width=0.7\textwidth]{imagenes/DDAcicle}
+    \caption{Flujo de evaluación y modificación de dificultad del sistema DDA.}
     \label{fig:difChangeCicle}
 \end{figure}
 
