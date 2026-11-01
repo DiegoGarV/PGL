@@ -75,21 +75,21 @@ objetivos, su cantidad simultanea, el tiempo disponible para responder,
 la velocidad de desplazamiento o la incorporación de condiciones
 adicionales de interacción.
 
-Este funcionamiento puede observarse mediante un minijuego individual. 
-En el caso de Jeremy, la acción realizada por el jugador se evalúa y se 
-transforma en un resultado de interacción que es procesado por los 
-sistemas de métricas, estado del jugador y dificultad. Si el DDA 
-determina que debe modificarse el nivel, el minijuego recibe el nuevo 
-valor y aplica el perfil correspondiente, alterando parámetros como la 
-frecuencia de aparición de enemigos, su velocidad y la probabilidad de 
-requerir una mano específica. La figura \ref{fig:flujoDDA} representa 
-este ciclo utilizando dicho minijuego como ejemplo.
+La organización general del sistema se apoyó en una comunicación basada 
+en eventos para mantener separadas las mecánicas particulares de los 
+componentes encargados de interpretar sus resultados. Como se muestra en 
+la figura \ref{fig:canalInteraccion}, los seis minijuegos producen 
+resultados de interacción que se comunican mediante un canal común hacia 
+los sistemas de métricas, modelado del jugador y dificultad dinámica. 
+Esta arquitectura permite que los diferentes sistemas procesen una 
+representación uniforme de las acciones sin depender directamente de la 
+implementación interna de cada minijuego.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{imagenes/interactionCicle.png}
-    \caption{Ejemplo del flujo de interacción y adaptación utilizando el minijuego de Jeremy.}
-    \label{fig:flujoDDA}
+    \includegraphics[width=0.7\textwidth]{imagenes/interactionRegistered}
+    \caption{Arquitectura de comunicación de resultados de interacción con los sistemas de métricas, estados y dificultad.}
+    \label{fig:canalInteraccion}
 \end{figure}
 
 \section{Preparación del entono de desarrollo en VR}
@@ -409,32 +409,23 @@ la que los alimentos avanzan y llegan a la zona de interacción.
 \end{figure}
 
 \section{Implementación del sistema base de interacción}
-Después de establecer las mecánicas principales de los miniuegos, se 
-implementó una estructura común para representar las acciones realizadas
-por el jugador y comunicar sus resultados a los sistemas globales de la experiencia.
-La detección inicial de cada acción permaneció bajo la responsabilidad de
-la mecánica correspondiente, debido a que las condiciones necesarias para
-reconocer un corte, un golpe, un disparo o un gesto de \textit{grooming}
-eran diferentes. Sin embargo, una vez evaluada la acción todos los minijuegos
-utilizaron una misma representación mediante \texttt{InteractionResult}, 
-al cual se suscribieron los sistemas encargados del registro de métricas, 
-modelado del jugador y adaptación de dificultad. Como se muestra en la 
-figura \ref{fig:canalInteraccion}, esta organización permitió desacoplar la lógica 
-particular de cada actividad de los sistemas que posteriormente procesan 
-la información. La detección física se realizó principalmente mediante 
-colisionadores asociados con las herramientas y los objetos interactivos, 
-complementados con condiciones específicas para determinar cuándo un 
-contacto debía considerares una acción válida. También se incorporaron 
-mecanismos para marcar un objetivo como resuelto después de una 
-interacción válida, evitando que una misma acción física produjera 
-varios resultados sobre el mismo objeto.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.85\textwidth]{imagenes/interactionRegistered}
-    \caption{Arquitectura de comunicación de resultados de interacción mediante el canal común \texttt{InteractionRegistered}.}
-    \label{fig:canalInteraccion}
-\end{figure}
+Después de establecer las mecánicas principales de los minijuegos, 
+se implementó una estructura común para representar las acciones 
+realizadas por el jugador y comunicar sus resultados a los sistemas 
+globales de la experiencia. La detección inicial de cada acción 
+permaneció bajo la responsabilidad de la mecánica correspondiente, 
+debido a que las condiciones necesarias para reconocer un corte, 
+un golpe, un disparo o un gesto de \textit{grooming} eran diferentes. 
+Sin embargo, una vez evaluada la acción, todos los minijuegos utilizaron 
+la misma representación mediante \texttt{InteractionResult}, permitiendo 
+que resultados producidos por mecánicas diferentes fueran procesados 
+posteriormente de manera uniforme. La detección física se realizó 
+principalmente mediante colisionadores asociados con las herramientas y 
+los objetos interactivos, complementados con condiciones específicas para 
+determinar cuándo un contacto debía considerarse una acción válida. 
+También se incorporaron mecanismos para marcar un objetivo como resuelto 
+después de una interacción válida, evitando que una misma acción física 
+produjera varios resultados sobre el mismo objeto.
 
 Las interacciones se clasificaron utilizando tres resultados principales: acierto, error y omisión.
 El primero representa una acción ejecutada de acuerdo con las condiciones definidas por el minijuego,
@@ -466,7 +457,22 @@ se suscriben al mismo canal, por lo que el minijuego no requiere referencias
 directas hacia el sistema de métricas, el modelo de estados, la lógica de dificultad ni
 del sistema de puntuación. Esta organización permitió que los seis minijuegos utilizaran
 la misma infraestructura y que luego pudieran modificarse los consumidores de la información sin alterar
-la lógica encargada de detectar cada interacción.
+la lógica encargada de detectar cada interacción. Este proceso puede 
+observarse de forma concreta mediante una interacción individual. La 
+figura \ref{fig:flujoInteraccion} utiliza el minijuego de Jeremy como ejemplo 
+para mostrar cómo una acción del jugador se evalúa como exitosa, fallida 
+u omitida, se convierte en un \texttt{InteractionResult} y posteriormente 
+se comunica a los sistemas globales de la experiencia. A partir de este 
+punto, el resultado puede ser utilizado para registrar métricas, 
+actualizar el estado del jugador y proporcionar evidencia al sistema de
+dificultad dinámica.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{imagenes/interactionCicle.png}
+    \caption{Flujo de evaluación y comunicación de una interacción utilizando el minijuego de Jeremy como ejemplo.}
+    \label{fig:flujoInteraccion}
+\end{figure}
 
 La retroalimentación se mantuvo separada de la evaluación lógica de la
 acción para permitir que cada mecánica utilizara las respuestas apropiadas
