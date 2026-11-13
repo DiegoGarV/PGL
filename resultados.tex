@@ -118,6 +118,26 @@ registradas por el sistema.
     \end{tabularx}
 \end{table}
 
+El cuadro \ref{tab:resultadosGlobales} resume las 5048 interacciones 
+registradas durante las pruebas y las distribuye entre los seis 
+minijuegos según su resultado. Alex concentra 2394 interacciones, 
+mientras que Jeremy registra 322; las tasas de éxito globales se 
+encuentran entre 35.80\% en Juan Andres y 71.09\% en Joaquin. 
+Los valores completos de aciertos, errores y omisiones se presentan en el 
+mismo cuadro para cada actividad.
+
+Las métricas temporales y específicas se presentan de forma separada 
+debido a que dependen de las características de cada minijuego. El 
+cuadro \ref{tab:errorTimingMinijuegos} muestra la mediana del error de 
+\textit{timing} promedio, con valores de 0.018 s para Alex, 0.095 s para 
+Joaquin, 0.435 s para Shipi, 1.045 s para Juan Andres, 0.098 s para 
+Danniel y 0.126 s para Jeremy. Por su parte, el cuadro 
+\ref{tab:metricasEspecificas} registra para Shipi un tiempo de reacción 
+promedio de 0.582 s y una precisión de dirección de 0.536, mientras que 
+Juan Andres y Jeremy presentan precisiones de dirección de 0.521 y 0.712 
+y porcentajes de uso de la mano correcta de 73.42\% y 92.98\%, 
+respectivamente. Los campos indicados con guiones corresponden a 
+métricas que no se registran para esa mecánica.
 
 \section{Comportamiento del sistema adaptativo}
 Además de las interacciones, los registros almacenan los estados 
@@ -352,6 +372,26 @@ dificultad permanece sin modificación.
     \end{tabularx}
 \end{table}
 
+Los registros de estados y dificultad permiten contabilizar las 
+modificaciones realizadas durante cada sesión. El cuadro 
+\ref{tab:cantidadEstados} contiene en total 225 entradas a \textit{idle}, 
+357 a \textit{engaged} y 212 a \textit{overloaded}, 
+mientras que el cuadro \ref{tab:cambiosDificultad} registra 216 
+modificaciones de dificultad, correspondientes a 96 aumentos y 120 
+disminuciones. La cantidad total de cambios por participante se 
+encuentra entre 3 y 11 durante la experiencia.
+
+El cuadro \ref{tab:estadosAjustesMinijuegos} resume esta información por 
+minijuego mediante la mediana de entradas a \textit{engaged}, entradas a 
+\textit{overloaded}, aumentos y disminuciones de dificultad. Alex 
+presenta medianas de 3 entradas a \textit{engaged}, 2 a 
+\textit{overloaded}, 1 aumento y 1 disminución, mientras que los demás 
+minijuegos presentan entre 1 y 2 entradas medianas a \textit{engaged} y 
+entre 0 y 1 a \textit{overloaded}. El cuadro \ref{tab:cambiosPorDificultad} 
+separa además las 216 modificaciones según la transición realizada: 43 
+corresponden de fácil a normal, 53 de normal a difícil, 50 de difícil a 
+normal y 70 de normal a fácil.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{imagenes/tiempoAcumuladoPorEstado.png}
@@ -366,6 +406,16 @@ dificultad permanece sin modificación.
     \label{fig:graficaTiempoContinuo}
 \end{figure}
 
+Las figuras \ref{fig:graficaTiempoAcumulado} y \ref{fig:graficaTiempoContinuo} 
+presentan dos medidas temporales de los estados registradas por 
+minijuego. La primera utiliza la mediana del tiempo total acumulado y 
+registra para \textit{engaged}, por ejemplo, 32.41 s en Alex, 31.97 s en 
+Joaquin, 21.94 s en Shipi, 13.19 s en Juan Andres, 26.43 s en Danniel y 
+17.59 s en Jeremy. La segunda utiliza la mediana de la mayor permanencia 
+continua en cada estado, por lo que contabiliza únicamente el intervalo 
+continuo de mayor duración de cada participante en lugar de sumar todas 
+sus apariciones.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{imagenes/distribucionMaxDif.png}
@@ -373,12 +423,28 @@ dificultad permanece sin modificación.
     \label{fig:distribucionMaxDif}
 \end{figure}
 
+La figura \ref{fig:distribucionMaxDif} agrupa a los participantes según 
+la dificultad máxima alcanzada en cada minijuego. De los 34 
+participantes, 20 alcanzan difícil en Alex y 13 en Joaquin, mientras que 
+en Shipi 24 alcanzan como máximo normal. En Juan Andres y Jeremy, 24 
+participantes presentan fácil como dificultad máxima, y en Danniel esta 
+categoría corresponde a 22 participantes; las demás observaciones se 
+distribuyen entre normal y difícil según se muestra en la figura.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{imagenes/rendimientoDDA}
     \caption{Gráfica de dispersión del rendimiento de los participantes luego de un aumento y una disminución de dificultad.}
     \label{fig:rendimientoDDA}
 \end{figure}
+
+La figura \ref{fig:rendimientoDDA} compara la tasa de éxito de cinco 
+interacciones anteriores y cinco posteriores a los cambios de dificultad 
+que disponen de suficientes registros para ambas ventanas. De los 216 
+cambios registrados durante las pruebas, 137 cumplen estas condiciones 
+de comparación, correspondientes a 68 reducciones y 69 aumentos. En las 
+reducciones, la tasa de éxito promedio pasa de 34.71\% antes del cambio 
+a 62.06\% después, mientras que en los aumentos pasa de 91.30\% a 60.00\%.
 
 \section{Percepción de dificultad e interacción}
 La sección de dificultad e interacción de la encuesta recolecta la 
@@ -409,6 +475,15 @@ minijuego identificado como más frustrante.
     \label{fig:nivelAgobio}
 \end{figure}
 
+Las figuras \ref{fig:atencionCancion}, \ref{fig:diversion} y 
+\ref{fig:nivelAgobio} presentan las respuestas relacionadas con la 
+experiencia general. En atención a la canción, 23 de los 34 
+participantes seleccionan valores de 4 o 5 y el promedio es de 3.74 
+sobre 5; para diversión, 32 de las 33 respuestas válidas se encuentran en 
+4 o 5 y el promedio corresponde a 4.42. En cuanto al nivel de agobio, 11 
+participantes seleccionan nada, 14 ligeramente, 8 moderadamente y 1 muy 
+abrumado.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{imagenes/desempeno}
@@ -422,6 +497,13 @@ minijuego identificado como más frustrante.
     \caption{Gráfica de distribución de minijuegos considerados como los más frustrantes.}
     \label{fig:juegoFrustrante}
 \end{figure}
+
+Las figuras \ref{fig:desempeno} y \ref{fig:juegoFrustrante} reúnen las 
+respuestas sobre desempeño y frustración. La valoración del desempeño 
+se distribuye entre 13 participantes que lo califican como bueno, 16 
+como intermedio y 5 como malo. Para el minijuego más frustrante, Juan 
+Andres recibe 11 selecciones, Joaquin 9, Jeremy 5, Shipi 4, Danniel 4 y 
+Alex 1.
 
 \section{Relación entre telemetría y percepción}
 En esta sección se presentan comparaciones entre variables seleccionadas 
@@ -445,6 +527,16 @@ de desempeño y adaptación obtenidos durante la experiencia.
     \caption{Gráfica de dispersión del nivel de agobio percibido contra la frecuencia de estados \textit{overloaded} cada 100 interacciones.}
     \label{fig:FrecuenciaOverloaded}
 \end{figure}
+
+Las figuras \ref{fig:frustracionVSExito}, \ref{fig:FrecuenciaOverloaded} 
+y \ref{fig:tiempoEstadosVSFrustracion} relacionan las respuestas de 
+frustración y agobio con los registros de telemetría. En 
+\ref{fig:frustracionVSExito}, el minijuego señalado como más frustrante 
+coincide con el minijuego de menor tasa de éxito en 13 de los 34 
+participantes. La figura \ref{fig:FrecuenciaOverloaded} distribuye a los 
+34 participantes entre las cuatro categorías de agobio y presenta para 
+cada uno la frecuencia de entradas a \textit{overloaded} normalizada por 
+cada 100 interacciones.
 
 % Gráficas de dispersión entre la persepción de frustración de cada 
 % minijuego contra 
@@ -490,6 +582,14 @@ de desempeño y adaptación obtenidos durante la experiencia.
     \label{fig:tiempoEstadosVSFrustracion}
 \end{figure}
 
+La figura \ref{fig:tiempoEstadosVSFrustracion} utiliza como grupos los 
+minijuegos seleccionados posteriormente como más frustrantes y presenta 
+el tiempo acumulado de cada participante en \textit{idle}, 
+\textit{overloaded} y \textit{engaged}. Los grupos están formados por 1 
+participante para Alex, 9 para Joaquin, 4 para Shipi, 11 para Juan Andres, 
+4 para Danniel y 5 para Jeremy. En las tres gráficas se muestran tanto 
+los valores individuales como la mediana correspondiente a cada grupo.
+
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{imagenes/desempenioVSExito}
@@ -527,3 +627,12 @@ de desempeño y adaptación obtenidos durante la experiencia.
     \caption{Gráficas de dispersión de nivel de atención a la canción contra a) estados \textit{overloaded} registrados y b) disminución de la dificultad.}
     \label{fig:atencionVSDDA}
 \end{figure}
+
+La figura \ref{fig:desempenioVSExito} compara la valoración posterior 
+del desempeño con la tasa de éxito total registrada para cada 
+participante. Las tasas medias son de 56.27\% para quienes califican su 
+desempeño como malo, 59.38\% para la categoría intermedia y 56.48\% para 
+quienes lo califican como bueno. La figura \ref{fig:atencionVSDDA} utiliza 
+las cinco categorías de atención a la canción y presenta, para cada 
+participante, la cantidad de estados \textit{overloaded} registrados y el 
+número de disminuciones de dificultad realizadas durante la sesión.
