@@ -12,45 +12,46 @@ que las métricas objetivas representan directamente la percepción del
 participante.
 
 \section{Desempeño registrado y capacidad de medición}
-Las diferencias observadas en el cuadro \ref{tab:metricas} muestran que el
-sistema registra comportamientos distintos entre participantes y entre mecánicas.
+Las diferencias observadas en el cuadro \ref{tab:resultadosGlobales} 
+muestan variaciones de desempeño entre las mecánicas evaluadas.
 Al considerar conjuntamente los intentos de cada minijuego, las tasas de
-éxito se distribuyen desde, aproximadamente, un 35.37\% en Juan Andrés hasta
-un 71.09\% en Joaquin, mientras que los demás se encuentran entre estos extremos.
-Esta variación resulta relevante para el sistema adaptativo, ya que confirma
-que una configuración uniforme de dificultad no produce el mismo nivel de
-desempeño en todas las actividades ni para todos los participantes.
+éxito se distribuyen desde, aproximadamente, 35.80\% en Juan Andrés hasta
+un 71.09\% en Joaquin, mientras que los demás se encuentran entre estos 
+extremos. Esta variación resulta relevante para el sistema adaptativo, 
+ya que muestra que las distintas actividades presentan niveles de 
+desempeño diferentes durante las pruebas.
 
 Las métricas específicas complementan esta información al caracterizar
 aspectos de la ejecución que la tasa de éxito por sí sola no permite
-distinguir. El cuadro \ref{tab:precisionManoPromedio} muestra diferencias
-entre la dirección realizada y el uso de la mano requerida en Shipi, Juan
-Andrés y Jeremy, mientras que el cuadro \ref{tab:reaccionPromedio} presenta
-tiempos de reacción que varían entre 0.25 y 0.92 segundos entre participantes.
-Esta separación resulta consistente con el uso de múltiples indicadores 
-de comportamiento en el modelado del jugador, ya que un único resultado
-de éxito o fallo no describe completamente la forma en que se ejecuta
-una acción.
+distinguir. El cuadro \ref{tab:metricasEspecificas} muestra una precisión 
+de dirección promedio de 0.536 en Shipi, 0.521 en Juan Andrés y 0.712 en 
+Jeremy; para los dos últimos también se registran porcentajes de uso de 
+la mano correcta de 73.42\% y 92.98\%, respectivamente. Shipi registra 
+adicionalmente un tiempo de reacción promedio de 0.582 segundos. Esta 
+separación resulta consistente con el uso de múltiples indicadores de 
+comportamiento en el modelado del jugador, ya que un único resultado de 
+éxito o fallo no describe completamente la forma en que se ejecuta una 
+acción.
 
-El cuadro \ref{tab:timingPromedio} también evidencia por qué las métricas
-específicas deben interpretarse dentro del contexto de cada mecánica. Los
-errores temporales presentan escalas diferentes entre minijuegos porque el
-instante esperado y la ventana disponible para actuar no representan
-exactamente la misma acción en todas las actividades. Por esta razón, un
-error de \textit{timing} mayor en una mecánica no implica necesariamente
-un peor desempeño que un valor menor en otra, y el análisis utiliza estas
-variables principalmente para caracterizar el comportamiento dentro de cada
-actividad.
+El cuadro \ref{tab:errorTimingMinijuegos} también evidencia por qué las 
+métricas específicas deben interpretarse dentro del contexto de cada 
+mecánica. Las medianas del error de \textit{timing} presentan escalas 
+diferentes entre minijuegos porque el instante esperado y la ventana 
+disponible para actuar no representan exactamente la misma acción en 
+todas las actividades. Por esta razón, un error de \textit{timing} mayor 
+en una mecánica no implica necesariamente un peor desempeño que un valor 
+menor en otra, y el análisis utiliza estas variables principalmente para 
+caracterizar el comportamiento dentro de cada actividad.
 
 En conjunto, estos resultados respaldan el mecanismo de captura definido
-en el segundo objetivo específico \ref{sec:objetivosEspecificos}. Los cuatro
+en el segundo objetivo específico \ref{sec:objetivosEspecificos}. Los tres
 cuadros ateriormente mencionados contienen información procedente de los seis
-minijuegos y de todos los participantes, lo que permite reconstruir tanto
-el resultado general de una acción como características específicas de
-su ejecución. La telemetría no queda limitada a una puntuación final, sino que
-conserva información suficiente para analizar posteriormente tendencias y
-diferencias de desempeño, condición necesaria para alimentar un sistema de
-adaptación basado en comportamiento.
+minijuegos y resumen tanto el resultado general de las acciones como 
+características específicas de su ejecución. La telemetría no queda 
+limitada a una puntuación final, sino que conserva información 
+suficiente para analizar posteriormente tendencias y diferencias de 
+desempeño, condición necesaria para alimentar un sistema de adaptación 
+basado en comportamiento.
 
 \section{Modelado de estados y comportamiento del DDA}
 En el cuadro \ref{tab:cantidadEstados} se observa que el modelo no 
@@ -59,8 +60,8 @@ registros aparecen 225 entradas a \textit{idle}, 357 a \textit{engaged} y
 212 a \textit{overloaded}, mostrando que un mismo participante puede 
 atravesar diferentes condiciones de interacción durante la experiencia. 
 Sin embargo, la cantidad de transiciones por sí sola no indica cuánto 
-tiempo permanece el jugador en cada estado, por lo que los cuadros 
-\ref{tab:tiempoPorEstado} y \ref{tab:tiempoContinuoPorEstado} 
+tiempo permanece el jugador en cada estado, por lo que las figuras 
+\ref{fig:graficaTiempoAcumulado} y \ref{fig:graficaTiempoContinuo} 
 complementan esta información mediante la duración acumulada y la 
 duración máxima continua de cada clasificación.
 
@@ -76,7 +77,7 @@ nulas en Alex, Joaquin y Jeremy, mientras que alcanza aproximadamente
 la frecuencia con la que aparece un estado y el tiempo que permanece 
 activo representan aspectos distintos del comportamiento registrado.
 
-La duración máxima continua presentada en la figura \ref{fig:graficaTiempoContinuo} 
+Por su parte, la figura \ref{fig:graficaTiempoContinuo} 
 permite distinguir si esos períodos se concentran en una sola permanencia 
 prolongada o se distribuyen entre varias transiciones. En Joaquin, por 
 ejemplo, la mediana de tiempo acumulado en \textit{engaged} es de 
@@ -113,12 +114,13 @@ momento de la experiencia. En conjunto con el cuadro
 predeterminada hacia dificultades mayores, sino que se desplaza en ambas direcciones
 de acuerdo con el desempeño reciente y el estado identificado.
 
-El cuadro \ref{tab:maxDificultad} refuerza esta característica al mostrar
-que los participantes no alcanzan los mismos niveles máximos en todos los minijuegos.
-Parte de esta diferencia responde a las características particulares de 
-cada mecánica, pero también debe considerarse que el nivel global se 
-conserva entre minijuegos, por lo que el comportamiento registrado en segmentos
-anteriores influye en el nivel con el que se inicia una actividad posterior.
+La figura \ref{fig:distribucionMaxDif} refuerza esta característica al 
+mostrar que la distribución de dificultades máximas alcanzadas no es la 
+misma en todos los minijuegos. Parte de esta diferencia responde a las 
+características particulares de cada mecánica, pero también debe 
+considerarse que el nivel global se conserva entre minijuegos, por lo que 
+el comportamiento registrado en segmentos anteriores influye en el nivel 
+con el que se inicia una actividad posterior.
 
 La evidencia más directa sobre la respuesta del sistema se encuentra en 
 la figura \ref{fig:rendimientoDDA}, donde se compara el desempeño
@@ -290,9 +292,10 @@ secuencia fija de minijuegos, lo que introduce una dependencia entre el
 desempeño previo y las condiciones encontradas posteriormente. Este 
 diseño permite mantener continuidad en la adaptación, pero dificulta 
 separar completamente el efecto de la mecánica del efecto acumulado de 
-segmentos anteriores al comparar la tabla \ref{tab:maxDificultad}. Por
-ello, los resultados sustentan el funcionamiento del sistema 
-implementado y su capacidad de responder al comportamiento registrado, 
-mientras que una evaluación futura con orden contrabalanceado o 
-condiciones con dificultad fija permitiría estudiar con mayor precisión 
-la efectividad de la adaptación sobre la experiencia del usuario.
+segmentos anteriores al comparar la distribución de dificultad máxima 
+presentada en la figura \ref{fig:distribucionMaxDif}. Por ello, los 
+resultados sustentan el funcionamiento del sistema implementado y su 
+capacidad de responder al comportamiento registrado, mientras que una 
+evaluación futura con orden contrabalanceado o condiciones con dificultad 
+fija permitiría estudiar con mayor precisión la efectividad de la 
+adaptación sobre la experiencia del usuario.

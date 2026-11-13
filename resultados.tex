@@ -124,7 +124,7 @@ minijuegos según su resultado. Alex concentra 2394 interacciones,
 mientras que Jeremy registra 322; las tasas de éxito globales se 
 encuentran entre 35.80\% en Juan Andres y 71.09\% en Joaquin. 
 Los valores completos de aciertos, errores y omisiones se presentan en el 
-mismo cuadro para cada actividad.
+mismo cuadro para cada actividad. 
 
 Las métricas temporales y específicas se presentan de forma separada 
 debido a que dependen de las características de cada minijuego. El 
@@ -137,7 +137,13 @@ promedio de 0.582 s y una precisión de dirección de 0.536, mientras que
 Juan Andres y Jeremy presentan precisiones de dirección de 0.521 y 0.712 
 y porcentajes de uso de la mano correcta de 73.42\% y 92.98\%, 
 respectivamente. Los campos indicados con guiones corresponden a 
-métricas que no se registran para esa mecánica.
+métricas que no se registran para esa mecánica. El desglose individual 
+utilizado para obtener estos valores se encuentra en los cuadros 
+\ref{tab:metricas}, \ref{tab:timingPromedio}, \ref{tab:reaccionPromedio} 
+y \ref{tab:precisionManoPromedio} de los anexos, donde se presentan 
+respectivamente los resultados de cada interacción agrupados por 
+participante, los errores promedio de \textit{timing}, los tiempos de 
+reacción de Shipi y las métricas de dirección y uso de mano correcta.
 
 \section{Comportamiento del sistema adaptativo}
 Además de las interacciones, los registros almacenan los estados 
@@ -390,7 +396,10 @@ minijuegos presentan entre 1 y 2 entradas medianas a \textit{engaged} y
 entre 0 y 1 a \textit{overloaded}. El cuadro \ref{tab:cambiosPorDificultad} 
 separa además las 216 modificaciones según la transición realizada: 43 
 corresponden de fácil a normal, 53 de normal a difícil, 50 de difícil a 
-normal y 70 de normal a fácil.
+normal y 70 de normal a fácil. El cuadro \ref{tab:cambiosYEstadosPorMinijuego} 
+de los anexos contiene el desglose por participante y minijuego de las 
+entradas a los estados \textit{engaged} y \textit{overloaded}, así como 
+de los aumentos y disminuciones de dificultad registrados.
 
 \begin{figure}[H]
     \centering
@@ -414,7 +423,10 @@ Joaquin, 21.94 s en Shipi, 13.19 s en Juan Andres, 26.43 s en Danniel y
 17.59 s en Jeremy. La segunda utiliza la mediana de la mayor permanencia 
 continua en cada estado, por lo que contabiliza únicamente el intervalo 
 continuo de mayor duración de cada participante en lugar de sumar todas 
-sus apariciones.
+sus apariciones. Los valores correspondientes a cada participante y 
+minijuego se presentan de forma completa en los cuadros 
+\ref{tab:tiempoPorEstado} y \ref{tab:tiempoContinuoPorEstado} de los 
+anexos.
 
 \begin{figure}[H]
     \centering
@@ -429,7 +441,9 @@ participantes, 20 alcanzan difícil en Alex y 13 en Joaquin, mientras que
 en Shipi 24 alcanzan como máximo normal. En Juan Andres y Jeremy, 24 
 participantes presentan fácil como dificultad máxima, y en Danniel esta 
 categoría corresponde a 22 participantes; las demás observaciones se 
-distribuyen entre normal y difícil según se muestra en la figura.
+distribuyen entre normal y difícil según se muestra en la figura. El 
+cuadro \ref{tab:maxDificultad} de los anexos presenta el nivel máximo 
+registrado de forma individual para cada participante y actividad.
 
 \begin{figure}[H]
     \centering
